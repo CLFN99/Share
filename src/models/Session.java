@@ -77,4 +77,8 @@ public class Session extends UnicastRemoteObject implements Serializable, ISessi
     public void setActive(boolean active) {
         this.active = active;
     }
+
+    public void initManager(IMain manager){
+        this.manager = (Manager) manager;
+    }
 }

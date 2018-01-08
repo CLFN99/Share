@@ -10,7 +10,8 @@ import java.util.List;
 public class Feed implements IFeed {
     private List<Post> posts;
     private User user;
-    //private Manager manager;
+    private int Id;
+    private Manager manager;
 
     /**
      * creates new feed
@@ -19,12 +20,15 @@ public class Feed implements IFeed {
     public Feed(User user){
         posts = new ArrayList<>();
         this.user = user;
-//
-//        try {
-//            manager = new Manager();
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//        }
+
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
+    public int getId() {
+        return Id;
     }
 
     /**
@@ -56,5 +60,9 @@ public class Feed implements IFeed {
     public List<Post> refresh(IMain manager) {
         this.posts = manager.refreshFeed(this.user.getEmail());
         return posts;
+    }
+
+    public void initManager(IMain manager){
+        this.manager = (Manager) manager;
     }
 }

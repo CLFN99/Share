@@ -16,12 +16,24 @@ public interface IDatabase {
     List<Feed> getFeeds();
 
     /**
+     * gets a user's chats
+     * @param u
+     * @return
+     */
+    List<Chat> getChats(User u);
+    /**
      * saves a message
      * @param msg message to save
      * @return true if succeeded, false if something went wrong
      */
     boolean saveMessage(Message msg);
 
+    /**
+     * saves a chat in the database
+     * @param c chat to save
+     * @return true if succeeded, false if something went wrong
+     */
+    boolean saveChat(Chat c);
     /**
      * searches the database for users with given username
      * @param username username to search for

@@ -24,6 +24,10 @@ public class Message implements Serializable {
         return timeStamp;
     }
 
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
     public String getChatId() {
         return chatId;
     }

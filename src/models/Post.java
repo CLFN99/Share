@@ -1,27 +1,32 @@
 package models;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Post implements Serializable {
     private String text;
-    private Date timeStamp;
+    private String timeStamp;
     public static int maxChar;
-    private String id;
+    private int id;
     private User writer;
 
     public Post(String text, User writer){
         this.text = text;
         this.writer = writer;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date time = new Date();
+        timeStamp = dateFormat.format(time);
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -33,11 +38,11 @@ public class Post implements Serializable {
         return text;
     }
 
-    public void setTimeStamp(Date timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 
-    public Date getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 

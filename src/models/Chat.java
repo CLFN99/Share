@@ -1,6 +1,7 @@
 package models;
 
 import interfaces.IChat;
+import interfaces.IMain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,10 @@ public class Chat implements IChat {
      */
     public List<Message> getMessages(){
         return this.messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
     /**
@@ -63,6 +68,10 @@ public class Chat implements IChat {
 
     @Override
     public void setId(String id) {
+        this.id = id;
+    }
 
+    public void initManager(IMain manager){
+        this.manager = (Manager) manager;
     }
 }
