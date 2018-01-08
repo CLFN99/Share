@@ -32,7 +32,7 @@ public class User implements Serializable, IUser {
 
     @Override
     public void changeBio(String txt) {
-        this.bio = bio;
+        this.bio = txt;
     }
 
     public String getPassword() {

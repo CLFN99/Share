@@ -186,7 +186,28 @@ public class Database implements IDatabase {
 
     @Override
     public User searchUser(String username) {
-        return null;
+        User u = null;
+        try {
+
+            if(conn.isClosed()){
+                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+            }
+
+            String searchQuery = "select * from user where username like concat(?,'%') or username like concat('%',?) or username like concat('%',?, '%')";
+            PreparedStatement search = conn.prepareStatement(searchQuery);
+            search.setString(1, username);
+            search.setString(2, username);
+            search.setString(3, username);
+            ResultSet result = search.executeQuery();
+            while(result.next()){
+                u = new User(result.getString("username"),result.getString("password"),
+                        result.getString("email"), result.getString("bio"));
+                u.setId(result.getInt("userId"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return u;
     }
 
     @Override
@@ -281,6 +302,22 @@ public class Database implements IDatabase {
 
     @Override
     public boolean updateUser(User u) {
+        try {
+            if(conn.isClosed()){
+                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+            }
+            String query = "update user set bio = ? where userId = ?";
+            PreparedStatement updateUser = conn.prepareStatement(query);
+            updateUser.setString(1, u.getBio());
+            updateUser.setInt(2, u.getId());
+            updateUser.execute();
+            updateUser.close();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 
@@ -327,11 +364,49 @@ public class Database implements IDatabase {
 
     @Override
     public boolean updatePost(Post p) {
+        try {
+            if(conn.isClosed()){
+                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+            }
+            String query = "update post set text = ?, time = ? where post.postId = ?";
+            PreparedStatement insertPost = conn.prepareStatement(query);
+            insertPost.setString(1, p.getText());
+            insertPost.setString(2, p.getTimeStamp());
+            insertPost.setInt(3, p.getId());
+            insertPost.execute();
+            insertPost.close();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 
     @Override
     public boolean deletePost(Post p) {
+        try {
+            if(conn.isClosed()){
+                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+            }
+            String feedQuery = "delete from feed_posts where postId = ?;";
+            String postQuery =  "delete from post where postId = ?";
+            PreparedStatement deletePostFromFeed = conn.prepareStatement(feedQuery);
+            deletePostFromFeed.setInt(1, p.getId());
+            deletePostFromFeed.execute();
+            deletePostFromFeed.close();
+            PreparedStatement deletePost = conn.prepareStatement(postQuery);
+            deletePost.setInt(1, p.getId());
+            deletePost.execute();
+            deletePost.close();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 
@@ -341,9 +416,10 @@ public class Database implements IDatabase {
             if(conn.isClosed()){
                 conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
             }
-            String query = "INSERT INTO chat (chatId) VALUES (?)";
+            String query = "INSERT INTO friends (userId, friendId) VALUES (?, ?)";
             PreparedStatement insertFriend = conn.prepareStatement(query);
-
+            insertFriend.setInt(1, u.getId());
+            insertFriend.setInt(2, friend.getId());
             insertFriend.execute();
             insertFriend.close();
 
@@ -358,4 +434,5 @@ public class Database implements IDatabase {
     }
 
     public Connection getConn(){return  conn;}
+    public void closeConn() throws SQLException {this.conn.close();}
 }
