@@ -88,12 +88,12 @@ public class Database implements IDatabase {
                 uB = logIn(chatResult.getString("b_email"), chatResult.getString("b_password"));
                 if(uA.getEmail().equals(u.getEmail())){
                     Chat c = new Chat(u, uB);
-                    c.setId(chatResult.getString("chatId"));
+                    c.setId(chatResult.getInt("chatId"));
                     chats.add(c);
                 }
                 else if(uB.getEmail().equals(u.getEmail())){
                     Chat c = new Chat(uA, u);
-                    c.setId(chatResult.getString("chatId"));
+                    c.setId(chatResult.getInt("chatId"));
                     chats.add(c);
                 }
             }
@@ -106,7 +106,7 @@ public class Database implements IDatabase {
             PreparedStatement getMessages = conn.prepareStatement(getMessagesQuery);
             for(Chat c : chats){
                 List<Message> messages = new ArrayList<>();
-                getMessages.setString(1, c.getId());
+                getMessages.setInt(1, c.getId());
                 ResultSet msgResult = getMessages.executeQuery();
 
                 while(msgResult.next()){
@@ -141,7 +141,7 @@ public class Database implements IDatabase {
             PreparedStatement insertMessage = conn.prepareStatement(query);
             insertMessage.setString(1, msg.getText());
             insertMessage.setString(2, msg.getTimeStamp());
-            insertMessage.setString(3, msg.getChatId());
+            insertMessage.setInt(3, msg.getChatId());
             insertMessage.setInt(4, msg.getUser().getId());
             insertMessage.execute();
             insertMessage.close();
@@ -163,7 +163,7 @@ public class Database implements IDatabase {
             }
             String query = "INSERT INTO chat (chatId) VALUES (?)";
             PreparedStatement insertChat = conn.prepareStatement(query);
-            insertChat.setString(1, c.getId());
+            insertChat.setInt(1, c.getId());
             insertChat.execute();
             insertChat.close();
 
@@ -171,7 +171,7 @@ public class Database implements IDatabase {
             PreparedStatement insertParticipants = conn.prepareStatement(participantsQuery);
             insertParticipants.setInt(1, c.getUsers().get(0).getId());
             insertParticipants.setInt(2, c.getUsers().get(1).getId());
-            insertParticipants.setString(3, c.getId());
+            insertParticipants.setInt(3, c.getId());
             insertParticipants.execute();
             insertParticipants.close();
             conn.close();
