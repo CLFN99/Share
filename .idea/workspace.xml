@@ -69,11 +69,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Manager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Manager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/share/models/Manager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+            <state relative-caret-position="492">
+              <caret line="169" column="9" lean-forward="false" selection-start-line="169" selection-start-column="9" selection-end-line="169" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Session.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/share/models/Session.java">
+      <file leaf-file-name="Feed.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/share/models/Feed.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+            <state relative-caret-position="530">
+              <caret line="95" column="51" lean-forward="false" selection-start-line="95" selection-start-column="51" selection-end-line="95" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,8 +96,8 @@
       <file leaf-file-name="SessionManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/share/models/SessionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="44" column="8" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="50" selection-end-column="9" />
+            <state relative-caret-position="530">
+              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,15 +105,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/share/client/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="46" column="2" lean-forward="false" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
+            <state relative-caret-position="455">
+              <caret line="50" column="72" lean-forward="false" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1001#1002#0" expanded="true" />
-                <element signature="e#1029#1030#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/share/database/Database.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getFeeds#0;class#Database#0" expanded="false" />
+                <element signature="method#getChats#0;class#Database#0" expanded="false" />
+                <element signature="method#saveMessage#0;class#Database#0" expanded="false" />
+                <element signature="method#saveChat#0;class#Database#0" expanded="false" />
+                <element signature="method#searchUser#0;class#Database#0" expanded="false" />
+                <element signature="method#logIn#0;class#Database#0" expanded="false" />
+                <element signature="method#updateUser#0;class#Database#0" expanded="false" />
+                <element signature="method#savePost#0;class#Database#0" expanded="false" />
+                <element signature="method#updatePost#0;class#Database#0" expanded="false" />
+                <element signature="method#deletePost#0;class#Database#0" expanded="false" />
+                <element signature="method#addFriend#0;class#Database#0" expanded="false" />
+                <element signature="method#getFeed#0;class#Database#0" expanded="false" />
+                <element signature="method#getFriends#0;class#Database#0" expanded="false" />
+                <marker date="1515756189000" expanded="true" signature="862:1062" ph="SELECT fu.us... user" />
+                <marker date="1515756189000" expanded="true" signature="1249:1560" ph="SELECT f.fee... feed" />
+                <marker date="1515756189000" expanded="true" signature="2933:3463" ph="Select c.cha... chat" />
+                <marker date="1515756189000" expanded="true" signature="4508:4691" ph="select messa... " />
+                <marker date="1515756189000" expanded="true" signature="6025:6091" ph="INSERT INTO message... " />
+                <marker date="1515756189000" expanded="true" signature="6925:6961" ph="INSERT INTO chat... " />
+                <marker date="1515756189000" expanded="true" signature="7189:7262" ph="insert into chat_participants... " />
+                <marker date="1515756189000" expanded="true" signature="8128:8247" ph="select * fro... user" />
+                <marker date="1515756189000" expanded="true" signature="9145:9211" ph="INSERT INTO user... " />
+                <marker date="1515756189000" expanded="true" signature="9639:9662" ph="SELECT last_... " />
+                <marker date="1515756189000" expanded="true" signature="10009:10046" ph="insert into feed... " />
+                <marker date="1515756189000" expanded="true" signature="10269:10292" ph="SELECT last_... " />
+                <marker date="1515756189000" expanded="true" signature="11254:11305" ph="SELECT * FRO... user" />
+                <marker date="1515756189000" expanded="true" signature="12333:12373" ph="update user " />
+                <marker date="1515756189000" expanded="true" signature="13014:13066" ph="INSERT INTO post... " />
+                <marker date="1515756189000" expanded="true" signature="13404:13427" ph="select last_... " />
+                <marker date="1515756189000" expanded="true" signature="13807:13860" ph="insert into feed_posts... " />
+                <marker date="1515756189000" expanded="true" signature="14821:14877" ph="update post " />
+                <marker date="1515756189000" expanded="true" signature="15584:15623" ph="delete from " />
+                <marker date="1515756189000" expanded="true" signature="15660:15693" ph="delete from " />
+                <marker date="1515756189000" expanded="true" signature="16528:16580" ph="INSERT INTO friends... " />
+                <marker date="1515756189000" expanded="true" signature="16612:16664" ph="INSERT INTO friends... " />
+                <marker date="1515756189000" expanded="true" signature="17650:17808" ph="select * fro... feed" />
+                <marker date="1515756189000" expanded="true" signature="17650:17837" ph="select * fro... feed" />
+                <marker date="1515756189000" expanded="true" signature="17650:17888" ph="select f.fee... feed" />
+                <marker date="1515756189000" expanded="true" signature="17650:17955" ph="select u.use... feed" />
+                <marker date="1515756189000" expanded="true" signature="18945:19012" ph="select u.use... user" />
+                <marker date="1515756189000" expanded="true" signature="18945:19083" ph="select u.use... user" />
+                <marker date="1515756189000" expanded="true" signature="18945:19126" ph="select u.use... user" />
               </folding>
             </state>
           </provider>
@@ -180,21 +232,24 @@
         <option value="$PROJECT_DIR$/src/server/Publisher.java" />
         <option value="$PROJECT_DIR$/src/share/tests/server/Publisher.java" />
         <option value="$PROJECT_DIR$/src/share/tests/tests/DatabaseTest.java" />
-        <option value="$PROJECT_DIR$/src/share/database/DatabaseRepo.java" />
         <option value="$PROJECT_DIR$/src/share/client/sample.fxml" />
         <option value="$PROJECT_DIR$/src/share/interfaces/IChat.java" />
-        <option value="$PROJECT_DIR$/src/share/models/Chat.java" />
         <option value="$PROJECT_DIR$/src/share/models/Message.java" />
-        <option value="$PROJECT_DIR$/src/share/interfaces/IMain.java" />
-        <option value="$PROJECT_DIR$/src/share/database/IDatabase.java" />
-        <option value="$PROJECT_DIR$/src/share/database/Database.java" />
         <option value="$PROJECT_DIR$/src/share/server/MainServer.java" />
         <option value="$PROJECT_DIR$/src/share/server/LoginServer.java" />
         <option value="$PROJECT_DIR$/src/share/interfaces/ISession.java" />
-        <option value="$PROJECT_DIR$/src/share/models/SessionManager.java" />
         <option value="$PROJECT_DIR$/src/share/models/Session.java" />
-        <option value="$PROJECT_DIR$/src/share/models/Manager.java" />
+        <option value="$PROJECT_DIR$/src/share/tests/DatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/share/client/Main.java" />
+        <option value="$PROJECT_DIR$/src/share/models/Chat.java" />
+        <option value="$PROJECT_DIR$/src/share/interfaces/IMain.java" />
+        <option value="$PROJECT_DIR$/src/share/database/IDatabase.java" />
+        <option value="$PROJECT_DIR$/src/share/database/DatabaseRepo.java" />
+        <option value="$PROJECT_DIR$/src/share/database/Database.java" />
+        <option value="$PROJECT_DIR$/src/share/models/SessionManager.java" />
+        <option value="$PROJECT_DIR$/src/share/models/User.java" />
+        <option value="$PROJECT_DIR$/src/share/models/Feed.java" />
+        <option value="$PROJECT_DIR$/src/share/models/Manager.java" />
       </list>
     </option>
   </component>
@@ -318,7 +373,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="SearchEverywhereHistoryKey" value="todo&#9;ACTION&#9;ActivateTODOToolWindow&#10;initManager&#9;PSI&#9;JAVA://models.Chat#initManager" />
+    <property name="SearchEverywhereHistoryKey" value="to&#9;ACTION&#9;ActivateTODOToolWindow&#10;todo&#9;ACTION&#9;ActivateTODOToolWindow&#10;initManager&#9;PSI&#9;JAVA://models.Chat#initManager" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
@@ -637,7 +692,7 @@
       <workItem from="1515397216319" duration="17854000" />
       <workItem from="1515584263458" duration="24943000" />
       <workItem from="1515668766681" duration="118000" />
-      <workItem from="1515747381458" duration="5926000" />
+      <workItem from="1515747381458" duration="9179000" />
     </task>
     <servers />
   </component>
@@ -674,7 +729,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72384000" />
+    <option name="totallyTimeSpent" value="75637000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -740,7 +795,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="28" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -772,8 +827,8 @@
         <state relative-caret-position="168">
           <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding>
-            <element signature="e#1326#1327#0" expanded="false" />
-            <element signature="e#1363#1364#0" expanded="false" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#1695#1696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -804,7 +859,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getFeeds#0;class#Database#0" expanded="false" />
-            <element signature="method#saveUser#0;class#Database#0" expanded="false" />
+            <element signature="method#getChats#0;class#Database#0" expanded="false" />
+            <element signature="method#saveMessage#0;class#Database#0" expanded="false" />
+            <element signature="method#saveChat#0;class#Database#0" expanded="false" />
+            <element signature="method#searchUser#0;class#Database#0" expanded="false" />
             <element signature="method#logIn#0;class#Database#0" expanded="false" />
             <element signature="method#updateUser#0;class#Database#0" expanded="false" />
             <element signature="method#savePost#0;class#Database#0" expanded="false" />
@@ -813,34 +871,35 @@
             <element signature="method#addFriend#0;class#Database#0" expanded="false" />
             <element signature="method#getFeed#0;class#Database#0" expanded="false" />
             <element signature="method#getFriends#0;class#Database#0" expanded="false" />
-            <marker date="1515749925000" expanded="true" signature="862:1062" ph="SELECT fu.us... user" />
-            <marker date="1515749925000" expanded="true" signature="1249:1560" ph="SELECT f.fee... feed" />
-            <marker date="1515749925000" expanded="true" signature="2933:3463" ph="Select c.cha... chat" />
-            <marker date="1515749925000" expanded="true" signature="4508:4691" ph="select messa... " />
-            <marker date="1515749925000" expanded="true" signature="6025:6091" ph="INSERT INTO message... " />
-            <marker date="1515749925000" expanded="true" signature="6925:6961" ph="INSERT INTO chat... " />
-            <marker date="1515749925000" expanded="true" signature="7189:7262" ph="insert into chat_participants... " />
-            <marker date="1515749925000" expanded="true" signature="8128:8247" ph="select * fro... user" />
-            <marker date="1515749925000" expanded="true" signature="9145:9211" ph="INSERT INTO user... " />
-            <marker date="1515749925000" expanded="true" signature="9639:9662" ph="SELECT last_... " />
-            <marker date="1515749925000" expanded="true" signature="10009:10046" ph="insert into feed... " />
-            <marker date="1515749925000" expanded="true" signature="10816:10867" ph="SELECT * FRO... user" />
-            <marker date="1515749925000" expanded="true" signature="11895:11935" ph="update user " />
-            <marker date="1515749925000" expanded="true" signature="12580:12632" ph="INSERT INTO post... " />
-            <marker date="1515749925000" expanded="true" signature="12970:12993" ph="select last_... " />
-            <marker date="1515749925000" expanded="true" signature="13373:13426" ph="insert into feed_posts... " />
-            <marker date="1515749925000" expanded="true" signature="14385:14441" ph="update post " />
-            <marker date="1515749925000" expanded="true" signature="15148:15187" ph="delete from " />
-            <marker date="1515749925000" expanded="true" signature="15224:15257" ph="delete from " />
-            <marker date="1515749925000" expanded="true" signature="16092:16144" ph="INSERT INTO friends... " />
-            <marker date="1515749925000" expanded="true" signature="16176:16228" ph="INSERT INTO friends... " />
-            <marker date="1515749925000" expanded="true" signature="17214:17372" ph="select * fro... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17401" ph="select * fro... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17452" ph="select f.fee... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17519" ph="select u.use... feed" />
-            <marker date="1515749925000" expanded="true" signature="18509:18576" ph="select u.use... user" />
-            <marker date="1515749925000" expanded="true" signature="18509:18647" ph="select u.use... user" />
-            <marker date="1515749925000" expanded="true" signature="18509:18690" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="862:1062" ph="SELECT fu.us... user" />
+            <marker date="1515756189000" expanded="true" signature="1249:1560" ph="SELECT f.fee... feed" />
+            <marker date="1515756189000" expanded="true" signature="2933:3463" ph="Select c.cha... chat" />
+            <marker date="1515756189000" expanded="true" signature="4508:4691" ph="select messa... " />
+            <marker date="1515756189000" expanded="true" signature="6025:6091" ph="INSERT INTO message... " />
+            <marker date="1515756189000" expanded="true" signature="6925:6961" ph="INSERT INTO chat... " />
+            <marker date="1515756189000" expanded="true" signature="7189:7262" ph="insert into chat_participants... " />
+            <marker date="1515756189000" expanded="true" signature="8128:8247" ph="select * fro... user" />
+            <marker date="1515756189000" expanded="true" signature="9145:9211" ph="INSERT INTO user... " />
+            <marker date="1515756189000" expanded="true" signature="9639:9662" ph="SELECT last_... " />
+            <marker date="1515756189000" expanded="true" signature="10009:10046" ph="insert into feed... " />
+            <marker date="1515756189000" expanded="true" signature="10269:10292" ph="SELECT last_... " />
+            <marker date="1515756189000" expanded="true" signature="11254:11305" ph="SELECT * FRO... user" />
+            <marker date="1515756189000" expanded="true" signature="12333:12373" ph="update user " />
+            <marker date="1515756189000" expanded="true" signature="13014:13066" ph="INSERT INTO post... " />
+            <marker date="1515756189000" expanded="true" signature="13404:13427" ph="select last_... " />
+            <marker date="1515756189000" expanded="true" signature="13807:13860" ph="insert into feed_posts... " />
+            <marker date="1515756189000" expanded="true" signature="14821:14877" ph="update post " />
+            <marker date="1515756189000" expanded="true" signature="15584:15623" ph="delete from " />
+            <marker date="1515756189000" expanded="true" signature="15660:15693" ph="delete from " />
+            <marker date="1515756189000" expanded="true" signature="16528:16580" ph="INSERT INTO friends... " />
+            <marker date="1515756189000" expanded="true" signature="16612:16664" ph="INSERT INTO friends... " />
+            <marker date="1515756189000" expanded="true" signature="17650:17808" ph="select * fro... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17837" ph="select * fro... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17888" ph="select f.fee... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17955" ph="select u.use... feed" />
+            <marker date="1515756189000" expanded="true" signature="18945:19012" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="18945:19083" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="18945:19126" ph="select u.use... user" />
           </folding>
         </state>
       </provider>
@@ -860,8 +919,8 @@
         <state relative-caret-position="231">
           <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding>
-            <element signature="e#1326#1327#0" expanded="false" />
-            <element signature="e#1363#1364#0" expanded="false" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#1695#1696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -873,7 +932,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getFeeds#0;class#Database#0" expanded="false" />
-            <element signature="method#saveUser#0;class#Database#0" expanded="false" />
+            <element signature="method#getChats#0;class#Database#0" expanded="false" />
+            <element signature="method#saveMessage#0;class#Database#0" expanded="false" />
+            <element signature="method#saveChat#0;class#Database#0" expanded="false" />
+            <element signature="method#searchUser#0;class#Database#0" expanded="false" />
             <element signature="method#logIn#0;class#Database#0" expanded="false" />
             <element signature="method#updateUser#0;class#Database#0" expanded="false" />
             <element signature="method#savePost#0;class#Database#0" expanded="false" />
@@ -882,34 +944,35 @@
             <element signature="method#addFriend#0;class#Database#0" expanded="false" />
             <element signature="method#getFeed#0;class#Database#0" expanded="false" />
             <element signature="method#getFriends#0;class#Database#0" expanded="false" />
-            <marker date="1515749925000" expanded="true" signature="862:1062" ph="SELECT fu.us... user" />
-            <marker date="1515749925000" expanded="true" signature="1249:1560" ph="SELECT f.fee... feed" />
-            <marker date="1515749925000" expanded="true" signature="2933:3463" ph="Select c.cha... chat" />
-            <marker date="1515749925000" expanded="true" signature="4508:4691" ph="select messa... " />
-            <marker date="1515749925000" expanded="true" signature="6025:6091" ph="INSERT INTO message... " />
-            <marker date="1515749925000" expanded="true" signature="6925:6961" ph="INSERT INTO chat... " />
-            <marker date="1515749925000" expanded="true" signature="7189:7262" ph="insert into chat_participants... " />
-            <marker date="1515749925000" expanded="true" signature="8128:8247" ph="select * fro... user" />
-            <marker date="1515749925000" expanded="true" signature="9145:9211" ph="INSERT INTO user... " />
-            <marker date="1515749925000" expanded="true" signature="9639:9662" ph="SELECT last_... " />
-            <marker date="1515749925000" expanded="true" signature="10009:10046" ph="insert into feed... " />
-            <marker date="1515749925000" expanded="true" signature="10816:10867" ph="SELECT * FRO... user" />
-            <marker date="1515749925000" expanded="true" signature="11895:11935" ph="update user " />
-            <marker date="1515749925000" expanded="true" signature="12580:12632" ph="INSERT INTO post... " />
-            <marker date="1515749925000" expanded="true" signature="12970:12993" ph="select last_... " />
-            <marker date="1515749925000" expanded="true" signature="13373:13426" ph="insert into feed_posts... " />
-            <marker date="1515749925000" expanded="true" signature="14385:14441" ph="update post " />
-            <marker date="1515749925000" expanded="true" signature="15148:15187" ph="delete from " />
-            <marker date="1515749925000" expanded="true" signature="15224:15257" ph="delete from " />
-            <marker date="1515749925000" expanded="true" signature="16092:16144" ph="INSERT INTO friends... " />
-            <marker date="1515749925000" expanded="true" signature="16176:16228" ph="INSERT INTO friends... " />
-            <marker date="1515749925000" expanded="true" signature="17214:17372" ph="select * fro... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17401" ph="select * fro... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17452" ph="select f.fee... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17519" ph="select u.use... feed" />
-            <marker date="1515749925000" expanded="true" signature="18509:18576" ph="select u.use... user" />
-            <marker date="1515749925000" expanded="true" signature="18509:18647" ph="select u.use... user" />
-            <marker date="1515749925000" expanded="true" signature="18509:18690" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="862:1062" ph="SELECT fu.us... user" />
+            <marker date="1515756189000" expanded="true" signature="1249:1560" ph="SELECT f.fee... feed" />
+            <marker date="1515756189000" expanded="true" signature="2933:3463" ph="Select c.cha... chat" />
+            <marker date="1515756189000" expanded="true" signature="4508:4691" ph="select messa... " />
+            <marker date="1515756189000" expanded="true" signature="6025:6091" ph="INSERT INTO message... " />
+            <marker date="1515756189000" expanded="true" signature="6925:6961" ph="INSERT INTO chat... " />
+            <marker date="1515756189000" expanded="true" signature="7189:7262" ph="insert into chat_participants... " />
+            <marker date="1515756189000" expanded="true" signature="8128:8247" ph="select * fro... user" />
+            <marker date="1515756189000" expanded="true" signature="9145:9211" ph="INSERT INTO user... " />
+            <marker date="1515756189000" expanded="true" signature="9639:9662" ph="SELECT last_... " />
+            <marker date="1515756189000" expanded="true" signature="10009:10046" ph="insert into feed... " />
+            <marker date="1515756189000" expanded="true" signature="10269:10292" ph="SELECT last_... " />
+            <marker date="1515756189000" expanded="true" signature="11254:11305" ph="SELECT * FRO... user" />
+            <marker date="1515756189000" expanded="true" signature="12333:12373" ph="update user " />
+            <marker date="1515756189000" expanded="true" signature="13014:13066" ph="INSERT INTO post... " />
+            <marker date="1515756189000" expanded="true" signature="13404:13427" ph="select last_... " />
+            <marker date="1515756189000" expanded="true" signature="13807:13860" ph="insert into feed_posts... " />
+            <marker date="1515756189000" expanded="true" signature="14821:14877" ph="update post " />
+            <marker date="1515756189000" expanded="true" signature="15584:15623" ph="delete from " />
+            <marker date="1515756189000" expanded="true" signature="15660:15693" ph="delete from " />
+            <marker date="1515756189000" expanded="true" signature="16528:16580" ph="INSERT INTO friends... " />
+            <marker date="1515756189000" expanded="true" signature="16612:16664" ph="INSERT INTO friends... " />
+            <marker date="1515756189000" expanded="true" signature="17650:17808" ph="select * fro... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17837" ph="select * fro... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17888" ph="select f.fee... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17955" ph="select u.use... feed" />
+            <marker date="1515756189000" expanded="true" signature="18945:19012" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="18945:19083" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="18945:19126" ph="select u.use... user" />
           </folding>
         </state>
       </provider>
@@ -964,7 +1027,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getFeeds#0;class#Database#0" expanded="false" />
-            <element signature="method#saveUser#0;class#Database#0" expanded="false" />
+            <element signature="method#getChats#0;class#Database#0" expanded="false" />
+            <element signature="method#saveMessage#0;class#Database#0" expanded="false" />
+            <element signature="method#saveChat#0;class#Database#0" expanded="false" />
+            <element signature="method#searchUser#0;class#Database#0" expanded="false" />
             <element signature="method#logIn#0;class#Database#0" expanded="false" />
             <element signature="method#updateUser#0;class#Database#0" expanded="false" />
             <element signature="method#savePost#0;class#Database#0" expanded="false" />
@@ -973,34 +1039,35 @@
             <element signature="method#addFriend#0;class#Database#0" expanded="false" />
             <element signature="method#getFeed#0;class#Database#0" expanded="false" />
             <element signature="method#getFriends#0;class#Database#0" expanded="false" />
-            <marker date="1515749925000" expanded="true" signature="862:1062" ph="SELECT fu.us... user" />
-            <marker date="1515749925000" expanded="true" signature="1249:1560" ph="SELECT f.fee... feed" />
-            <marker date="1515749925000" expanded="true" signature="2933:3463" ph="Select c.cha... chat" />
-            <marker date="1515749925000" expanded="true" signature="4508:4691" ph="select messa... " />
-            <marker date="1515749925000" expanded="true" signature="6025:6091" ph="INSERT INTO message... " />
-            <marker date="1515749925000" expanded="true" signature="6925:6961" ph="INSERT INTO chat... " />
-            <marker date="1515749925000" expanded="true" signature="7189:7262" ph="insert into chat_participants... " />
-            <marker date="1515749925000" expanded="true" signature="8128:8247" ph="select * fro... user" />
-            <marker date="1515749925000" expanded="true" signature="9145:9211" ph="INSERT INTO user... " />
-            <marker date="1515749925000" expanded="true" signature="9639:9662" ph="SELECT last_... " />
-            <marker date="1515749925000" expanded="true" signature="10009:10046" ph="insert into feed... " />
-            <marker date="1515749925000" expanded="true" signature="10816:10867" ph="SELECT * FRO... user" />
-            <marker date="1515749925000" expanded="true" signature="11895:11935" ph="update user " />
-            <marker date="1515749925000" expanded="true" signature="12580:12632" ph="INSERT INTO post... " />
-            <marker date="1515749925000" expanded="true" signature="12970:12993" ph="select last_... " />
-            <marker date="1515749925000" expanded="true" signature="13373:13426" ph="insert into feed_posts... " />
-            <marker date="1515749925000" expanded="true" signature="14385:14441" ph="update post " />
-            <marker date="1515749925000" expanded="true" signature="15148:15187" ph="delete from " />
-            <marker date="1515749925000" expanded="true" signature="15224:15257" ph="delete from " />
-            <marker date="1515749925000" expanded="true" signature="16092:16144" ph="INSERT INTO friends... " />
-            <marker date="1515749925000" expanded="true" signature="16176:16228" ph="INSERT INTO friends... " />
-            <marker date="1515749925000" expanded="true" signature="17214:17372" ph="select * fro... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17401" ph="select * fro... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17452" ph="select f.fee... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17519" ph="select u.use... feed" />
-            <marker date="1515749925000" expanded="true" signature="18509:18576" ph="select u.use... user" />
-            <marker date="1515749925000" expanded="true" signature="18509:18647" ph="select u.use... user" />
-            <marker date="1515749925000" expanded="true" signature="18509:18690" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="862:1062" ph="SELECT fu.us... user" />
+            <marker date="1515756189000" expanded="true" signature="1249:1560" ph="SELECT f.fee... feed" />
+            <marker date="1515756189000" expanded="true" signature="2933:3463" ph="Select c.cha... chat" />
+            <marker date="1515756189000" expanded="true" signature="4508:4691" ph="select messa... " />
+            <marker date="1515756189000" expanded="true" signature="6025:6091" ph="INSERT INTO message... " />
+            <marker date="1515756189000" expanded="true" signature="6925:6961" ph="INSERT INTO chat... " />
+            <marker date="1515756189000" expanded="true" signature="7189:7262" ph="insert into chat_participants... " />
+            <marker date="1515756189000" expanded="true" signature="8128:8247" ph="select * fro... user" />
+            <marker date="1515756189000" expanded="true" signature="9145:9211" ph="INSERT INTO user... " />
+            <marker date="1515756189000" expanded="true" signature="9639:9662" ph="SELECT last_... " />
+            <marker date="1515756189000" expanded="true" signature="10009:10046" ph="insert into feed... " />
+            <marker date="1515756189000" expanded="true" signature="10269:10292" ph="SELECT last_... " />
+            <marker date="1515756189000" expanded="true" signature="11254:11305" ph="SELECT * FRO... user" />
+            <marker date="1515756189000" expanded="true" signature="12333:12373" ph="update user " />
+            <marker date="1515756189000" expanded="true" signature="13014:13066" ph="INSERT INTO post... " />
+            <marker date="1515756189000" expanded="true" signature="13404:13427" ph="select last_... " />
+            <marker date="1515756189000" expanded="true" signature="13807:13860" ph="insert into feed_posts... " />
+            <marker date="1515756189000" expanded="true" signature="14821:14877" ph="update post " />
+            <marker date="1515756189000" expanded="true" signature="15584:15623" ph="delete from " />
+            <marker date="1515756189000" expanded="true" signature="15660:15693" ph="delete from " />
+            <marker date="1515756189000" expanded="true" signature="16528:16580" ph="INSERT INTO friends... " />
+            <marker date="1515756189000" expanded="true" signature="16612:16664" ph="INSERT INTO friends... " />
+            <marker date="1515756189000" expanded="true" signature="17650:17808" ph="select * fro... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17837" ph="select * fro... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17888" ph="select f.fee... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17955" ph="select u.use... feed" />
+            <marker date="1515756189000" expanded="true" signature="18945:19012" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="18945:19083" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="18945:19126" ph="select u.use... user" />
           </folding>
         </state>
       </provider>
@@ -1104,15 +1171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/tests/DatabaseTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/share/database/DatabaseRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/share/client/sample.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1132,22 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/Feed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="62" column="12" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IChat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/share/models/Message.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1155,90 +1197,6 @@
           <folding>
             <element signature="e#704#705#0" expanded="false" />
             <element signature="e#746#747#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/database/IDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="105" column="32" lean-forward="false" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="61" column="47" lean-forward="false" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/server/MainServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/database/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="187" column="45" lean-forward="false" selection-start-line="187" selection-start-column="45" selection-end-line="187" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getFeeds#0;class#Database#0" expanded="false" />
-            <element signature="method#saveUser#0;class#Database#0" expanded="false" />
-            <element signature="method#logIn#0;class#Database#0" expanded="false" />
-            <element signature="method#updateUser#0;class#Database#0" expanded="false" />
-            <element signature="method#savePost#0;class#Database#0" expanded="false" />
-            <element signature="method#updatePost#0;class#Database#0" expanded="false" />
-            <element signature="method#deletePost#0;class#Database#0" expanded="false" />
-            <element signature="method#addFriend#0;class#Database#0" expanded="false" />
-            <element signature="method#getFeed#0;class#Database#0" expanded="false" />
-            <element signature="method#getFriends#0;class#Database#0" expanded="false" />
-            <marker date="1515749925000" expanded="true" signature="862:1062" ph="SELECT fu.us... user" />
-            <marker date="1515749925000" expanded="true" signature="1249:1560" ph="SELECT f.fee... feed" />
-            <marker date="1515749925000" expanded="true" signature="2933:3463" ph="Select c.cha... chat" />
-            <marker date="1515749925000" expanded="true" signature="4508:4691" ph="select messa... " />
-            <marker date="1515749925000" expanded="true" signature="6025:6091" ph="INSERT INTO message... " />
-            <marker date="1515749925000" expanded="true" signature="6925:6961" ph="INSERT INTO chat... " />
-            <marker date="1515749925000" expanded="true" signature="7189:7262" ph="insert into chat_participants... " />
-            <marker date="1515749925000" expanded="true" signature="8128:8247" ph="select * fro... user" />
-            <marker date="1515749925000" expanded="true" signature="9145:9211" ph="INSERT INTO user... " />
-            <marker date="1515749925000" expanded="true" signature="9639:9662" ph="SELECT last_... " />
-            <marker date="1515749925000" expanded="true" signature="10009:10046" ph="insert into feed... " />
-            <marker date="1515749925000" expanded="true" signature="10816:10867" ph="SELECT * FRO... user" />
-            <marker date="1515749925000" expanded="true" signature="11895:11935" ph="update user " />
-            <marker date="1515749925000" expanded="true" signature="12580:12632" ph="INSERT INTO post... " />
-            <marker date="1515749925000" expanded="true" signature="12970:12993" ph="select last_... " />
-            <marker date="1515749925000" expanded="true" signature="13373:13426" ph="insert into feed_posts... " />
-            <marker date="1515749925000" expanded="true" signature="14385:14441" ph="update post " />
-            <marker date="1515749925000" expanded="true" signature="15148:15187" ph="delete from " />
-            <marker date="1515749925000" expanded="true" signature="15224:15257" ph="delete from " />
-            <marker date="1515749925000" expanded="true" signature="16092:16144" ph="INSERT INTO friends... " />
-            <marker date="1515749925000" expanded="true" signature="16176:16228" ph="INSERT INTO friends... " />
-            <marker date="1515749925000" expanded="true" signature="17214:17372" ph="select * fro... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17401" ph="select * fro... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17452" ph="select f.fee... feed" />
-            <marker date="1515749925000" expanded="true" signature="17214:17519" ph="select u.use... feed" />
-            <marker date="1515749925000" expanded="true" signature="18509:18576" ph="select u.use... user" />
-            <marker date="1515749925000" expanded="true" signature="18509:18647" ph="select u.use... user" />
-            <marker date="1515749925000" expanded="true" signature="18509:18690" ph="select u.use... user" />
           </folding>
         </state>
       </provider>
@@ -1263,17 +1221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/Chat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
-          <folding>
-            <element signature="e#1326#1327#0" expanded="false" />
-            <element signature="e#1363#1364#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/share/interfaces/ISession.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1284,28 +1231,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/share/models/Session.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/SessionManager.java">
+    <entry file="file://$PROJECT_DIR$/src/share/tests/DatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="44" column="8" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="50" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/Manager.java">
+    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IChat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        <state relative-caret-position="240">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/server/MainServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1314,12 +1265,136 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/share/client/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="46" column="2" lean-forward="false" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
+        <state relative-caret-position="455">
+          <caret line="50" column="72" lean-forward="false" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="68" column="43" lean-forward="false" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/database/IDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="66" column="22" lean-forward="false" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/database/DatabaseRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/database/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getFeeds#0;class#Database#0" expanded="false" />
+            <element signature="method#getChats#0;class#Database#0" expanded="false" />
+            <element signature="method#saveMessage#0;class#Database#0" expanded="false" />
+            <element signature="method#saveChat#0;class#Database#0" expanded="false" />
+            <element signature="method#searchUser#0;class#Database#0" expanded="false" />
+            <element signature="method#logIn#0;class#Database#0" expanded="false" />
+            <element signature="method#updateUser#0;class#Database#0" expanded="false" />
+            <element signature="method#savePost#0;class#Database#0" expanded="false" />
+            <element signature="method#updatePost#0;class#Database#0" expanded="false" />
+            <element signature="method#deletePost#0;class#Database#0" expanded="false" />
+            <element signature="method#addFriend#0;class#Database#0" expanded="false" />
+            <element signature="method#getFeed#0;class#Database#0" expanded="false" />
+            <element signature="method#getFriends#0;class#Database#0" expanded="false" />
+            <marker date="1515756189000" expanded="true" signature="862:1062" ph="SELECT fu.us... user" />
+            <marker date="1515756189000" expanded="true" signature="1249:1560" ph="SELECT f.fee... feed" />
+            <marker date="1515756189000" expanded="true" signature="2933:3463" ph="Select c.cha... chat" />
+            <marker date="1515756189000" expanded="true" signature="4508:4691" ph="select messa... " />
+            <marker date="1515756189000" expanded="true" signature="6025:6091" ph="INSERT INTO message... " />
+            <marker date="1515756189000" expanded="true" signature="6925:6961" ph="INSERT INTO chat... " />
+            <marker date="1515756189000" expanded="true" signature="7189:7262" ph="insert into chat_participants... " />
+            <marker date="1515756189000" expanded="true" signature="8128:8247" ph="select * fro... user" />
+            <marker date="1515756189000" expanded="true" signature="9145:9211" ph="INSERT INTO user... " />
+            <marker date="1515756189000" expanded="true" signature="9639:9662" ph="SELECT last_... " />
+            <marker date="1515756189000" expanded="true" signature="10009:10046" ph="insert into feed... " />
+            <marker date="1515756189000" expanded="true" signature="10269:10292" ph="SELECT last_... " />
+            <marker date="1515756189000" expanded="true" signature="11254:11305" ph="SELECT * FRO... user" />
+            <marker date="1515756189000" expanded="true" signature="12333:12373" ph="update user " />
+            <marker date="1515756189000" expanded="true" signature="13014:13066" ph="INSERT INTO post... " />
+            <marker date="1515756189000" expanded="true" signature="13404:13427" ph="select last_... " />
+            <marker date="1515756189000" expanded="true" signature="13807:13860" ph="insert into feed_posts... " />
+            <marker date="1515756189000" expanded="true" signature="14821:14877" ph="update post " />
+            <marker date="1515756189000" expanded="true" signature="15584:15623" ph="delete from " />
+            <marker date="1515756189000" expanded="true" signature="15660:15693" ph="delete from " />
+            <marker date="1515756189000" expanded="true" signature="16528:16580" ph="INSERT INTO friends... " />
+            <marker date="1515756189000" expanded="true" signature="16612:16664" ph="INSERT INTO friends... " />
+            <marker date="1515756189000" expanded="true" signature="17650:17808" ph="select * fro... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17837" ph="select * fro... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17888" ph="select f.fee... feed" />
+            <marker date="1515756189000" expanded="true" signature="17650:17955" ph="select u.use... feed" />
+            <marker date="1515756189000" expanded="true" signature="18945:19012" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="18945:19083" ph="select u.use... user" />
+            <marker date="1515756189000" expanded="true" signature="18945:19126" ph="select u.use... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="40" column="87" lean-forward="false" selection-start-line="40" selection-start-column="87" selection-end-line="40" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/models/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="78" column="4" lean-forward="true" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/models/Feed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="95" column="51" lean-forward="false" selection-start-line="95" selection-start-column="51" selection-end-line="95" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/models/SessionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/models/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="169" column="9" lean-forward="false" selection-start-line="169" selection-start-column="9" selection-end-line="169" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

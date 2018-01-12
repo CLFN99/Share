@@ -27,7 +27,6 @@ public class Manager extends UnicastRemoteObject implements IMain {
     private List<Feed> feeds;
     private DatabaseRepo repo;
     private Publisher publisher;
-     bb  n
 
     /**
      * instantiate all lists
@@ -42,14 +41,11 @@ public class Manager extends UnicastRemoteObject implements IMain {
 
         publisher.registerProperty("chat");
         Registry registry = LocateRegistry.createRegistry(1099);
-        registry.rebind("chatPublisher", publisher);
+        registry.rebind("publisher", publisher);
         registry.rebind("manager", this);
         System.out.println("Server active");
     }
 
-    private void connectToLoginServer(){
-
-    }
     public void getFeeds(){
         this.feeds = repo.getFeeds();
     }
@@ -102,6 +98,11 @@ public class Manager extends UnicastRemoteObject implements IMain {
         if(chat.getId() == -1){
             chat.setId(createChatId());
             this.activeChats.add(chat);
+            try {
+                publisher.registerProperty("chat" + chat.getId());
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
             return true;
         }
         return false;
@@ -117,9 +118,8 @@ public class Manager extends UnicastRemoteObject implements IMain {
         Message msg = new Message(u, txt, chatId);
         for(Chat c : activeChats){
             if(c.getId() == chatId){
-                c.getMessages().add(msg);
                 try {
-                    publisher.inform("chat", null, msg);
+                    publisher.inform("chat" + c.getId(), null, msg);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -129,21 +129,45 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public boolean newPost(String txt, String email) {
+    public boolean newPost(String txt, User writer) {
+        Post p = new Post(txt, writer);
+        if(repo.savePost(p) != -1){
+            writer.getFeed().getPosts().add(p);
+            try {
+                publisher.inform("feed" + writer.getFeed().getId(), null, p);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
         return false;
     }
 
     @Override
     public void updatePost(Post post, String text) {
+        Post prevValue = post;
         post.setText(text);
-        repo.updatePost(post);
-        //TODO PUSH THIS TO FEEDS OF ALL THE FRIENDS
+        if(repo.updatePost(post)){
+            post.getWriter().getFeed().getPosts().remove(post);
+            post.getWriter().getFeed().getPosts().add(post);
+            try {
+                publisher.inform("feed" + post.getWriter().getFeed().getId(), prevValue, post);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public void deletePost(Post post) {
         repo.deletePost(post);
-        //TODO PUSH THIS TO FEEDS OF ALL THE FRIENDS
+        if(repo.updatePost(post)){
+            post.getWriter().getFeed().getPosts().remove(post);
+            try {
+                publisher.inform("feed" + post.getWriter().getFeed().getId(), -1, post);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void changeSessionId(int id){

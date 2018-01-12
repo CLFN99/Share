@@ -44,11 +44,11 @@ public class Main extends Application {
         } catch (RemoteException ex) {
             mainRegistry = null;
             sessionRegistry = null;
- ?     }
-/
+        }
+
         //init publisher
         try {
-            publisherListner = (IRemotePublisher) mainRegistry.lookup("chatPublisher");
+            publisherListner = (IRemotePublisher) mainRegistry.lookup("publisher");
             System.out.println("publisher init");
             manager = (IMain) mainRegistry.lookup("manager");
             System.out.println("manager init");

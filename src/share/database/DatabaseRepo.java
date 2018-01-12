@@ -30,7 +30,7 @@ public class DatabaseRepo {
 
     public boolean updateUser(User u){return context.updateUser(u);}
 
-    public boolean savePost(Post p){return context.savePost(p);}
+    public int savePost(Post p){return context.savePost(p);}
 
     public boolean updatePost(Post p){return context.updatePost(p);}
 

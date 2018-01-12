@@ -66,7 +66,7 @@ public interface IMain extends Remote {
      * @param txt text for the post
      * @return true if succeeded, false if something went wrong
      */
-    boolean newPost(String txt, String email) throws RemoteException;
+    boolean newPost(String txt, User writer) throws RemoteException;
 
     /**
      * updates the given post with the given text

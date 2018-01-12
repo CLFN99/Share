@@ -2,16 +2,20 @@ package share.models;
 
 import share.interfaces.IFeed;
 import share.interfaces.IMain;
+import share.server.IRemotePropertyListener;
+import share.server.IRemotePublisher;
 
+import java.beans.PropertyChangeEvent;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Feed implements IFeed {
+public class Feed implements IFeed, IRemotePropertyListener {
     private List<Post> posts;
     private User user;
     private int Id;
-    private Manager manager;
+    private IMain manager;
+    private IRemotePublisher publisher;
 
     /**
      * creates new feed
@@ -20,6 +24,13 @@ public class Feed implements IFeed {
     public Feed(User user){
         posts = new ArrayList<>();
         this.user = user;
+
+        try {
+            publisher.subscribePropertyListener(this, "feed" + this.Id);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void setId(int id) {
@@ -66,6 +77,28 @@ public class Feed implements IFeed {
     }
 
     public void initManager(IMain manager){
-        this.manager = (Manager) manager;
+        this.manager = manager;
+    }
+    public void initPublisher(IRemotePublisher publisher){this.publisher = publisher;}
+
+    @Override
+    public void propertyChange(PropertyChangeEvent var1) throws RemoteException {
+        //if the post has been changed
+        if(var1.getOldValue() != null){
+            Post post = (Post) var1.getNewValue();
+            for(Post p : this.posts){
+                if(p.getId() == post.getId()){
+                    p.setText(post.getText());
+                }
+            }
+        }
+        //if there's a new post
+        else if(var1.getOldValue() == null && (int)var1.getOldValue() != -1){
+            this.posts.add((Post)var1.getNewValue());
+        }
+        else if((int)var1.getOldValue() == -1){
+            this.posts.remove(var1.getNewValue());
+        }
+
     }
 }

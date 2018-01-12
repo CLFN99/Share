@@ -3,6 +3,7 @@ package share.models;
 import share.interfaces.IChat;
 import share.interfaces.IMain;
 import share.server.IRemotePropertyListener;
+import share.server.IRemotePublisher;
 
 import java.beans.PropertyChangeEvent;
 import java.rmi.RemoteException;
@@ -13,8 +14,8 @@ public class Chat implements IChat, IRemotePropertyListener {
     private int id;
     private List<Message> messages;
     private List<User> users;
-    private Manager manager;
-
+    private IMain manager;
+    private IRemotePublisher publisher;
 
     /**
      * instantiates a new Chat
@@ -27,6 +28,11 @@ public class Chat implements IChat, IRemotePropertyListener {
         users.add(userA);
         users.add(userB);
         register();
+        try {
+            publisher.subscribePropertyListener(this, "chat");
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -55,7 +61,11 @@ public class Chat implements IChat, IRemotePropertyListener {
 
     @Override
     public void register() {
-        manager.newChat(this);
+        try {
+            manager.newChat(this);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -64,8 +74,9 @@ public class Chat implements IChat, IRemotePropertyListener {
     }
 
     public void initManager(IMain manager){
-        this.manager = (Manager) manager;
+        this.manager = manager;
     }
+    public void initPublisher(IRemotePublisher publisher){this.publisher = publisher;}
 
     @Override
     public void propertyChange(PropertyChangeEvent var1) throws RemoteException {

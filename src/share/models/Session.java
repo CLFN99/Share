@@ -1,14 +1,7 @@
 package share.models;
 
-import share.interfaces.IMain;
-import share.interfaces.ISession;
-import share.database.Database;
-import share.database.DatabaseRepo;
-import share.interfaces.*;
 
 import java.io.Serializable;
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
 
 public class Session implements Serializable {

@@ -2,6 +2,8 @@ package share.models;
 
 import share.interfaces.IMain;
 import share.interfaces.IUser;
+import share.server.IRemotePropertyListener;
+import share.server.IRemotePublisher;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
@@ -17,6 +19,7 @@ public class User implements Serializable, IUser {
     private Feed feed;
     private int id;
     private transient IMain manager;
+    private transient IRemotePublisher publisher;
 
     public User(String username, String password, String email, String bio){
         this.username = username;
@@ -35,6 +38,7 @@ public class User implements Serializable, IUser {
         this.friends.add(u);
         try {
             manager.syncUser(this);
+            publisher.subscribePropertyListener(u.getFeed(), "feed"+u.getFeed().getId());
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -91,4 +95,5 @@ public class User implements Serializable, IUser {
     public void initManager(IMain manager){
         this.manager = (Manager) manager;
     }
+    public void initPublisher(IRemotePublisher publisher){this.publisher = publisher;}
 }

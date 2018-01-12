@@ -4,6 +4,7 @@ import share.database.Database;
 import share.database.DatabaseRepo;
 import share.interfaces.IMain;
 import share.interfaces.ISession;
+import share.server.IRemotePublisher;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -24,6 +25,7 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
     private IMain manager;
     private DatabaseRepo repo = new DatabaseRepo(new Database());
     private Registry managerRegistry;
+    private IRemotePublisher publisher;
 
     public SessionManager() throws RemoteException{
         Registry registry = LocateRegistry.createRegistry(8099);
@@ -45,6 +47,7 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
         try {
             manager = (IMain) managerRegistry.lookup("manager");
             System.out.println("bound to manager");
+            publisher = (IRemotePublisher) managerRegistry.lookup("publisher");
         } catch (NotBoundException e) {
             e.printStackTrace();
             manager = null;
@@ -93,10 +96,14 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
         return false;
     }
 
-
     @Override
     public int registerNewUser(User u) {
         int id = repo.saveUser(u);
+        try {
+            publisher.registerProperty("feed" + u.getFeed().getId());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
         return id;
     }
 }

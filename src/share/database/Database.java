@@ -242,6 +242,18 @@ public class Database implements IDatabase {
             insertFeed.setInt(1, id);
             insertFeed.execute();
             insertFeed.close();
+
+            String getFeedIdQuery = "SELECT last_insert_id();";
+            PreparedStatement getFeedId = conn.prepareStatement(getFeedIdQuery);
+            ResultSet resultFeed = getId.executeQuery();
+            int feedid = 0;
+            while(result.next()){
+                id = result.getInt("last_insert_id()");
+            }
+            getFeedId.close();
+            resultFeed.close();
+            u.getFeed().setId(feedid);
+
             conn.close();
             return id;
 
@@ -313,7 +325,7 @@ public class Database implements IDatabase {
     }
 
     @Override
-    public boolean savePost(Post p) {
+    public int savePost(Post p) {
         try {
             if(conn.isClosed()){
                 conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
@@ -346,11 +358,11 @@ public class Database implements IDatabase {
 
             insertFeedPosts.close();
             conn.close();
-            return true;
+            return p.getId();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return -1;
     }
 
     @Override

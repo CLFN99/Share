@@ -64,9 +64,9 @@ public interface IDatabase {
     /**
      * saves a new post in the share.tests.database
      * @param p post to update
-     * @return true if succeeded, false if not
+     * @return post id
      */
-    boolean savePost(Post p);
+    int savePost(Post p);
 
     /**
      * updates a post's text
@@ -100,7 +100,7 @@ public interface IDatabase {
 
     /**
      * gets a user's friends
-     * @param id user's id
+     * @param u user
      * @return the user's friends list
      */
     List<User> getFriends(User u);
