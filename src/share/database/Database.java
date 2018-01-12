@@ -186,7 +186,6 @@ public class Database implements IDatabase {
 
     @Override
     public User searchUser(String username) {
-        //TODO: GET FRIENDS ND FEED AND STUFF
         User u = null;
         try {
 
@@ -279,19 +278,8 @@ public class Database implements IDatabase {
 
             validateUser.close();
             if(u!= null){
-                String feedQuery = "select * from feed where userId = ?";
-                PreparedStatement getFeed = conn.prepareStatement(feedQuery);
-                getFeed.setInt(1, u.getId());
-                ResultSet feedResult = getFeed.executeQuery();
-                while(feedResult.next()){
-                    Feed f = new Feed(u);
-                    u.getFeed().setId(feedResult.getInt("feedId"));
-                    break;
-                }
-                getFeed.close();
-
-                String friendQuery = "SELECT * FROM user u inner join user_friends uf on u.userId = uf.userId";
-
+                u.setFeed(getFeed(u));
+                u.setFriends(getFriends(u));
             }
 
 
@@ -420,11 +408,17 @@ public class Database implements IDatabase {
                 conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
             }
             String query = "INSERT INTO friends (userId, friendId) VALUES (?, ?)";
+            String query2 = "INSERT INTO friends (userId, friendId) VALUES (?, ?)";
             PreparedStatement insertFriend = conn.prepareStatement(query);
             insertFriend.setInt(1, u.getId());
             insertFriend.setInt(2, friend.getId());
             insertFriend.execute();
             insertFriend.close();
+            PreparedStatement insertFriend2 = conn.prepareStatement(query2);
+            insertFriend2.setInt(1, friend.getId());
+            insertFriend2.setInt(2, u.getId());
+            insertFriend2.execute();
+            insertFriend2.close();
 
             conn.close();
             return true;
@@ -434,6 +428,60 @@ public class Database implements IDatabase {
 
         }
         return false;
+    }
+
+    @Override
+    public Feed getFeed(User u) {
+        Feed f = new Feed(u);
+        try {
+
+            if(conn.isClosed()){
+                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+            }
+
+            String getFeedQuery= "select u.username, u.userId, u.password, u.email, u.bio, f.feedId, p.postId, p.text, p.time from feed f where f.userId = ? " +
+                    "inner join feed_posts fp on fp.feedId = f.feedId inner join post p on p.postId = fp.postId  " +
+                    "inner join user u on p.userId = u.userId";
+            PreparedStatement getFeed = conn.prepareStatement(getFeedQuery);
+            getFeed.setInt(1,u.getId());
+            ResultSet result = getFeed.executeQuery();
+            while(result.next()){
+                User writer = new User(result.getString("username"), result.getString("password"),
+                        result.getString("email"), result.getString("bio"));
+                writer.setId(result.getInt("userId"));
+                Post p = new Post(result.getString("text"), writer);
+                f.getPosts().add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return f;
+    }
+
+    @Override
+    public List<User> getFriends(User u) {
+        List<User> friends = null;
+        try {
+
+            if(conn.isClosed()){
+                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+            }
+
+            String getFriendsQuery= "select u.userId, u.username, u.password, u.email, u.bio from user u " +
+                    "inner join friends f on f.friendId = u.userId" +
+                    "where f.userId = ? ";
+            PreparedStatement getFriends = conn.prepareStatement(getFriendsQuery);
+            getFriends.setInt(1, u.getId());
+            ResultSet result = getFriends.executeQuery();
+            while(result.next()){
+                User friend = new User(result.getString("username"), result.getString("password"),
+                        result.getString("email"), result.getString("bio"));
+                friend.addFriend(friend);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return friends;
     }
 
     public Connection getConn(){return  conn;}

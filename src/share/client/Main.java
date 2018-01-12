@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import share.interfaces.*;
 import share.server.IRemotePublisher;
 
 import java.rmi.NotBoundException;
@@ -14,7 +15,10 @@ import java.rmi.registry.Registry;
 
 public class Main extends Application {
     private IRemotePublisher publisherListner;
-    private Registry registry = null;
+    private Registry mainRegistry = null;
+    private Registry sessionRegistry = null;
+    private IMain manager;
+    private ISession sessionManager;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -33,17 +37,24 @@ public class Main extends Application {
     private void createClient(String ipAddress, int portNumber) {
         //Locate registry at IP address and port number
         try {
-            registry = LocateRegistry.getRegistry(ipAddress, portNumber);
-            System.out.println("share.tests.client connected");
+            mainRegistry = LocateRegistry.getRegistry(ipAddress, portNumber);
+            System.out.println("client connected w main server");
+            sessionRegistry = LocateRegistry.getRegistry(ipAddress, 8099);
+            System.out.println("client connected w login server");
         } catch (RemoteException ex) {
-
-            registry = null;
-        }
-
+            mainRegistry = null;
+            sessionRegistry = null;
+ ?     }
+/
         //init publisher
         try {
-            publisherListner = (IRemotePublisher) registry.lookup("chatPublisher");
+            publisherListner = (IRemotePublisher) mainRegistry.lookup("chatPublisher");
             System.out.println("publisher init");
+            manager = (IMain) mainRegistry.lookup("manager");
+            System.out.println("manager init");
+
+            sessionManager = (ISession) sessionRegistry.lookup("sessionManager");
+            System.out.printf("session manager init");
         } catch (RemoteException e) {
             e.printStackTrace();
         } catch (NotBoundException e) {

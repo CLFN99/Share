@@ -20,12 +20,14 @@ public class Manager extends UnicastRemoteObject implements IMain {
      * this class performs all the methods for the share.tests.server
      * specification of the methods can be found in IMain
      */
+    //TODO: REGISTER TO SESSION MANAGER
 
-    private List<ISession> activeSessions;
+    private List<Session> activeSessions;
     private List<Chat> activeChats;
     private List<Feed> feeds;
     private DatabaseRepo repo;
     private Publisher publisher;
+     bb  n
 
     /**
      * instantiate all lists
@@ -37,12 +39,17 @@ public class Manager extends UnicastRemoteObject implements IMain {
         this.feeds = new ArrayList<>();
         this.repo = new DatabaseRepo(new Database());
         publisher = new Publisher();
+
         publisher.registerProperty("chat");
         Registry registry = LocateRegistry.createRegistry(1099);
         registry.rebind("chatPublisher", publisher);
+        registry.rebind("manager", this);
         System.out.println("Server active");
     }
 
+    private void connectToLoginServer(){
+
+    }
     public void getFeeds(){
         this.feeds = repo.getFeeds();
     }
@@ -77,8 +84,8 @@ public class Manager extends UnicastRemoteObject implements IMain {
     public boolean removeSession(Session session) {
         boolean in = false;
         int id = session.getId();
-        for(ISession s : activeSessions){
-            if(Objects.equals(((Session) s).getId(), session.getId())){
+        for(Session s : activeSessions){
+            if(Objects.equals(s.getId(), session.getId())){
                 in = true;
             }
         }
@@ -140,10 +147,9 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     private void changeSessionId(int id){
-        for(ISession s : activeSessions){
-            Session sesh = (Session) s;
-            if(sesh.getId() > id){
-                sesh.setId(sesh.getId() - 1);
+        for(Session s : activeSessions){
+            if(s.getId() > id){
+                s.setId(s.getId() - 1);
             }
         }
     }

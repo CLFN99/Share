@@ -89,4 +89,19 @@ public interface IDatabase {
      * @return true if succeeded, false if not
      */
     boolean addFriend(User u, User friend);
+
+    /**
+     * gets a user's feed
+     * @param u user
+     * @return retrieved feed
+     */
+
+    Feed getFeed(User u);
+
+    /**
+     * gets a user's friends
+     * @param id user's id
+     * @return the user's friends list
+     */
+    List<User> getFriends(User u);
 }
