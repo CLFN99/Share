@@ -20,7 +20,6 @@ public class Manager extends UnicastRemoteObject implements IMain {
      * this class performs all the methods for the share.tests.server
      * specification of the methods can be found in IMain
      */
-    //TODO: REGISTER TO SESSION MANAGER
 
     private List<Session> activeSessions;
     private List<Chat> activeChats;
@@ -51,7 +50,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public List<Post> refreshFeed(String email) {
+    public List<Post> refreshFeed(String email) throws RemoteException{
         getFeeds();
         for(Feed f : feeds){
             if(f.getUser().getEmail() == email){
@@ -62,13 +61,13 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public User searchUser(String username) {
+    public User searchUser(String username) throws RemoteException{
         User u = repo.searchUser(username);
         return u;
     }
 
     @Override
-    public boolean addSession(Session session) {
+    public boolean addSession(Session session) throws RemoteException{
         if(session.getId() == -1){
             session.setId(createSessionId());
             this.activeSessions.add(session);
@@ -77,7 +76,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public boolean removeSession(Session session) {
+    public boolean removeSession(Session session) throws RemoteException{
         boolean in = false;
         int id = session.getId();
         for(Session s : activeSessions){
@@ -94,7 +93,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public boolean newChat(Chat chat) {
+    public boolean newChat(Chat chat) throws RemoteException{
         if(chat.getId() == -1){
             chat.setId(createChatId());
             this.activeChats.add(chat);
@@ -109,8 +108,21 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public void syncUser(User user) {
-        repo.saveUser(user);
+    public boolean updateUser(User user) throws RemoteException{
+        if(repo.updateUser(user)){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addFriend(User u, User friend) throws RemoteException {
+        if(repo.addFriend(u, friend)){
+            u.addFriend(friend);
+            friend.addFriend(u);
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -120,6 +132,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
             if(c.getId() == chatId){
                 try {
                     publisher.inform("chat" + c.getId(), null, msg);
+                    return true;
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -129,7 +142,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public boolean newPost(String txt, User writer) {
+    public boolean newPost(String txt, User writer) throws RemoteException{
         Post p = new Post(txt, writer);
         if(repo.savePost(p) != -1){
             writer.getFeed().getPosts().add(p);
@@ -143,7 +156,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public void updatePost(Post post, String text) {
+    public void updatePost(Post post, String text) throws RemoteException {
         Post prevValue = post;
         post.setText(text);
         if(repo.updatePost(post)){
@@ -158,7 +171,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public void deletePost(Post post) {
+    public void deletePost(Post post) throws RemoteException{
         repo.deletePost(post);
         if(repo.updatePost(post)){
             post.getWriter().getFeed().getPosts().remove(post);
@@ -187,4 +200,6 @@ public class Manager extends UnicastRemoteObject implements IMain {
         int id = activeChats.size() + 1;
         return id;
     }
+
+    public void removeAllChats(){this.activeChats = new ArrayList<>();}
 }

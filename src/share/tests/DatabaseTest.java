@@ -1,12 +1,8 @@
 package share.tests;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
-import com.sun.corba.se.impl.orb.DataCollectorBase;
 import share.database.Database;
 import share.models.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
-
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -86,8 +82,8 @@ class DatabaseTest {
 
         User u = db.logIn("test@email.com", "1234");
         Post p = new Post("I LOVE CATS", u);
-        boolean succeeded = db.savePost(p);
-        assertEquals(true, succeeded);
+        int id = db.savePost(p);
+        assertEquals(true, id!=-1);
         db.closeConn();
     }
 
@@ -96,8 +92,7 @@ class DatabaseTest {
 
         User u = db.logIn("celina@email.com", "1234");
         Post p = new Post("nothing is real", u);
-        boolean succeeded = db.savePost(p);
-        assertEquals(true, succeeded);
+        db.savePost(p);
         p.setText("NOTHING IS REAALL!!");
         boolean success = db.updatePost(p);
         assertEquals(true, success);
@@ -109,8 +104,7 @@ class DatabaseTest {
 
         User u = db.logIn("celina@email.com", "1234");
         Post p = new Post("nothing is real", u);
-        boolean succeeded = db.savePost(p);
-        assertEquals(true, succeeded);
+        db.savePost(p);
 
         boolean success = db.deletePost(p);
         assertEquals(true, success);

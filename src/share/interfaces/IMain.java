@@ -50,7 +50,9 @@ public interface IMain extends Remote {
      * updates a user if there have been changes made to their profile
      * @param user user to update
      */
-    void syncUser(User user) throws RemoteException;
+    boolean updateUser(User user) throws RemoteException;
+
+    boolean addFriend(User u, User friend) throws RemoteException;
 
     /**
      * creates a new message and adds it to list of messages of the Chat
