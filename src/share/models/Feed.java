@@ -24,13 +24,6 @@ public class Feed implements IFeed, IRemotePropertyListener {
     public Feed(User user){
         posts = new ArrayList<>();
         this.user = user;
-
-        try {
-            publisher.subscribePropertyListener(this, "feed" + this.Id);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-
     }
 
     public void setId(int id) {
@@ -67,7 +60,7 @@ public class Feed implements IFeed, IRemotePropertyListener {
      * @return the list of posts
      */
     @Override
-    public List<Post> refresh(IMain manager) {
+    public List<Post> refresh() {
         try {
             this.posts = manager.refreshFeed(this.user.getEmail());
         } catch (RemoteException e) {
@@ -75,11 +68,19 @@ public class Feed implements IFeed, IRemotePropertyListener {
         }
         return posts;
     }
+//todo: as soon as new feed(user) is made, initialize publisher of both
 
     public void initManager(IMain manager){
         this.manager = manager;
     }
-    public void initPublisher(IRemotePublisher publisher){this.publisher = publisher;}
+    public void initPublisher(IRemotePublisher publisher){
+        this.publisher = publisher;
+        try {
+            publisher.subscribePropertyListener(this, "feed" + this.Id);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void propertyChange(PropertyChangeEvent var1) throws RemoteException {

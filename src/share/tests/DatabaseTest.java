@@ -1,8 +1,12 @@
 package share.tests;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+import org.junit.jupiter.api.Assertions;
 import share.database.Database;
 import share.models.*;
 import org.junit.jupiter.api.Test;
+
+import java.sql.SQLException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,10 +49,11 @@ class DatabaseTest {
 
     @Test
     public void saveUser() throws Exception {
-        User u = new User("celina", "1234", "celina@email.com", "Hoi! Ik heet celina");
+        //todo: change every time u run
+        User u = new User("willem", "1234", "willem@email.com", "Hoi! Ik heet celina");
 
         int id = db.saveUser(u);
-        assertEquals(id != -1, id != -1);
+        assertEquals(true, id != -1);
 
         User u2 = new User("celina", "1234", "celina@email.com", "Hoi! Ik heet celina");
         int idd = db.saveUser(u2);
@@ -81,7 +86,7 @@ class DatabaseTest {
     public void savePost() throws Exception {
 
         User u = db.logIn("test@email.com", "1234");
-        Post p = new Post("I LOVE CATS", u);
+        Post p = new Post("hey hows it going yall", u);
         int id = db.savePost(p);
         assertEquals(true, id!=-1);
         db.closeConn();
@@ -113,11 +118,16 @@ class DatabaseTest {
 
     @Test
     public void addFriend() throws Exception {
-
-        User u1 = db.logIn("celina@email.com", "1234");
-        User u2 = db.logIn("test@email.com", "1234");
-        boolean succeeded = db.addFriend(u1, u2);
+        //change name and email of new user everytime u run it
+        User u1 = db.logIn("fleuri@email.com", "1234");
+        User u2 = db.logIn("jantje@email.com", "1234");
+        User u3 = new User("morgana", "1234", "morgana@email.com", "lienke");
+        u3.setId(db.saveUser(u3));
+        boolean succeeded = db.addFriend(u1, u3);
         assertEquals(true, succeeded);
+        Throwable exception = Assertions.assertThrows(MySQLIntegrityConstraintViolationException.class, () -> {
+            db.addFriend(u1, u2);
+        });
         db.closeConn();
     }
 
@@ -127,17 +137,17 @@ class DatabaseTest {
         db.closeConn();
     }
 
-    @Test
-    public void saveChat() throws Exception{
-
-        User u1 = db.logIn("celina@email.com", "1234");
-        User u2 = db.logIn("test@email.com", "1234");
-        Chat c = new Chat(u1, u2);
-        c.setId(1);
-        boolean succeeded = db.saveChat(c);
-        assertEquals(true, succeeded);
-        db.closeConn();
-    }
+//    @Test
+//    public void saveChat() throws Exception{
+//
+//        User u1 = db.logIn("celina@email.com", "1234");
+//        User u2 = db.logIn("test@email.com", "1234");
+//        Chat c = new Chat(u1, u2);
+//        c.setId(1);
+//        boolean succeeded = db.saveChat(c);
+//        assertEquals(true, succeeded);
+//        db.closeConn();
+//    }
 
     @Test
     public void getChat() throws Exception {

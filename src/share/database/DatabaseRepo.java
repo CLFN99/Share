@@ -1,6 +1,9 @@
 package share.database;
 
+import java.sql.SQLException;
 import java.util.List;
+
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import share.models.*;
 
 public class DatabaseRepo {
@@ -24,7 +27,10 @@ public class DatabaseRepo {
 
     public User searchUser(String username){return context.searchUser(username);}
 
-    public int saveUser(User u){return context.saveUser(u);}
+    public int saveUser(User u)throws MySQLIntegrityConstraintViolationException{
+       return context.saveUser(u);
+
+    }
 
     public User logIn(String email, String password){return context.logIn(email,password);}
 
@@ -36,5 +42,9 @@ public class DatabaseRepo {
 
     public boolean deletePost(Post p){return context.deletePost(p);}
 
-    public boolean addFriend(User u, User friend){return context.addFriend(u, friend);}
+    public boolean addFriend(User u, User friend) throws MySQLIntegrityConstraintViolationException {return context.addFriend(u, friend);}
+
+    public List<Chat> getChats(){return context.getChats();}
+
+    public void closeConn() throws SQLException {context.closeConn();}
 }

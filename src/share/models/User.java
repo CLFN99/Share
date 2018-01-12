@@ -36,12 +36,14 @@ public class User implements Serializable, IUser {
 
     public void addFriend(User u){
         this.friends.add(u);
-        try {
-            manager.syncUser(this);
-            publisher.subscribePropertyListener(u.getFeed(), "feed"+u.getFeed().getId());
-        } catch (RemoteException e) {
-            e.printStackTrace();
+        if(publisher != null){
+            try {
+                publisher.subscribePropertyListener(u.getFeed(), "feed"+u.getFeed().getId());
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
     @Override
@@ -95,5 +97,15 @@ public class User implements Serializable, IUser {
     public void initManager(IMain manager){
         this.manager = (Manager) manager;
     }
-    public void initPublisher(IRemotePublisher publisher){this.publisher = publisher;}
+    public void initPublisher(IRemotePublisher publisher){
+        this.publisher = publisher;
+        try {
+            for(User u : friends){
+                publisher.subscribePropertyListener(u.getFeed(), "feed"+u.getFeed().getId());
+                publisher.subscribePropertyListener(u.getFeed(), "feed"+feed.getId());
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 }

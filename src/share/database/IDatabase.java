@@ -1,6 +1,9 @@
 package share.database;
 
+import java.sql.SQLException;
 import java.util.List;
+
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import share.models.*;
 public interface IDatabase {
     /**
@@ -19,6 +22,11 @@ public interface IDatabase {
      * @return
      */
     List<Chat> getChats(User u);
+    /**
+     * gets all chats
+     * @return
+     */
+    List<Chat> getChats();
     /**
      * saves a message
      * @param msg message to save
@@ -44,7 +52,7 @@ public interface IDatabase {
      * @param u user to save
      * @return the auto generated ID
      */
-    int saveUser(User u);
+    int saveUser(User u) throws MySQLIntegrityConstraintViolationException;
 
     /**
      * checks if the combination of email and password exist in the share.tests.database
@@ -88,7 +96,7 @@ public interface IDatabase {
      * @param friend user's friend
      * @return true if succeeded, false if not
      */
-    boolean addFriend(User u, User friend);
+    boolean addFriend(User u, User friend)throws MySQLIntegrityConstraintViolationException;
 
     /**
      * gets a user's feed
@@ -104,4 +112,6 @@ public interface IDatabase {
      * @return the user's friends list
      */
     List<User> getFriends(User u);
+
+    void closeConn() throws SQLException;
 }

@@ -1,5 +1,6 @@
 package share.models;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import share.database.Database;
 import share.database.DatabaseRepo;
 import share.interfaces.IMain;
@@ -33,7 +34,6 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
         registry.rebind("sessionManager", this);
         System.out.println("session manager bound");
         connectToMain();
-
     }
 
     /**
@@ -98,7 +98,12 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
 
     @Override
     public int registerNewUser(User u) {
-        int id = repo.saveUser(u);
+        int id = 0;
+        try {
+            id = repo.saveUser(u);
+        } catch (MySQLIntegrityConstraintViolationException e) {
+            e.printStackTrace();
+        }
         try {
             publisher.registerProperty("feed" + u.getFeed().getId());
         } catch (RemoteException e) {

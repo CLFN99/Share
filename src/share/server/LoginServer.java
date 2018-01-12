@@ -19,7 +19,6 @@ public class LoginServer extends Applet
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        launch(args);
     }
 
 

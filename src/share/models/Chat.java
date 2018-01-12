@@ -28,11 +28,15 @@ public class Chat implements IChat, IRemotePropertyListener {
         users.add(userA);
         users.add(userB);
         register();
-        try {
-            publisher.subscribePropertyListener(this, "chat");
-        } catch (RemoteException e) {
-            e.printStackTrace();
+        if(publisher != null){
+            try {
+                publisher.subscribePropertyListener(this, "chat");
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
+        id = -1;
+
     }
 
     /**
@@ -61,11 +65,14 @@ public class Chat implements IChat, IRemotePropertyListener {
 
     @Override
     public void register() {
-        try {
-            manager.newChat(this);
-        } catch (RemoteException e) {
-            e.printStackTrace();
+        if(manager != null){
+            try {
+                manager.newChat(this);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
     @Override
@@ -76,7 +83,14 @@ public class Chat implements IChat, IRemotePropertyListener {
     public void initManager(IMain manager){
         this.manager = manager;
     }
-    public void initPublisher(IRemotePublisher publisher){this.publisher = publisher;}
+    public void initPublisher(IRemotePublisher publisher){
+        this.publisher = publisher;
+        try {
+            publisher.subscribePropertyListener(this, "chat");
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void propertyChange(PropertyChangeEvent var1) throws RemoteException {

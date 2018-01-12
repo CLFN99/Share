@@ -33,7 +33,7 @@ public class Publisher extends UnicastRemoteObject implements IRemotePublisher {
         ArrayList listenersToBeInformed = new ArrayList();
         if (property != null) {
             listenersToBeInformed.addAll(this.propertyListeners.get(property));
-            listenersToBeInformed.addAll(this.propertyListeners.get(null));
+           // listenersToBeInformed.addAll(this.propertyListeners.get(null));
         } else {
             List<String> keyset = new ArrayList(this.propertyListeners.keySet());
             Iterator var6 = keyset.iterator();

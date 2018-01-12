@@ -10,5 +10,5 @@ public interface IFeed {
      * calls IMain.refreshFeed
      * @return the posts the share.tests.server gave
      */
-    List<Post> refresh(IMain manager);
+    List<Post> refresh();
 }

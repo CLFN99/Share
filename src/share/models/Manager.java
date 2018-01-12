@@ -1,10 +1,12 @@
 package share.models;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import share.interfaces.IMain;
 import share.interfaces.ISession;
 import share.database.Database;
 import share.database.DatabaseRepo;
 import share.interfaces.*;
+import share.server.IRemotePublisher;
 import share.server.Publisher;
 
 import java.rmi.RemoteException;
@@ -39,21 +41,34 @@ public class Manager extends UnicastRemoteObject implements IMain {
         publisher = new Publisher();
 
         publisher.registerProperty("chat");
-        Registry registry = LocateRegistry.createRegistry(1099);
-        registry.rebind("publisher", publisher);
-        registry.rebind("manager", this);
-        System.out.println("Server active");
+        if(LocateRegistry.getRegistry("127.0.0.1", 1099) == null){
+            Registry registry = LocateRegistry.createRegistry(1099);
+            registry.rebind("publisher", publisher);
+            registry.rebind("manager", this);
+            System.out.println("Server active");
+        }
+        activeChats = repo.getChats();
+        getFeeds();
+
     }
 
     public void getFeeds(){
         this.feeds = repo.getFeeds();
+        for(Feed f : feeds){
+            f.initManager(this);
+            try {
+                publisher.registerProperty("feed"+f.getId());
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public List<Post> refreshFeed(String email) throws RemoteException{
         getFeeds();
         for(Feed f : feeds){
-            if(f.getUser().getEmail() == email){
+            if(Objects.equals(f.getUser().getEmail(), email)){
                 return f.getPosts();
             }
         }
@@ -97,6 +112,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
         if(chat.getId() == -1){
             chat.setId(createChatId());
             this.activeChats.add(chat);
+            repo.saveChat(chat);
             try {
                 publisher.registerProperty("chat" + chat.getId());
             } catch (RemoteException e) {
@@ -117,10 +133,15 @@ public class Manager extends UnicastRemoteObject implements IMain {
 
     @Override
     public boolean addFriend(User u, User friend) throws RemoteException {
-        if(repo.addFriend(u, friend)){
-            u.addFriend(friend);
-            friend.addFriend(u);
-            return true;
+        //todo subscribe listener to each other's feeds
+        try {
+            if(repo.addFriend(u, friend)){
+                u.addFriend(friend);
+                friend.addFriend(u);
+                return true;
+            }
+        } catch (MySQLIntegrityConstraintViolationException e) {
+            e.printStackTrace();
         }
         return false;
     }
@@ -132,6 +153,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
             if(c.getId() == chatId){
                 try {
                     publisher.inform("chat" + c.getId(), null, msg);
+                    repo.saveMessage(msg);
                     return true;
                 } catch (RemoteException e) {
                     e.printStackTrace();
@@ -146,11 +168,13 @@ public class Manager extends UnicastRemoteObject implements IMain {
         Post p = new Post(txt, writer);
         if(repo.savePost(p) != -1){
             writer.getFeed().getPosts().add(p);
+            //repo.savePost(p);
             try {
                 publisher.inform("feed" + writer.getFeed().getId(), null, p);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
+            return true;
         }
         return false;
     }
@@ -202,4 +226,6 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     public void removeAllChats(){this.activeChats = new ArrayList<>();}
+
+    public IRemotePublisher getPublisher(){return publisher;}
 }
