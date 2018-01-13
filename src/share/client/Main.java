@@ -22,12 +22,23 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
         createClient("127.0.0.1",1099);
-        manager.searchUser("d");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScreen.fxml"));
+        Parent root1 = null;
+        root1 = (Parent) fxmlLoader.load();
+        LoginController controller = fxmlLoader.getController();
+        controller.setManagers(this.manager, this.sessionManager);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));
+        stage.show();
+
+//        FXMLLoader loader = getClass().getResource("LoginScreen.fxml");
+//        Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
+//        LoginController controller =
+//        primaryStage.setTitle("Login");
+//        primaryStage.setScene(new Scene(root, 275, 300));
+//        primaryStage.show();
+
     }
 
 

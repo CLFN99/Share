@@ -43,9 +43,9 @@ public interface IDatabase {
     /**
      * searches the share.tests.database for users with given username
      * @param username username to search for
-     * @return User if found, null if not found
+     * @return list of users found, null if not found
      */
-    User searchUser(String username);
+    List<User> searchUser(String username);
 
     /**
      * saves new user in database

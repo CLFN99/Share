@@ -78,7 +78,7 @@ public class User implements Serializable, IUser {
 
             }
             //subscribe user to his own feed
-            publisher.subscribePropertyListener(feed, ("feed"+feed.getId()));
+           // publisher.subscribePropertyListener(feed, ("feed"+feed.getId()));
         } catch (RemoteException e) {
             e.printStackTrace();
         }

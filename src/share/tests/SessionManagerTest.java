@@ -56,7 +56,7 @@ class SessionManagerTest {
     @Test
     void registerNewUser() {
         initManager();
-        User u = new User("Billie Holiday", "1234", "billie@email.com", "Gloomy Sunday");
+        User u = new User("Ricky Nelson", "1234", "ricky@email.com", "Lonesome Town");
         int id = sessionManager.registerNewUser(u);
         assertEquals(true, (id >= 0));
         int id2 = sessionManager.registerNewUser(u);

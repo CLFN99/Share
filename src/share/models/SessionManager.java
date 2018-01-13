@@ -95,6 +95,7 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
                 session.setEndTime(new Date());
                 session.setActive(false);
                 sessions.remove(session);
+                changeSessionId(session.getId());
                 return true;
             }
         } catch (RemoteException e) {
@@ -122,6 +123,7 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
         return id;
     }
 
+    @Override
     public Session getSession(User u){
         for(Session s : sessions){
             if(s.getUser().getId() == u.getId()){
@@ -129,5 +131,13 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
             }
         }
         return null;
+    }
+
+    private void changeSessionId(int id){
+        for(Session s : sessions){
+            if(s.getId() > id){
+                s.setId(s.getId() - 1);
+            }
+        }
     }
 }

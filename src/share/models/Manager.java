@@ -41,7 +41,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
         publisher = new Publisher();
 
         publisher.registerProperty("chat");
-        //if(LocateRegistry.getRegistry("127.0.0.1", 1099) == null){
+       // if(LocateRegistry.getRegistry("127.0.0.1", 1099) == null){
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("publisher", publisher);
             registry.rebind("manager", this);
@@ -87,9 +87,9 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public User searchUser(String username) throws RemoteException{
-        User u = repo.searchUser(username);
-        return u;
+    public List<User> searchUser(String username) throws RemoteException{
+        List<User> users = repo.searchUser(username);
+        return users;
     }
 
     @Override
@@ -113,7 +113,9 @@ public class Manager extends UnicastRemoteObject implements IMain {
         int id = session.getId();
         for(Session s : activeSessions){
             if(Objects.equals(s.getId(), session.getId())){
+                session = s;
                 in = true;
+                break;
             }
         }
         if(in){

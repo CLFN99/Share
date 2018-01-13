@@ -10,4 +10,5 @@ public interface ISession extends Remote {
     User logIn(String username, String password) throws RemoteException;
     boolean logOut(Session session) throws RemoteException;
     int registerNewUser(User u) throws RemoteException;
+    Session getSession(User u) throws RemoteException;
 }

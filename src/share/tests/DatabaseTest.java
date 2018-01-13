@@ -17,7 +17,7 @@ class DatabaseTest {
     @Test
     public void saveUser() throws Exception {
         //todo: change every time u run
-        User u = new User("garfield", "1234", "garfield@email.com", "Hoi! Ik heet celina");
+        User u = new User("Alex", "1234", "alex@email.com", "...");
 
         int id = db.saveUser(u);
         assertEquals(true, id != -1);

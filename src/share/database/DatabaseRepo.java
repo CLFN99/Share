@@ -25,7 +25,7 @@ public class DatabaseRepo {
 
     public boolean saveChat(Chat c){return context.saveChat(c);}
 
-    public User searchUser(String username){return context.searchUser(username);}
+    public List<User> searchUser(String username){return context.searchUser(username);}
 
     public int saveUser(User u)throws MySQLIntegrityConstraintViolationException{
        return context.saveUser(u);

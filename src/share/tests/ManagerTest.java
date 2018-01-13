@@ -7,6 +7,7 @@ import share.models.*;
 
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,14 +49,14 @@ class ManagerTest {
     void searchUser() {
         initManager();
         //existing user
-        User u = null;
+        List<User> users = new ArrayList<>();
         try {
-            u = manager.searchUser("celina");
-            assertEquals("celina", u.getUsername());
-            assertNotNull(u);
+            users = manager.searchUser("celina");
+            assertEquals("celina", users.get(0).getUsername());
+            assertNotNull(users);
             //non existing user
-            User u2 = manager.searchUser("88");
-            assertNull(u2);
+            users = manager.searchUser("88");
+            assertNull(users);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -71,8 +72,8 @@ class ManagerTest {
         //todo change users every execute
         initManager();
         //chat doesnt exist
-        User u1 = manager.testLogin("lienke@email.com", "1234");
-        User u2 = manager.testLogin("morgana@email.com", "1234");
+        User u1 = manager.testLogin("billie@email.com", "1234");
+        User u2 = manager.testLogin("amen@email.com", "1234");
         Chat c = new Chat(u1, u2);
         c.initManager(manager);
         boolean success;
@@ -104,7 +105,7 @@ class ManagerTest {
         //todo: change new bio on every execute
         User u = manager.testLogin("celina@email.com", "1234");
         String oldBio = u.getBio();
-        String newBio = "gloomy sunday";
+        String newBio = "yjrrjry";
         u.changeBio(newBio);
         boolean success = false;
         try {
@@ -127,8 +128,8 @@ class ManagerTest {
         initManager();
         try {
             //they're not friends
-            User u1 = manager.testLogin("willem@email.com", "1234");
-            User friend = manager.testLogin("jantje@email.com", "1234");
+            User u1 = manager.testLogin("alex@email.com", "1234");
+            User friend = manager.testLogin("billie@email.com", "1234");
             List<User> friends = u1.getFriends();
             boolean success = manager.addFriend(u1, friend);
             assertEquals(true, success);
@@ -151,8 +152,8 @@ class ManagerTest {
     void sendMessage() {
         initManager();
         //todo change users every execute
-        User u1 = manager.testLogin("morgana@email.com", "1234");
-        User u2 = manager.testLogin("jantje@email.com", "1234");
+        User u1 = manager.testLogin("amen@email.com", "1234");
+        User u2 = manager.testLogin("billie@email.com", "1234");
         Chat c = new Chat(u1, u2);
         c.initManager(manager);
         if(c.register()){
@@ -234,5 +235,4 @@ class ManagerTest {
             e.printStackTrace();
         }
     }
-
 }

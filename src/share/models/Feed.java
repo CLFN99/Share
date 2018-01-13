@@ -89,8 +89,11 @@ public class Feed implements IFeed, IRemotePropertyListener, Serializable {
         if(var1.getOldValue() == null){
             this.posts.add((Post)var1.getNewValue());
         }
+        else if((int)var1.getOldValue() == -1){
+            this.posts.remove(var1.getNewValue());
+        }
         //if the post has been changed
-        else if(var1.getOldValue() != null && (int)var1.getOldValue() != -1){
+        else if(var1.getOldValue() != null || (int)var1.getOldValue() != -1){
             Post post = (Post) var1.getNewValue();
             for(Post p : this.posts){
                 if(p.getId() == post.getId()){
@@ -99,9 +102,7 @@ public class Feed implements IFeed, IRemotePropertyListener, Serializable {
             }
         }
 
-        else if((int)var1.getOldValue() == -1){
-            this.posts.remove(var1.getNewValue());
-        }
+
 
     }
 }

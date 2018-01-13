@@ -133,8 +133,8 @@ public class Database implements IDatabase {
     }
 
     @Override
-    public User searchUser(String username) {
-        User u = null;
+    public List<User> searchUser(String username) {
+        List<User> users = new ArrayList<>();
         try {
 
             if(conn.isClosed()){
@@ -148,14 +148,21 @@ public class Database implements IDatabase {
             search.setString(3, username);
             ResultSet result = search.executeQuery();
             while(result.next()){
-                u = new User(result.getString("username"),result.getString("password"),
+                User u = new User(result.getString("username"),result.getString("password"),
                         result.getString("email"), result.getString("bio"));
                 u.setId(result.getInt("userId"));
+                users.add(u);
             }
+            search.close();
+            result.close();
+            if(users.isEmpty()){
+                return null;
+            }
+            return users;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return u;
+        return null;
     }
 
     @Override

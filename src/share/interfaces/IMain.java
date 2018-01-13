@@ -22,7 +22,7 @@ public interface IMain extends Remote {
      * @param username the search paramater
      * @return the user if found, otherwise null
      */
-    User searchUser(String username) throws RemoteException;
+    List<User> searchUser(String username) throws RemoteException;
 
     /**
      * adds a session to the list of active sessions
