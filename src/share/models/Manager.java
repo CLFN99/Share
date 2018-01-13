@@ -28,7 +28,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
     private List<Feed> feeds;
     private DatabaseRepo repo;
     private Publisher publisher;
-
+    private List<User> users;
     /**
      * instantiate all lists
      * @throws RemoteException
@@ -41,32 +41,43 @@ public class Manager extends UnicastRemoteObject implements IMain {
         publisher = new Publisher();
 
         publisher.registerProperty("chat");
-        if(LocateRegistry.getRegistry("127.0.0.1", 1099) == null){
+        //if(LocateRegistry.getRegistry("127.0.0.1", 1099) == null){
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("publisher", publisher);
             registry.rebind("manager", this);
             System.out.println("Server active");
-        }
-        activeChats = repo.getChats();
-        getFeeds();
-
+        //}
+        getData();
+        activeChats = repo.getChats(users);
+        //efe
     }
 
-    public void getFeeds(){
-        this.feeds = repo.getFeeds();
-        for(Feed f : feeds){
-            f.initManager(this);
+    public void getData(){
+        System.out.println("getting data....");
+        //get all users + their feed
+        users = repo.getAllUsers();
+        //get user's feeds post
+        users = repo.getFeedPosts(users);
+        // register feed properyt
+        for(User u : users){
             try {
-                publisher.registerProperty("feed"+f.getId());
+                publisher.registerProperty("feed"+u.getFeed().getId());
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
         }
+        //get users friends
+        users = repo.getFriends(users);
+        for(User u : users){
+            u.initPublisher(publisher);
+            feeds.add(u.getFeed());
+        }
+        System.out.println("done w getting data");
     }
+
 
     @Override
     public List<Post> refreshFeed(String email) throws RemoteException{
-        getFeeds();
         for(Feed f : feeds){
             if(Objects.equals(f.getUser().getEmail(), email)){
                 return f.getPosts();
@@ -82,12 +93,18 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public boolean addSession(Session session) throws RemoteException{
+    public Session addSession(Session session) throws RemoteException{
         if(session.getId() == -1){
             session.setId(createSessionId());
+                for(User u : users){
+                    if(session.getUser().getId() == u.getId()){
+                        session.setUser(u);
+                    }
+                }
             this.activeSessions.add(session);
+            return session;
         }
-        return false;
+        return null;
     }
 
     @Override
@@ -133,7 +150,6 @@ public class Manager extends UnicastRemoteObject implements IMain {
 
     @Override
     public boolean addFriend(User u, User friend) throws RemoteException {
-        //todo subscribe listener to each other's feeds
         try {
             if(repo.addFriend(u, friend)){
                 u.addFriend(friend);
@@ -164,7 +180,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public boolean newPost(String txt, User writer) throws RemoteException{
+    public Post newPost(String txt, User writer) throws RemoteException{
         Post p = new Post(txt, writer);
         if(repo.savePost(p) != -1){
             writer.getFeed().getPosts().add(p);
@@ -174,9 +190,9 @@ public class Manager extends UnicastRemoteObject implements IMain {
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-            return true;
+            return p;
         }
-        return false;
+        return null;
     }
 
     @Override
@@ -196,8 +212,8 @@ public class Manager extends UnicastRemoteObject implements IMain {
 
     @Override
     public void deletePost(Post post) throws RemoteException{
-        repo.deletePost(post);
-        if(repo.updatePost(post)){
+
+        if(repo.deletePost(post)){
             post.getWriter().getFeed().getPosts().remove(post);
             try {
                 publisher.inform("feed" + post.getWriter().getFeed().getId(), -1, post);
@@ -205,6 +221,11 @@ public class Manager extends UnicastRemoteObject implements IMain {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void newUser(User u) {
+        this.users.add(u);
     }
 
     private void changeSessionId(int id){
@@ -225,7 +246,18 @@ public class Manager extends UnicastRemoteObject implements IMain {
         return id;
     }
 
-    public void removeAllChats(){this.activeChats = new ArrayList<>();}
-
     public IRemotePublisher getPublisher(){return publisher;}
+
+    public User testLogin(String email, String password){
+        User user = repo.logIn(email, password);
+        if(user != null){
+            for(User u : users){
+                if(user.getId() == u.getId()){
+                    user = u;
+                    return user;
+                }
+            }
+        }
+        return null;
+    }
 }

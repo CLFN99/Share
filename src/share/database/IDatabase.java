@@ -14,19 +14,19 @@ public interface IDatabase {
      * gets all the feeds
      * @return
      */
-    List<Feed> getFeeds();
+   // List<Feed> getFeeds();
 
-    /**
-     * gets a user's chats
-     * @param u
-     * @return
-     */
-    List<Chat> getChats(User u);
+//    /**
+//     * gets a user's chats
+//     * @param u
+//     * @return
+//     */
+//    List<Chat> getChats(User u);
     /**
      * gets all chats
      * @return
      */
-    List<Chat> getChats();
+    List<Chat> getChats(List<User> users);
     /**
      * saves a message
      * @param msg message to save
@@ -48,7 +48,7 @@ public interface IDatabase {
     User searchUser(String username);
 
     /**
-     * saves new user in share.tests.database
+     * saves new user in database
      * @param u user to save
      * @return the auto generated ID
      */
@@ -104,14 +104,23 @@ public interface IDatabase {
      * @return retrieved feed
      */
 
-    Feed getFeed(User u);
+//    Feed getFeed(User u);
+//
+//    /**
+//     * gets a user's friends
+//     * @param u user
+//     * @return the user's friends list
+//     */
+//    List<User> getFriends(User u);
 
     /**
-     * gets a user's friends
-     * @param u user
-     * @return the user's friends list
+     * gets all users out of the database
+     * @return list of users
      */
-    List<User> getFriends(User u);
+    List<User> getAllUsers();
 
+    List<User> getFeedPosts(List<User> users);
+
+    List<User> getFriends(List<User> users);
     void closeConn() throws SQLException;
 }

@@ -158,6 +158,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/share/interfaces/IFeed.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/share/interfaces/IMain.java">
           <value>
             <set />
@@ -173,7 +178,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/share/models/Feed.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/share/models/Manager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/models/ManagerTest.java">
           <value>
             <set />
           </value>
@@ -188,7 +203,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/share/models/SessionManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/models/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/share/server/IRemotePublisher.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/server/LoginServer.java">
           <value>
             <set />
           </value>
@@ -203,7 +233,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/share/test.policy">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/share/tests/DatabaseTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/tests/ManagerTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/tests/SessionManagerTest.java">
           <value>
             <set />
           </value>

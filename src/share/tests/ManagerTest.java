@@ -27,7 +27,7 @@ class ManagerTest {
     void refreshFeed() {
         initManager();
         try {
-            User u1 = repo.logIn("celina@email.com", "1234");
+            User u1 = manager.testLogin("celina@email.com", "1234");
             Feed f = u1.getFeed();
             f.initManager(manager);
             //existing user
@@ -68,19 +68,18 @@ class ManagerTest {
 
     @Test
     void newChat() {
+        //todo change users every execute
         initManager();
         //chat doesnt exist
-        User u1 = repo.logIn("marian@email.com", "1234");
-        User u2 = repo.logIn("morgana@email.com", "1234");
+        User u1 = manager.testLogin("lienke@email.com", "1234");
+        User u2 = manager.testLogin("morgana@email.com", "1234");
         Chat c = new Chat(u1, u2);
+        c.initManager(manager);
         boolean success;
-        try {
-            success = manager.newChat(c);
-            assertEquals(true, success);
-            assertEquals(true, c.getId() != -1);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+
+        success = c.register();
+        assertEquals(true, success);
+        assertEquals(true, c.getId() != -1);
 
         //trying to add existing chat
         boolean test = false;
@@ -95,15 +94,17 @@ class ManagerTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        //send message in chat
     }
 
     @Test
     void updateUser() {
         initManager();
         //todo: change new bio on every execute
-        User u = repo.logIn("celina@email.com", "1234");
+        User u = manager.testLogin("celina@email.com", "1234");
         String oldBio = u.getBio();
-        String newBio = "Halloooo";
+        String newBio = "gloomy sunday";
         u.changeBio(newBio);
         boolean success = false;
         try {
@@ -122,11 +123,12 @@ class ManagerTest {
 
     @Test
     void addFriend(){
+        //todo change friends on every execute
         initManager();
         try {
             //they're not friends
-            User u1 = repo.logIn("fleuri@email.com", "1234");
-            User friend = repo.logIn("marian@email.com", "1234");
+            User u1 = manager.testLogin("willem@email.com", "1234");
+            User friend = manager.testLogin("jantje@email.com", "1234");
             List<User> friends = u1.getFriends();
             boolean success = manager.addFriend(u1, friend);
             assertEquals(true, success);
@@ -147,23 +149,22 @@ class ManagerTest {
 
     @Test
     void sendMessage() {
-        //todo check this + make db nd repo 90+
         initManager();
-        manager.removeAllChats();
-        User u1 = repo.logIn("celina@email.com", "1234");
-        User u2 = repo.logIn("test@email.com", "1234");
+        //todo change users every execute
+        User u1 = manager.testLogin("morgana@email.com", "1234");
+        User u2 = manager.testLogin("jantje@email.com", "1234");
         Chat c = new Chat(u1, u2);
-        try {
-            if(manager.newChat(c)){
-                String text = "heyooo";
-                boolean success = manager.sendMessage(u1, text, c.getId());
-                assertEquals(true, success);
-                assertEquals(1, c.getMessages().size());
-                assertEquals(text, c.getMessages().get(0).getText());
-            }
-        } catch (RemoteException e) {
-            e.printStackTrace();
+        c.initManager(manager);
+        if(c.register()){
+
+            c.initPublisher(manager.getPublisher());
+            String text = "hey! how are you?";
+            boolean success = manager.sendMessage(u2, text, c.getId());
+            assertEquals(true, success);
+            assertEquals(1, c.getMessages().size());
+            assertEquals(text, c.getMessages().get(0).getText());
         }
+
         try {
             repo.closeConn();
         } catch (SQLException e) {
@@ -174,17 +175,11 @@ class ManagerTest {
     @Test
     void newPost() {
         initManager();
-        User u1 = repo.logIn("morgana@email.com", "1234");
+        User u1 = manager.testLogin("lienke@email.com", "1234");
         u1.initPublisher(manager.getPublisher());
         try {
-            boolean success = manager.newPost("neon too", u1);
-            assertEquals(true, success);
-            if(success){
-                //check if new post is in feed of writer
-                //assertEquals(true, u1.getFeed().getPosts().contains());
-                //check if new post is in feed of writer's friends
-            }
-
+            Post success = manager.newPost("neon too", u1);
+            assertNotNull(success);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -197,10 +192,47 @@ class ManagerTest {
 
     @Test
     void updatePost() {
+        initManager();
+        User u1 = manager.testLogin("lienke@email.com", "1234");
+        u1.initPublisher(manager.getPublisher());
+        try {
+            Post p = manager.newPost("neon too", u1);
+            manager.updatePost(p, "pink flamingos");
+            assertEquals("pink flamingos", p.getText());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        try {
+            repo.closeConn();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     void deletePost() {
+        initManager();
+        User u1 = manager.testLogin("lienke@email.com", "1234");
+       // u1.getFeed().initPublisher(manager.getPublisher());
+        try {
+            Post p = manager.newPost("ugh", u1);
+            int size = u1.getFeed().getPosts().size();
+            manager.deletePost(p);
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            assertEquals((size - 1), u1.getFeed().getPosts().size());
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        try {
+            repo.closeConn();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

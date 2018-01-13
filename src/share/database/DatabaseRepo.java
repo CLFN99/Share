@@ -17,9 +17,9 @@ public class DatabaseRepo {
         this.context = context;
     }
 
-    public List<Feed> getFeeds(){return context.getFeeds();}
+    //public List<Feed> getFeeds(){return context.getFeeds();}
 
-    public List<Chat> getChats(User u){return context.getChats(u);}
+   // public List<Chat> getChats(User u){return context.getChats(u);}
 
     public boolean saveMessage(Message msg){return context.saveMessage(msg);}
 
@@ -29,7 +29,6 @@ public class DatabaseRepo {
 
     public int saveUser(User u)throws MySQLIntegrityConstraintViolationException{
        return context.saveUser(u);
-
     }
 
     public User logIn(String email, String password){return context.logIn(email,password);}
@@ -44,7 +43,11 @@ public class DatabaseRepo {
 
     public boolean addFriend(User u, User friend) throws MySQLIntegrityConstraintViolationException {return context.addFriend(u, friend);}
 
-    public List<Chat> getChats(){return context.getChats();}
+    public List<Chat> getChats(List<User> users){return context.getChats(users);}
+
+    public List<User> getAllUsers(){return context.getAllUsers();}
+    public List<User> getFeedPosts(List<User> users){return context.getFeedPosts(users);}
+    public List<User> getFriends(List<User> users){return context.getFriends(users);}
 
     public void closeConn() throws SQLException {context.closeConn();}
 }

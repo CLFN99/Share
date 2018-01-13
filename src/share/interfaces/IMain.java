@@ -30,7 +30,7 @@ public interface IMain extends Remote {
      * @param session to add
      * @return true if succeeded, false if something went wrong
      */
-    boolean addSession(Session session) throws RemoteException;
+    Session addSession(Session session) throws RemoteException;
 
     /**
      * removes a session from the list of active sessions
@@ -68,7 +68,7 @@ public interface IMain extends Remote {
      * @param txt text for the post
      * @return true if succeeded, false if something went wrong
      */
-    boolean newPost(String txt, User writer) throws RemoteException;
+    Post newPost(String txt, User writer) throws RemoteException;
 
     /**
      * updates the given post with the given text
@@ -82,4 +82,10 @@ public interface IMain extends Remote {
      * @param post
      */
     void deletePost(Post post) throws RemoteException;
+
+    /**
+     * called by session server if there is a new user
+     * @param u new user
+     */
+    void newUser(User u) throws RemoteException;
 }

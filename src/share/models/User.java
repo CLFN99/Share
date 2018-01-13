@@ -36,14 +36,6 @@ public class User implements Serializable, IUser {
 
     public void addFriend(User u){
         this.friends.add(u);
-        if(publisher != null){
-            try {
-                publisher.subscribePropertyListener(u.getFeed(), "feed"+u.getFeed().getId());
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
-
     }
 
     @Override
@@ -71,26 +63,6 @@ public class User implements Serializable, IUser {
         return username;
     }
 
-    public void setFriends(List<User> friends) {
-        this.friends = friends;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setFeed(Feed feed) {
-        this.feed = feed;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public void setId(int id){this.id = id;}
     public int getId(){return id;}
 
@@ -101,9 +73,12 @@ public class User implements Serializable, IUser {
         this.publisher = publisher;
         try {
             for(User u : friends){
-                publisher.subscribePropertyListener(u.getFeed(), "feed"+u.getFeed().getId());
-                publisher.subscribePropertyListener(u.getFeed(), "feed"+feed.getId());
+                //subscribe user's feed to friends feed
+                publisher.subscribePropertyListener(this.getFeed(), ("feed"+u.getFeed().getId()));
+
             }
+            //subscribe user to his own feed
+            publisher.subscribePropertyListener(feed, ("feed"+feed.getId()));
         } catch (RemoteException e) {
             e.printStackTrace();
         }

@@ -12,7 +12,9 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class SessionManager extends UnicastRemoteObject implements ISession {
     /**
@@ -27,6 +29,7 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
     private DatabaseRepo repo = new DatabaseRepo(new Database());
     private Registry managerRegistry;
     private IRemotePublisher publisher;
+    private List<Session> sessions;
 
     public SessionManager() throws RemoteException{
         Registry registry = LocateRegistry.createRegistry(8099);
@@ -34,6 +37,7 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
         registry.rebind("sessionManager", this);
         System.out.println("session manager bound");
         connectToMain();
+        sessions = new ArrayList<>();
     }
 
     /**
@@ -42,7 +46,7 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
      */
 
     private void connectToMain() throws RemoteException{
-        managerRegistry = LocateRegistry.getRegistry("127.0.0.1", 1099);
+        managerRegistry = LocateRegistry.getRegistry("localhost", 1099);
         System.out.println("connected to main server");
         try {
             manager = (IMain) managerRegistry.lookup("manager");
@@ -66,14 +70,16 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
         if(u != null){
             Session s = new Session(u);
             try {
-                if(manager.addSession(s)){
+                Session sesh = manager.addSession(s);
+                if( sesh != null){
+                    s = sesh;
+                    sessions.add(s);
+                    return s.getUser();
                 }
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-            return u;
         }
-
         return null;
     }
 
@@ -88,6 +94,7 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
             if(manager.removeSession(session)){
                 session.setEndTime(new Date());
                 session.setActive(false);
+                sessions.remove(session);
                 return true;
             }
         } catch (RemoteException e) {
@@ -104,11 +111,23 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
         } catch (MySQLIntegrityConstraintViolationException e) {
             e.printStackTrace();
         }
-        try {
-            publisher.registerProperty("feed" + u.getFeed().getId());
-        } catch (RemoteException e) {
-            e.printStackTrace();
+        if(id >= 0){
+            try {
+                publisher.registerProperty("feed" + u.getFeed().getId());
+                manager.newUser(u);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
         return id;
+    }
+
+    public Session getSession(User u){
+        for(Session s : sessions){
+            if(s.getUser().getId() == u.getId()){
+                return s;
+            }
+        }
+        return null;
     }
 }

@@ -12,94 +12,42 @@ public class Database implements IDatabase {
 
     public Database() {
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public List<Feed> getFeeds() {
-        List<Feed> feeds = new ArrayList<>();
-        try {
-            if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
-            }
-            String friendQuery = "SELECT fu.username, fu.email, fu.password, fu.bio FROM user u " +
-                    "INNER JOIN friends f ON f.userId = u.userId " +
-                    "INNER JOIN user fu ON fu.userId = f.friendId ";
-            PreparedStatement selectFriends = conn.prepareStatement(friendQuery);
-            ResultSet friendResult = selectFriends.executeQuery();
-
-
-            String feedQuery = "SELECT f.feedId, f.userId, u.username, u.email, u.password, u.bio, fp.postId, p.text, p.time FROM feed f " +
-                    "INNER JOIN user u ON f.userId = u.userId " +
-                    "INNER JOIN feed_posts fp ON fp.feedId = f.feedId " +
-                    "INNER JOIN post p ON p.postId = fp.postId ";
-            PreparedStatement selectFeeds = conn.prepareStatement(feedQuery);
-            ResultSet feedResult = selectFeeds.executeQuery();
-
-            while (feedResult.next()) {
-                User u = new User(feedResult.getString("username"), feedResult.getString("password"), feedResult.getString("email"),feedResult.getString("bio"));
-
-                while(friendResult.next()){
-                    User friend = new User(friendResult.getString("username"), friendResult.getString("password"), friendResult.getString("email"),friendResult.getString("bio"));
-                    u.addFriend(friend);
-                }
-
-                Feed f = new Feed(u);
-                f.setId(feedResult.getInt("feedId"));
-                feeds.add(f);
-            }
-
-            selectFeeds.close();
-            feedResult.close();
-            conn.close();
-
-            return feeds;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<Chat> getChats(User u) {
+    public List<Chat> getChats(List<User> users) {
         List<Chat> chats = new ArrayList<>();
         User uB = null;
         User uA = null;
         try{
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
             //first, get the chat and its participants
-            String getChatQuery = "Select c.chatId,  userAId, a.username as a_username, a.email as a_email, a.password as a_password, a.bio as a_bio,\n" +
-                    "userBId, b.username as b_username, b.email as b_email, b.password as b_password, b.bio as b_bio from chat c\n" +
-                    "INNER JOIN chat_participants cp ON cp.chatId = c.chatId \n" +
-                    "INNER JOIN user a ON a.userId = cp.userAId\n" +
-                    "INNER JOIN user b ON b.userId = cp.userBId\n" +
-                    "where a.userId = ? or b.userId = ?;";
-            PreparedStatement getChat = conn.prepareStatement(getChatQuery);
-            getChat.setInt(1, u.getId());
-            getChat.setInt(2, u.getId());
-            ResultSet chatResult = getChat.executeQuery();
+            String chatQuery = "select * from chat c inner join chat_participants cp on cp.chatId = c.chatId";
+            PreparedStatement getChats = conn.prepareStatement(chatQuery);
+            ResultSet chatResult = getChats.executeQuery();
             while(chatResult.next()){
-                uA = logIn(chatResult.getString("a_email"), chatResult.getString("a_password"));
-                uB = logIn(chatResult.getString("b_email"), chatResult.getString("b_password"));
-                if(uA.getEmail().equals(u.getEmail())){
-                    Chat c = new Chat(u, uB);
-                    c.setId(chatResult.getInt("chatId"));
-                    chats.add(c);
+                Chat c;
+                for(User u : users){
+                    if(u.getId() == chatResult.getInt("userAId")){
+                        uA = u;
+                    }
+                    else if(u.getId() == chatResult.getInt("userBId")){
+                        uB = u;
+                    }
                 }
-                else if(uB.getEmail().equals(u.getEmail())){
-                    Chat c = new Chat(uA, u);
+                if(uA != null && uB != null){
+                    c = new Chat(uA, uB);
                     c.setId(chatResult.getInt("chatId"));
                     chats.add(c);
                 }
             }
-           // chatResult.close();
-            getChat.close();
+
             //then, get the chat's messages
             String getMessagesQuery = "select messageId, text, time, m.userId AS messageWriter from chat c\n" +
                     "INNER JOIN message m ON c.chatId = m.chatId \n" +
@@ -113,74 +61,19 @@ public class Database implements IDatabase {
                 while(msgResult.next()){
                     if(uA.getId() == msgResult.getInt("messageWriter") && uA != null){
                         Message msg = new Message(uA, msgResult.getString("text"),c.getId());
+                        msg.setTimeStamp(msgResult.getString("time"));
+                        msg.setId(msgResult.getInt("messageId"));
                         messages.add(msg);
                     }
                     else if(uB.getId() == msgResult.getInt("messageWriter") && uA != null){
                         Message msg = new Message(uB, msgResult.getString("text"),c.getId());
+                        msg.setTimeStamp(msgResult.getString("time"));
+                        msg.setId(msgResult.getInt("messageId"));
                         messages.add(msg);
                     }
                 }
                 c.setMessages(messages);
             }
-
-            conn.close();
-
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
-        return chats;
-    }
-
-    @Override
-    public List<Chat> getChats() {
-        List<Chat> chats = new ArrayList<>();
-        User uB = null;
-        User uA = null;
-        try{
-            if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
-            }
-            //first, get the chat and its participants
-            String getChatQuery = "Select c.chatId,  userAId, a.username as a_username, a.email as a_email, a.password as a_password, a.bio as a_bio,\n" +
-                    "userBId, b.username as b_username, b.email as b_email, b.password as b_password, b.bio as b_bio from chat c\n" +
-                    "INNER JOIN chat_participants cp ON cp.chatId = c.chatId \n" +
-                    "INNER JOIN user a ON a.userId = cp.userAId\n" +
-                    "INNER JOIN user b ON b.userId = cp.userBId\n";
-            PreparedStatement getChat = conn.prepareStatement(getChatQuery);
-            ResultSet chatResult = getChat.executeQuery();
-            while(chatResult.next()){
-                uA = logIn(chatResult.getString("a_email"), chatResult.getString("a_password"));
-                uB = logIn(chatResult.getString("b_email"), chatResult.getString("b_password"));
-                Chat c = new Chat(uA, uB);
-                c.setId(chatResult.getInt("chatId"));
-                chats.add(c);
-            }
-             chatResult.close();
-            getChat.close();
-            //then, get the chat's messages
-            String getMessagesQuery = "select messageId, text, time, m.userId AS messageWriter from chat c\n" +
-                    "INNER JOIN message m ON c.chatId = m.chatId \n" +
-                    "where c.chatId = ?";
-            PreparedStatement getMessages = conn.prepareStatement(getMessagesQuery);
-            for(Chat c : chats){
-                List<Message> messages = new ArrayList<>();
-                getMessages.setInt(1, c.getId());
-                ResultSet msgResult = getMessages.executeQuery();
-
-                while(msgResult.next()){
-                    if(uA.getId() == msgResult.getInt("messageWriter") && uA != null){
-                        Message msg = new Message(uA, msgResult.getString("text"),c.getId());
-                        messages.add(msg);
-                    }
-                    else if(uB.getId() == msgResult.getInt("messageWriter") && uA != null){
-                        Message msg = new Message(uB, msgResult.getString("text"),c.getId());
-                        messages.add(msg);
-                    }
-                }
-                c.setMessages(messages);
-            }
-
             conn.close();
 
         }
@@ -194,7 +87,7 @@ public class Database implements IDatabase {
     public boolean saveMessage(Message msg) {
         try {
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
             String query = "INSERT INTO message (text, time, chatId, userId) VALUES (?, ?,?,?)";
             PreparedStatement insertMessage = conn.prepareStatement(query);
@@ -216,7 +109,7 @@ public class Database implements IDatabase {
     public boolean saveChat(Chat c) {
         try {
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
             String query = "INSERT INTO chat (chatId) VALUES (?)";
             PreparedStatement insertChat = conn.prepareStatement(query);
@@ -235,8 +128,6 @@ public class Database implements IDatabase {
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-
         }
         return false;
     }
@@ -247,7 +138,7 @@ public class Database implements IDatabase {
         try {
 
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
 
             String searchQuery = "select * from user where username like concat(?,'%') or username like concat('%',?) or username like concat('%',?, '%')";
@@ -271,7 +162,7 @@ public class Database implements IDatabase {
     public int saveUser(User u) throws MySQLIntegrityConstraintViolationException {
         try {
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
             String query = "INSERT INTO user (username, email, password, bio) VALUES (?,?,?,?);";
                     ;
@@ -292,7 +183,6 @@ public class Database implements IDatabase {
             }
             getId.close();
             result.close();
-
 
             String feedQuery = "insert into feed ( userId) values (?);";
             PreparedStatement insertFeed = conn.prepareStatement(feedQuery);
@@ -332,7 +222,7 @@ public class Database implements IDatabase {
         try {
 
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
 
             String query = "SELECT * FROM user WHERE email = ? AND password = ?;";
@@ -349,13 +239,8 @@ public class Database implements IDatabase {
             }
 
             validateUser.close();
-            if(u!= null){
-                u.setFeed(getFeed(u));
-                u.setFriends(getFriends(u));
-            }
-
-
-          //  conn.close();
+            //TODO: AFTER LOGIN IN ADDSESSION LOOP THROUGH ALL USERS AND SET SESSION USER TO ONE W SAME ID
+            conn.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -367,7 +252,7 @@ public class Database implements IDatabase {
     public boolean updateUser(User u) {
         try {
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
             String query = "update user set bio = ? where userId = ?";
             PreparedStatement updateUser = conn.prepareStatement(query);
@@ -388,7 +273,7 @@ public class Database implements IDatabase {
     public int savePost(Post p) {
         try {
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
             String query = "INSERT INTO post(text, time, userId) VALUES ( ?,?,?)";
             PreparedStatement insertPost = conn.prepareStatement(query);
@@ -433,7 +318,7 @@ public class Database implements IDatabase {
     public boolean updatePost(Post p) {
         try {
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
             String query = "update post set text = ?, time = ? where post.postId = ?";
             PreparedStatement insertPost = conn.prepareStatement(query);
@@ -455,7 +340,7 @@ public class Database implements IDatabase {
     public boolean deletePost(Post p) {
         try {
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
             String feedQuery = "delete from feed_posts where postId = ?;";
             String postQuery =  "delete from post where postId = ?";
@@ -481,7 +366,7 @@ public class Database implements IDatabase {
     public boolean addFriend(User u, User friend) throws MySQLIntegrityConstraintViolationException{
         try {
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
             String query = "INSERT INTO friends (userId, friendId) VALUES (?, ?)";
             String query2 = "INSERT INTO friends (userId, friendId) VALUES (?, ?)";
@@ -512,81 +397,99 @@ public class Database implements IDatabase {
     }
 
     @Override
-    public Feed getFeed(User u) {
-        Feed f = new Feed(u);
+    public List<User> getAllUsers() {
+        //get all users + their feed
+        //get user's feed
+        //get users friends
+        List<User> users = new ArrayList<>();
         try {
-
             if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
+            String userQuery = "SELECT f.feedId, f.userId, u.username, u.email, u.password, u.bio FROM feed f \n" +
+                    "                    INNER JOIN user u ON f.userId = u.userId";
+            PreparedStatement getUsers = conn.prepareStatement(userQuery);
+            ResultSet userResult = getUsers.executeQuery();
+            while(userResult.next()){
+                User u = new User(userResult.getString("username"), userResult.getString("password"),
+                        userResult.getString("email"), userResult.getString("bio"));
+                u.setId(userResult.getInt("userId"));
+                u.getFeed().setId(userResult.getInt("feedId"));
+                users.add(u);
+            }
+            getUsers.close();
+            userResult.close();
 
-            String getFeedQuery= "select u.username, u.userId, u.password, u.email, u.bio, f.feedId, p.postId, p.text, p.time from feed f \n" +
-                    "                    inner join feed_posts fp on fp.feedId = f.feedId inner join post p on p.postId = fp.postId \n" +
-                    "                    inner join user u on p.userId = u.userId\n" +
-                    "                    where f.userId = ?";
-            PreparedStatement getFeed = conn.prepareStatement(getFeedQuery);
-            getFeed.setInt(1,u.getId());
-            ResultSet result = getFeed.executeQuery();
-            boolean hasPosts = false;
-            while(result.next()){
-                hasPosts = true;
-                User writer = new User(result.getString("username"), result.getString("password"),
-                        result.getString("email"), result.getString("bio"));
-                writer.setId(result.getInt("userId"));
-                Post p = new Post(result.getString("text"), writer);
-                p.setId(result.getInt("postId"));
-                f.getPosts().add(p);
-                f.setId(result.getInt("feedId"));
-            }
-            getFeed.close();
-            result.close();
-            if(!hasPosts){
-                String query = "select * from feed where userId = ?";
-                PreparedStatement st = conn.prepareStatement(query);
-                st.setInt(1, u.getId());
-                ResultSet res = st.executeQuery();
-                while(res.next()){
-                    f.setId(res.getInt("feedId"));
-                }
-                res.close();
-                st.close();;
-            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return f;
-    }
-
-    @Override
-    public List<User> getFriends(User u) {
-        List<User> friends = new ArrayList<>();
-        try {
-
-            if(conn.isClosed()){
-                conn = DriverManager.getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi365425", "dbi365425", "proftaaks3");
-            }
-
-            String getFriendsQuery= "select u.userId, u.username, u.password, u.email, u.bio from user u \n" +
-                    "                    inner join friends f on f.friendId = u.userId\n" +
-                    "                    where f.userId = ? ";
-            PreparedStatement getFriends = conn.prepareStatement(getFriendsQuery);
-            getFriends.setInt(1, u.getId());
-            ResultSet result = getFriends.executeQuery();
-            while(result.next()){
-                User friend = new User(result.getString("username"), result.getString("password"),
-                        result.getString("email"), result.getString("bio"));
-                friend.setId(result.getInt("userId"));
-                friend.setFeed(getFeed(friend));
-                friends.add(friend);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return friends;
+        return users;
     }
 
     public Connection getConn(){return  conn;}
 
+    @Override
+    public List<User> getFeedPosts(List<User> users ){
+        List<Post> posts;
+        try {
+            if(conn.isClosed()){
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
+            }
+            String query = "SELECT f.feedId, f.userId, fp.postId, p.text, p.time FROM feed f \n" +
+                    "                    INNER JOIN user u ON f.userId = u.userId  \n" +
+                    "                    INNER JOIN feed_posts fp ON fp.feedId = f.feedId \n" +
+                    "                    INNER JOIN post p ON p.postId = fp.postId\n" +
+                    "                    where f.feedId = ?";
+            PreparedStatement getPosts = conn.prepareStatement(query);
+            for(User u : users){
+                posts = new ArrayList<>();
+                getPosts.setInt(1, u.getFeed().getId());
+                ResultSet result = getPosts.executeQuery();
+                while (result.next()){
+                    for(User writer : users){
+                        if(writer.getId() == result.getInt("userId")){
+                            Post p = new Post(result.getString("text"), writer);
+                            p.setId(result.getInt("postId"));
+                            posts.add(p);
+                        }
+                    }
+                }
+                u.getFeed().setPosts(posts);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+    @Override
+    public List<User> getFriends(List<User> users){
+        //loop through user and get from friends where userId = ?
+        try {
+            if(conn.isClosed()){
+                conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
+            }
+            //get the friends and add them to list of friends AFTER U'VE GOTTEN FEED POSTS AND REGISTERED PROPERTY!
+            String friendQuery = "select * from friends where userId = ?";
+            PreparedStatement getFriends = conn.prepareStatement(friendQuery);
+
+            for(User u : users){
+                getFriends.setInt(1, u.getId());
+                ResultSet friendResult = getFriends.executeQuery();
+                while(friendResult.next()){
+                        for(User friend : users){
+                            if(friend.getId() == friendResult.getInt("friendId")){
+                                u.addFriend(friend);
+                            }
+                        }
+                }
+            }
+            getFriends.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
     @Override
     public void closeConn() throws SQLException {this.conn.close();}
 }

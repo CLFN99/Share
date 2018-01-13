@@ -10,6 +10,7 @@ public class Message implements Serializable {
     private String timeStamp;
     private int chatId;
     private String text;
+    private int id;
 
     public Message(User user, String text, int chatId){
         this.user = user;
@@ -40,4 +41,11 @@ public class Message implements Serializable {
         return text;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

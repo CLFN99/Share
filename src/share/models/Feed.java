@@ -6,16 +6,17 @@ import share.server.IRemotePropertyListener;
 import share.server.IRemotePublisher;
 
 import java.beans.PropertyChangeEvent;
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Feed implements IFeed, IRemotePropertyListener {
+public class Feed implements IFeed, IRemotePropertyListener, Serializable {
     private List<Post> posts;
     private User user;
     private int Id;
-    private IMain manager;
-    private IRemotePublisher publisher;
+    private transient IMain manager;
+    private transient IRemotePublisher publisher;
 
     /**
      * creates new feed
@@ -73,19 +74,23 @@ public class Feed implements IFeed, IRemotePropertyListener {
     public void initManager(IMain manager){
         this.manager = manager;
     }
-    public void initPublisher(IRemotePublisher publisher){
-        this.publisher = publisher;
-        try {
-            publisher.subscribePropertyListener(this, "feed" + this.Id);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
-
+//    public void initPublisher(IRemotePublisher publisher){
+//        this.publisher = publisher;
+//        try {
+//            publisher.subscribePropertyListener(this, "feed" + this.Id);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//todo: check if inform gets done on update post
     @Override
     public void propertyChange(PropertyChangeEvent var1) throws RemoteException {
+        //if there's a new post
+        if(var1.getOldValue() == null){
+            this.posts.add((Post)var1.getNewValue());
+        }
         //if the post has been changed
-        if(var1.getOldValue() != null){
+        else if(var1.getOldValue() != null && (int)var1.getOldValue() != -1){
             Post post = (Post) var1.getNewValue();
             for(Post p : this.posts){
                 if(p.getId() == post.getId()){
@@ -93,10 +98,7 @@ public class Feed implements IFeed, IRemotePropertyListener {
                 }
             }
         }
-        //if there's a new post
-        else if(var1.getOldValue() == null && (int)var1.getOldValue() != -1){
-            this.posts.add((Post)var1.getNewValue());
-        }
+
         else if((int)var1.getOldValue() == -1){
             this.posts.remove(var1.getNewValue());
         }

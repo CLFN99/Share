@@ -64,15 +64,15 @@ public class Chat implements IChat, IRemotePropertyListener {
     public List<User> getUsers(){return this.users;}
 
     @Override
-    public void register() {
+    public boolean register() {
         if(manager != null){
             try {
-                manager.newChat(this);
+                return manager.newChat(this);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
         }
-
+        return false;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class Chat implements IChat, IRemotePropertyListener {
     public void initPublisher(IRemotePublisher publisher){
         this.publisher = publisher;
         try {
-            publisher.subscribePropertyListener(this, "chat");
+            publisher.subscribePropertyListener(this, "chat" + this.getId());
         } catch (RemoteException e) {
             e.printStackTrace();
         }

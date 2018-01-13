@@ -7,7 +7,7 @@ public interface IChat {
      * this registers the chat in the list of active chats on the main share.tests.server
      * calls IMain.newChat
      */
-    void register();
+    boolean register();
 
     /**
      * sets the chat ID

@@ -27,6 +27,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
         createClient("127.0.0.1",1099);
+        manager.searchUser("d");
     }
 
 

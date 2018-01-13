@@ -27,6 +27,8 @@ public class Session implements Serializable {
         return user;
     }
 
+    public void setUser(User u){this.user = u;}
+
     public boolean isActive() {
         return active;
     }
