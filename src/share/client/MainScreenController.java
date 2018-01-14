@@ -30,6 +30,9 @@ public class MainScreenController implements Initializable {
     private User currentUser;
     private List<User> results;
     private List<Chat> chats;
+    private UserController userController;
+    private Post selectedPost = null;
+
     @FXML
     private ListView<Label> chatsListView;
 
@@ -43,13 +46,25 @@ public class MainScreenController implements Initializable {
     private AnchorPane tabChat;
 
     @FXML
+    private ListView<Label> listViewFeed;
+
+    @FXML
+    private Button btnNewPost;
+
+    @FXML
+    private Button btnChange;
+
+    @FXML
+    private Button btnDeletePost;
+
+    @FXML
     private AnchorPane tabProfiel;
 
     @FXML
     private Label lblUsername;
 
     @FXML
-    private Label lblBio;
+    private TextArea lblBio;
 
     @FXML
     private Button btnChangeBio;
@@ -76,10 +91,91 @@ public class MainScreenController implements Initializable {
     private ObservableList<Label> resultUsers = FXCollections.observableArrayList();
     private ObservableList<Label> friends = FXCollections.observableArrayList();
     private ObservableList<Label> chatList = FXCollections.observableArrayList();
+    private ObservableList<Label> feedList = FXCollections.observableArrayList();
+
 
     @FXML
-    void btnChangeBio_Click(ActionEvent event) {
+    void btnChangeBio_Click(Event event) {
+        if(btnChangeBio.getText().equals("Wijzigen")){
+            lblBio.setEditable(true);
+            btnChangeBio.setText("Opslaan");
 
+        }
+        else if(btnChangeBio.getText().equals("Opslaan")){
+            currentUser.changeBio(lblBio.getText());
+            try {
+                manager.updateUser(currentUser);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+            lblBio.setEditable(false);
+            btnChangeBio.setText("Wijzigen");
+        }
+
+    }
+    @FXML
+    void btnChangePost_Click(Event event) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ChangePostScreen.fxml"));
+        Parent root1 = null;
+        try {
+            root1 = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ChangePostController controller = fxmlLoader.getController();
+        controller.setManagers(manager, currentUser, selectedPost);
+        Stage stage = new Stage();
+        stage.setTitle("Nieuwe post");
+        stage.setScene(new Scene(root1));
+        stage.show();
+    }
+
+    @FXML
+    void btnDeletePost_Click(Event event) {
+        try {
+            manager.deletePost(selectedPost);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void btnNewPost_Click(Event event) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewPost.fxml"));
+        Parent root1 = null;
+        try {
+            root1 = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        NewPostController controller = fxmlLoader.getController();
+        controller.setManagers(manager, currentUser);
+        Stage stage = new Stage();
+        stage.setTitle("Nieuwe post");
+        stage.setScene(new Scene(root1));
+//        stage.setOnHidden(e -> {
+//            stage.close();
+//        });
+        stage.show();
+    }
+
+    @FXML
+    void btnRefresh_Click(Event event){
+        refresh();
+    }
+
+    @FXML
+    void selectPost(Event event) {
+        String selected = listViewFeed.getSelectionModel().getSelectedItem().getText();
+        String req = selected.substring(0, selected.indexOf(";"));
+        int id = Integer.parseInt(req);
+        for(Post p : currentUser.getFeed().getPosts()){
+            if(p.getId() == id && p.getWriter().getId() == currentUser.getId()){
+                selectedPost = p;
+                btnChange.setDisable(false);
+                btnDeletePost.setDisable(false);
+            }
+        }
     }
 
     @FXML
@@ -172,7 +268,7 @@ public class MainScreenController implements Initializable {
 
     @FXML
     void openFeedTab(Event event) {
-
+        refresh();
     }
 
     @FXML
@@ -246,19 +342,28 @@ public class MainScreenController implements Initializable {
 
     }
 
-    public void setManagers(IMain manager, ISession sessionManager, User u){
+     public void setManagers(IMain manager, ISession sessionManager, User u){
         this.manager = manager;
         this.sessionManager = sessionManager;
         this.currentUser = u;
+        try {
+            userController = new UserController(manager.getPublisher(), this, currentUser);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
         resultListView.setItems(resultUsers);
         listViewFriends.setItems(friends);
         chatsListView.setItems(chatList);
+        listViewFeed.setItems(feedList);
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
+    public void shutdown(){
+        userController.unsubscribe();
+    }
     void goToUserProfile(User user){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UserScreen.fxml"));
         Parent root1 = null;
@@ -268,11 +373,25 @@ public class MainScreenController implements Initializable {
             e.printStackTrace();
         }
         UserScreenController controller = fxmlLoader.getController();
-        controller.setManagers(this.manager, this.sessionManager, this.currentUser, user);
+        controller.setManagers(this.manager, this.currentUser, user);
         Stage stage = new Stage();
         stage.setTitle("Gebruiker");
         stage.setScene(new Scene(root1));
         stage.show();
     }
 
+    public void setUser(User u){
+        this.currentUser = u;
+    }
+    private void refresh(){
+        listViewFeed.getItems().clear();
+        feedList.clear();
+        currentUser.getFeed().initManager(manager);
+        currentUser.getFeed().setPosts(currentUser.getFeed().refresh());
+        for(Post p : currentUser.getFeed().getPosts()){
+            Label lbl = new Label();
+            feedList.add(lbl);
+            lbl.setText(p.getId() + "; " + p.getWriter().getUsername() + ": \"" + p.getText() + "\" at " + p.getTimeStamp() );
+        }
+    }
 }

@@ -18,6 +18,7 @@ public class ChatController extends UnicastRemoteObject implements IRemoteProper
         this.publisher = publisher;
         this.chat = chat;
         this.publisher = publisher;
+        this.screenController = screenController;
         try {
             publisher.subscribePropertyListener(this, ("chat"+ chat.getId()));
         } catch (RemoteException e) {

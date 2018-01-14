@@ -30,7 +30,6 @@ public class Chat implements IChat, Serializable {
         users.add(userA);
         users.add(userB);
         id = -1;
-        register();
     }
 
     /**
@@ -58,7 +57,7 @@ public class Chat implements IChat, Serializable {
     public List<User> getUsers(){return this.users;}
 
     @Override
-    public boolean register() {
+    public int register() {
         if(manager != null){
             try {
                 return manager.newChat(this);
@@ -66,7 +65,7 @@ public class Chat implements IChat, Serializable {
                 e.printStackTrace();
             }
         }
-        return false;
+        return -1;
     }
 
     @Override

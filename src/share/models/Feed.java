@@ -11,7 +11,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Feed implements IFeed, IRemotePropertyListener, Serializable {
+public class Feed implements IFeed,Serializable {
     private List<Post> posts;
     private User user;
     private int Id;
@@ -69,40 +69,9 @@ public class Feed implements IFeed, IRemotePropertyListener, Serializable {
         }
         return posts;
     }
-//todo: as soon as new feed(user) is made, initialize publisher of both
 
     public void initManager(IMain manager){
         this.manager = manager;
     }
-//    public void initPublisher(IRemotePublisher publisher){
-//        this.publisher = publisher;
-//        try {
-//            publisher.subscribePropertyListener(this, "feed" + this.Id);
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//todo: check if inform gets done on update post
-    @Override
-    public void propertyChange(PropertyChangeEvent var1) throws RemoteException {
-        //if there's a new post
-        if(var1.getOldValue() == null){
-            this.posts.add((Post)var1.getNewValue());
-        }
-        else if((int)var1.getOldValue() == -1){
-            this.posts.remove(var1.getNewValue());
-        }
-        //if the post has been changed
-        else if(var1.getOldValue() != null || (int)var1.getOldValue() != -1){
-            Post post = (Post) var1.getNewValue();
-            for(Post p : this.posts){
-                if(p.getId() == post.getId()){
-                    p.setText(post.getText());
-                }
-            }
-        }
 
-
-
-    }
 }

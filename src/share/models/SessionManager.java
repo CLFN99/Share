@@ -113,8 +113,8 @@ public class SessionManager extends UnicastRemoteObject implements ISession {
             e.printStackTrace();
         }
         if(id >= 0){
+            u.setId(id);
             try {
-                publisher.registerProperty("feed" + u.getFeed().getId());
                 manager.newUser(u);
             } catch (RemoteException e) {
                 e.printStackTrace();

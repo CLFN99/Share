@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="389.0" prefWidth="247.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="share.client.NewUserScreenController">
+   <children>
+      <Label layoutX="26.0" layoutY="20.0" text="Registreren">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tbEmail" layoutX="26.0" layoutY="89.0" promptText="Email adres" />
+      <TextField fx:id="tbUsername" layoutX="26.0" layoutY="135.0" promptText="Gebruikersnaam" />
+      <TextField fx:id="tbPassword" layoutX="26.0" layoutY="177.0" promptText="Wachtwoord" />
+      <TextArea fx:id="tbBio" layoutX="26.0" layoutY="223.0" prefHeight="97.0" prefWidth="187.0" promptText="biografie" />
+      <Button layoutX="26.0" layoutY="334.0" mnemonicParsing="false" onAction="#btnSaveUser" text="Registreer" />
+   </children>
+</AnchorPane>

@@ -76,20 +76,18 @@ class ManagerTest {
         User u2 = manager.testLogin("amen@email.com", "1234");
         Chat c = new Chat(u1, u2);
         c.initManager(manager);
-        boolean success;
-
-        success = c.register();
-        assertEquals(true, success);
+        int id = c.register();
+        assertEquals(true, id != -1);
         assertEquals(true, c.getId() != -1);
 
         //trying to add existing chat
-        boolean test = false;
+        int id2 = -1;
         try {
-            test = manager.newChat(c);
+            id2 = manager.newChat(c);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        assertEquals(false, test);
+        assertEquals(false, id2!=-1);
         try {
             repo.closeConn();
         } catch (SQLException e) {
@@ -156,7 +154,7 @@ class ManagerTest {
         User u2 = manager.testLogin("billie@email.com", "1234");
         Chat c = new Chat(u1, u2);
         c.initManager(manager);
-        if(c.register()){
+        if(c.register() != -1){
             String text = "hey! how are you?";
             boolean success = manager.sendMessage(u2, text, c.getId());
             assertEquals(true, success);

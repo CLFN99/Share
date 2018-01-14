@@ -76,7 +76,6 @@ public class Manager extends UnicastRemoteObject implements IMain {
         //get users friends
         users = repo.getFriends(users);
         for(User u : users){
-            u.initPublisher(publisher);
             feeds.add(u.getFeed());
         }
         System.out.println("done w getting data");
@@ -134,19 +133,18 @@ public class Manager extends UnicastRemoteObject implements IMain {
     }
 
     @Override
-    public boolean newChat(Chat chat) throws RemoteException{
+    public int newChat(Chat chat) throws RemoteException{
         if(chat.getId() == -1){
-            chat.setId(createChatId());
-            this.activeChats.add(chat);
             repo.saveChat(chat);
+            this.activeChats.add(chat);
             try {
                 publisher.registerProperty("chat" + chat.getId());
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-            return true;
+            return chat.getId();
         }
-        return false;
+        return -1;
     }
 
     @Override
@@ -199,11 +197,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
         p.setTimeStamp(dateFormat.format(time));
         if(repo.savePost(p) != -1){
             writer.getFeed().getPosts().add(p);
-            try {
-                publisher.inform("feed" + writer.getFeed().getId(), null, p);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
+            refreshFeeds(p);
             return p;
         }
         return null;
@@ -216,35 +210,56 @@ public class Manager extends UnicastRemoteObject implements IMain {
         if(repo.updatePost(post)){
             post.getWriter().getFeed().getPosts().remove(post);
             post.getWriter().getFeed().getPosts().add(post);
-            try {
-                publisher.inform("feed" + post.getWriter().getFeed().getId(), prevValue, post);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
+            refreshFeeds(post);
         }
     }
 
     @Override
     public void deletePost(Post post) throws RemoteException{
         if(repo.deletePost(post)){
+            boolean in = false;
             for(Post p : post.getWriter().getFeed().getPosts()){
                 if(p.getId() == post.getId()){
+                    in = true;
                     post = p;
                     break;
                 }
             }
-            post.getWriter().getFeed().getPosts().remove(post);
-            try {
-                publisher.inform("feed" + post.getWriter().getFeed().getId(), -1, post);
-            } catch (RemoteException e) {
-                e.printStackTrace();
+            if(in){
+                for(User friend : post.getWriter().getFriends()){
+                    friend.getFeed().getPosts().remove(post);
+                }
+                post.getWriter().getFeed().getPosts().remove(post);
+                refreshFeeds(post);
+            }
+//            try {
+//               // publisher.inform("feed" + post.getWriter().getFeed().getId(), -1, post);
+//            } catch (RemoteException e) {
+//                e.printStackTrace();
+//            }
+        }
+    }
+    private void refreshFeeds(Post post){
+    for(Feed f : feeds){
+        if(Objects.equals(f.getUser().getEmail(), post.getWriter().getEmail())){
+            f.setPosts(post.getWriter().getFeed().getPosts());
+            break;
+        }
+        for(User friend : post.getWriter().getFriends()){
+            if(f.getUser().getEmail().equals(friend.getEmail())){
+                f.setPosts(post.getWriter().getFeed().getPosts());
             }
         }
     }
-
+}
     @Override
     public void newUser(User u) {
         this.users.add(u);
+        try {
+            publisher.registerProperty("user"+u.getId());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -1,17 +1,11 @@
 package share.models;
 
-import share.interfaces.IMain;
 import share.interfaces.IUser;
-import share.server.IRemotePropertyListener;
-import share.server.IRemotePublisher;
-
-import java.beans.PropertyChangeEvent;
 import java.io.Serializable;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User implements Serializable, IUser, IRemotePropertyListener {
+public class User implements Serializable, IUser {
     private String username;
     private String password;
     private List<User> friends;
@@ -19,8 +13,6 @@ public class User implements Serializable, IUser, IRemotePropertyListener {
     private String bio;
     private Feed feed;
     private int id;
-    private transient IMain manager;
-    private transient IRemotePublisher publisher;
 
     public User(String username, String password, String email, String bio){
         this.username = username;
@@ -66,28 +58,8 @@ public class User implements Serializable, IUser, IRemotePropertyListener {
 
     public void setId(int id){this.id = id;}
     public int getId(){return id;}
-
-    public void initManager(IMain manager){
-        this.manager = (Manager) manager;
-    }
-    public void initPublisher(IRemotePublisher publisher){
-        this.publisher = publisher;
-        try {
-            for(User u : friends){
-                //subscribe user's feed to friends feed
-                publisher.subscribePropertyListener(this.getFeed(), ("feed"+u.getFeed().getId()));
-            }
-            //subscribing to changes to itself
-            publisher.subscribePropertyListener(this, "user"+id);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+    public void setFriends(List<User> friends){
+        this.friends = friends;
     }
 
-    @Override
-    public void propertyChange(PropertyChangeEvent var1) throws RemoteException {
-        User u = (User) var1.getNewValue();
-        this.bio = u.getBio();
-        this.friends = u.getFriends();
-    }
 }

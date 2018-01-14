@@ -6,14 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import share.interfaces.IMain;
 import share.interfaces.ISession;
 import share.models.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ResourceBundle;
@@ -53,12 +52,21 @@ public class LoginController implements Initializable {
                     stage.setTitle("Share");
                     stage.setScene(new Scene(root1));
                     stage.show();
+
+                    stage.setOnHidden(e -> {
+                        controller.shutdown();
+                        stage.close();
+                    });
                     Stage stage1 = (Stage) btnLogIn.getScene().getWindow();
                     stage1.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Er ging iets mis! Voer een juist email-adres en wachtwoord in.", ButtonType.OK);
+                alert.showAndWait();
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -67,6 +75,19 @@ public class LoginController implements Initializable {
 
     @FXML
     void linkRegister_Click(ActionEvent event) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewUserScreen.fxml"));
+        Parent root1 = null;
+        try {
+            root1 = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        NewUserScreenController controller = fxmlLoader.getController();
+        controller.setManagers(this.sessionManager);
+        Stage stage = new Stage();
+        stage.setTitle("Share");
+        stage.setScene(new Scene(root1));
+        stage.show();
 
     }
 

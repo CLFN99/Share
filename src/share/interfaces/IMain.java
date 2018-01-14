@@ -43,9 +43,9 @@ public interface IMain extends Remote {
     /**
      * crates a new chat and adds it to the list of active chats
      * @param c chat to be registered
-     * @return true if succeeded, false if something went wrong
+     * @return chat id
      */
-    boolean newChat(Chat c) throws RemoteException;
+    int newChat(Chat c) throws RemoteException;
 
     /**
      * updates a user if there have been changes made to their profile

@@ -123,11 +123,21 @@ public class Database implements IDatabase {
             if(conn.isClosed()){
                 conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
-            String query = "INSERT INTO chat (chatId) VALUES (?)";
+            String query = "INSERT INTO chat () VALUES ()";
             PreparedStatement insertChat = conn.prepareStatement(query);
-            insertChat.setInt(1, c.getId());
             insertChat.execute();
             insertChat.close();
+
+            String getIdQuery = "SELECT last_insert_id();";
+            PreparedStatement getId = conn.prepareStatement(getIdQuery);
+            ResultSet result = getId.executeQuery();
+            int id = 0;
+            while(result.next()){
+                id = result.getInt("last_insert_id()");
+            }
+            getId.close();
+            result.close();
+            c.setId(id);
 
             String participantsQuery = "insert into chat_participants (userAId, userBId, chatId) values (?, ?, ?)";
             PreparedStatement insertParticipants = conn.prepareStatement(participantsQuery);
@@ -454,7 +464,7 @@ public class Database implements IDatabase {
             if(conn.isClosed()){
                 conn = conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/share", "proftaak", "Proftaak34C");
             }
-            String query = "SELECT f.feedId, f.userId, fp.postId, p.text, p.time FROM feed f \n" +
+            String query = "SELECT f.feedId, f.userId, fp.postId, p.text, p.time, p.userId as writer FROM feed f \n" +
                     "                    INNER JOIN user u ON f.userId = u.userId  \n" +
                     "                    INNER JOIN feed_posts fp ON fp.feedId = f.feedId \n" +
                     "                    INNER JOIN post p ON p.postId = fp.postId\n" +
@@ -466,7 +476,7 @@ public class Database implements IDatabase {
                 ResultSet result = getPosts.executeQuery();
                 while (result.next()){
                     for(User writer : users){
-                        if(writer.getId() == result.getInt("userId")){
+                        if(writer.getId() == result.getInt("writer")){
                             Post p = new Post(result.getString("text"), writer);
                             p.setId(result.getInt("postId"));
                             p.setTimeStamp(result.getString("time"));

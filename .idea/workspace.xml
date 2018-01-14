@@ -103,8 +103,8 @@
       <file leaf-file-name="Manager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/share/models/Manager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="55" column="57" lean-forward="false" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+            <state relative-caret-position="261">
+              <caret line="172" column="5" lean-forward="true" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,12 +112,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/share/interfaces/IMain.java">
+      <file leaf-file-name="Publisher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/share/server/Publisher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="94" column="58" lean-forward="false" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
+            <state relative-caret-position="264">
+              <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/share/client/ChatController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="20" column="49" lean-forward="false" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/share/client/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,44 +149,45 @@
       <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/share/database/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="233" column="0" lean-forward="false" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1515946571173" expanded="true" signature="949:1025" ph="select * fro... chat" />
-                <marker date="1515946571173" expanded="true" signature="1823:2006" ph="select messa... " />
-                <marker date="1515946571173" expanded="true" signature="3685:3751" ph="INSERT INTO message... " />
-                <marker date="1515946571173" expanded="true" signature="4164:4187" ph="SELECT last_... " />
-                <marker date="1515946571173" expanded="true" signature="4950:4986" ph="INSERT INTO chat... " />
-                <marker date="1515946571173" expanded="true" signature="5214:5287" ph="insert into chat_participants... " />
-                <marker date="1515946571173" expanded="true" signature="6150:6269" ph="select * fro... user" />
-                <marker date="1515946571173" expanded="true" signature="7402:7468" ph="INSERT INTO user... " />
-                <marker date="1515946571173" expanded="true" signature="7896:7919" ph="SELECT last_... " />
-                <marker date="1515946571173" expanded="true" signature="8265:8302" ph="insert into feed... " />
-                <marker date="1515946571173" expanded="true" signature="8525:8548" ph="SELECT last_... " />
-                <marker date="1515946571173" expanded="true" signature="9550:9601" ph="SELECT * FRO... user" />
-                <marker date="1515946571173" expanded="true" signature="10597:10637" ph="update user " />
-                <marker date="1515946571173" expanded="true" signature="11267:11319" ph="INSERT INTO post... " />
-                <marker date="1515946571173" expanded="true" signature="11659:11682" ph="select last_... " />
-                <marker date="1515946571173" expanded="true" signature="12063:12116" ph="insert into feed_posts... " />
-                <marker date="1515946571173" expanded="true" signature="13067:13123" ph="update post " />
-                <marker date="1515946571173" expanded="true" signature="13819:13858" ph="delete from " />
-                <marker date="1515946571173" expanded="true" signature="13895:13928" ph="delete from " />
-                <marker date="1515946571173" expanded="true" signature="14801:14853" ph="INSERT INTO friends... " />
-                <marker date="1515946571173" expanded="true" signature="14885:14937" ph="INSERT INTO friends... " />
-                <marker date="1515946571173" expanded="true" signature="16227:16392" ph="SELECT f.fee... feed" />
-                <marker date="1515946571173" expanded="true" signature="17442:17845" ph="SELECT f.fee... feed" />
-                <marker date="1515946571173" expanded="true" signature="19221:19259" ph="select * fro... friends" />
+                <marker date="1515963578405" expanded="true" signature="949:1025" ph="select * fro... chat" />
+                <marker date="1515963578405" expanded="true" signature="1823:2006" ph="select messa... " />
+                <marker date="1515963578405" expanded="true" signature="3685:3751" ph="INSERT INTO message... " />
+                <marker date="1515963578405" expanded="true" signature="4164:4187" ph="SELECT last_... " />
+                <marker date="1515963578405" expanded="true" signature="4950:4979" ph="INSERT INTO chat... " />
+                <marker date="1515963578405" expanded="true" signature="5155:5178" ph="SELECT last_... " />
+                <marker date="1515963578405" expanded="true" signature="5557:5630" ph="insert into chat_participants... " />
+                <marker date="1515963578405" expanded="true" signature="6493:6612" ph="select * fro... user" />
+                <marker date="1515963578405" expanded="true" signature="7745:7811" ph="INSERT INTO user... " />
+                <marker date="1515963578405" expanded="true" signature="8239:8262" ph="SELECT last_... " />
+                <marker date="1515963578405" expanded="true" signature="8608:8645" ph="insert into feed... " />
+                <marker date="1515963578405" expanded="true" signature="8868:8891" ph="SELECT last_... " />
+                <marker date="1515963578405" expanded="true" signature="9893:9944" ph="SELECT * FRO... user" />
+                <marker date="1515963578405" expanded="true" signature="10940:10980" ph="update user " />
+                <marker date="1515963578405" expanded="true" signature="11610:11662" ph="INSERT INTO post... " />
+                <marker date="1515963578405" expanded="true" signature="12002:12025" ph="select last_... " />
+                <marker date="1515963578405" expanded="true" signature="12406:12459" ph="insert into feed_posts... " />
+                <marker date="1515963578405" expanded="true" signature="13410:13466" ph="update post " />
+                <marker date="1515963578405" expanded="true" signature="14162:14201" ph="delete from " />
+                <marker date="1515963578405" expanded="true" signature="14238:14271" ph="delete from " />
+                <marker date="1515963578405" expanded="true" signature="15144:15196" ph="INSERT INTO friends... " />
+                <marker date="1515963578405" expanded="true" signature="15228:15280" ph="INSERT INTO friends... " />
+                <marker date="1515963578405" expanded="true" signature="16570:16735" ph="SELECT f.fee... feed" />
+                <marker date="1515963578405" expanded="true" signature="17785:18208" ph="SELECT f.fee... feed" />
+                <marker date="1515963578405" expanded="true" signature="19584:19622" ph="select * fro... friends" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManagerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/share/tests/ManagerTest.java">
+      <file leaf-file-name="SessionManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/share/models/SessionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="193" column="64" lean-forward="false" selection-start-line="193" selection-start-column="64" selection-end-line="193" selection-end-column="64" />
+            <state relative-caret-position="394">
+              <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -171,70 +196,30 @@
       <file leaf-file-name="MainScreenController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/share/client/MainScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="238" column="26" lean-forward="true" selection-start-line="238" selection-start-column="26" selection-end-line="238" selection-end-column="26" />
+            <state relative-caret-position="169">
+              <caret line="314" column="0" lean-forward="false" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#btnLogOut_Click#0;class#MainScreenController#0" expanded="false" />
+                <element signature="method#btnChangeBio_Click#0;class#MainScreenController#0" expanded="false" />
+                <element signature="method#btnNewPost_Click#0;class#MainScreenController#0" expanded="false" />
+                <element signature="method#btnSearch_Click#0;class#MainScreenController#0" expanded="false" />
+                <element signature="method#listItem_Click#0;class#MainScreenController#0" expanded="false" />
+                <element signature="method#openFriendsTab#0;class#MainScreenController#0" expanded="false" />
+                <element signature="method#friendClicked#0;class#MainScreenController#0" expanded="false" />
+                <element signature="method#goToUserProfile#0;class#MainScreenController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Chat.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/share/models/Chat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChatController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/share/client/ChatController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChatScreenController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChatScreenController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/share/client/ChatScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="88" column="37" lean-forward="true" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+            <state relative-caret-position="188">
+              <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1830#2473#0" expanded="true" />
-                <element signature="e#2472#2473#0" expanded="true" />
-                <element signature="e#2711#2712#0" expanded="true" />
-                <element signature="e#2750#2751#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IRemotePublisher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/share/server/IRemotePublisher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="10" column="101" lean-forward="false" selection-start-line="10" selection-start-column="101" selection-end-line="10" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Publisher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/share/server/Publisher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -248,39 +233,43 @@
         <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>last</find>
-      <find>bertha</find>
-      <find>getChat</find>
-      <find>inform</find>
-      <find>repo.logIn</find>
       <find>Chat</find>
       <find>up</find>
       <find>sav</find>
-      <find>delete</find>
       <find>friend</find>
       <find>friends</find>
       <find>todo</find>
       <find>DriverManager</find>
       <find>addS</find>
       <find>updatePo</find>
-      <find>saveU</find>
       <find>search</find>
       <find>sear</find>
       <find>Post</find>
-      <find>saveP</find>
       <find>addFri</find>
       <find>update</find>
       <find>getCh</find>
       <find>last_o</find>
       <find>saveMe</find>
       <find>send</find>
+      <find>saveC</find>
+      <find>register</find>
+      <find>upd</find>
+      <find>delete</find>
+      <find>newp</find>
+      <find>refre</find>
+      <find>getFeedP</find>
+      <find>del</find>
+      <find>alert</find>
+      <find>saveP</find>
+      <find>saveU</find>
+      <find>newU</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -299,15 +288,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/interfaces/ISession.java" />
-        <option value="$PROJECT_DIR$/src/server/ChatListener.java" />
-        <option value="$PROJECT_DIR$/src/models/Chat.java" />
-        <option value="$PROJECT_DIR$/src/server/IRemotePropertyListener.java" />
-        <option value="$PROJECT_DIR$/src/tests/DatabaseTest.java" />
-        <option value="$PROJECT_DIR$/src/server/MainServer.java" />
-        <option value="$PROJECT_DIR$/src/interfaces/IMain.java" />
-        <option value="$PROJECT_DIR$/src/models/User.java" />
-        <option value="$PROJECT_DIR$/src/models/Feed.java" />
         <option value="$PROJECT_DIR$/src/models/Session.java" />
         <option value="$PROJECT_DIR$/src/server/IRemotePublisher.java" />
         <option value="$PROJECT_DIR$/src/client/Main.java" />
@@ -319,37 +299,46 @@
         <option value="$PROJECT_DIR$/src/share/server/LoginServer.java" />
         <option value="$PROJECT_DIR$/src/share/models/ManagerTest.java" />
         <option value="$PROJECT_DIR$/src/share/interfaces/IFeed.java" />
-        <option value="$PROJECT_DIR$/src/share/interfaces/IChat.java" />
         <option value="$PROJECT_DIR$/src/share/models/Message.java" />
         <option value="$PROJECT_DIR$/src/share/models/Session.java" />
         <option value="$PROJECT_DIR$/src/share/test.policy" />
         <option value="$PROJECT_DIR$/src/share/tests/SessionManagerTest.java" />
         <option value="$PROJECT_DIR$/src/share/tests/DatabaseTest.java" />
-        <option value="$PROJECT_DIR$/src/share/models/Feed.java" />
         <option value="$PROJECT_DIR$/src/share/client/sample.fxml" />
         <option value="$PROJECT_DIR$/src/share/client/LoginScreen.fxml" />
         <option value="$PROJECT_DIR$/src/share/client/Main.java" />
         <option value="$PROJECT_DIR$/src/share/interfaces/ISession.java" />
-        <option value="$PROJECT_DIR$/src/share/models/SessionManager.java" />
         <option value="$PROJECT_DIR$/src/share/database/IDatabase.java" />
         <option value="$PROJECT_DIR$/src/share/database/DatabaseRepo.java" />
         <option value="$PROJECT_DIR$/src/share/models/Post.java" />
         <option value="$PROJECT_DIR$/src/share/client/MainScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/share/client/UserScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/share/client/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/share/client/UserScreenController.java" />
-        <option value="$PROJECT_DIR$/src/share/models/User.java" />
         <option value="$PROJECT_DIR$/src/share/client/ChatScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/share/database/Database.java" />
-        <option value="$PROJECT_DIR$/src/share/models/Chat.java" />
-        <option value="$PROJECT_DIR$/src/share/interfaces/IMain.java" />
-        <option value="$PROJECT_DIR$/src/share/models/Manager.java" />
-        <option value="$PROJECT_DIR$/src/share/tests/ManagerTest.java" />
-        <option value="$PROJECT_DIR$/src/share/client/MainScreenController.java" />
         <option value="$PROJECT_DIR$/src/share/server/IRemotePublisher.java" />
         <option value="$PROJECT_DIR$/src/share/server/Publisher.java" />
-        <option value="$PROJECT_DIR$/src/share/client/ChatController.java" />
         <option value="$PROJECT_DIR$/src/share/client/ChatScreenController.java" />
+        <option value="$PROJECT_DIR$/src/share/client/NewChatScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/share/client/UserScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/share/interfaces/IMain.java" />
+        <option value="$PROJECT_DIR$/src/share/interfaces/IChat.java" />
+        <option value="$PROJECT_DIR$/src/share/models/Chat.java" />
+        <option value="$PROJECT_DIR$/src/share/tests/ManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/share/client/UserScreenController.java" />
+        <option value="$PROJECT_DIR$/src/share/client/NewPost.fxml" />
+        <option value="$PROJECT_DIR$/src/share/client/FeedController.java" />
+        <option value="$PROJECT_DIR$/src/share/models/User.java" />
+        <option value="$PROJECT_DIR$/src/share/database/Database.java" />
+        <option value="$PROJECT_DIR$/src/share/models/Feed.java" />
+        <option value="$PROJECT_DIR$/src/share/client/UserController.java" />
+        <option value="$PROJECT_DIR$/src/share/client/ChangePostScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/share/client/MainScreenController.java" />
+        <option value="$PROJECT_DIR$/src/share/client/ChangePostController.java" />
+        <option value="$PROJECT_DIR$/src/share/client/NewUserScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/share/client/NewPostController.java" />
+        <option value="$PROJECT_DIR$/src/share/models/SessionManager.java" />
+        <option value="$PROJECT_DIR$/src/share/client/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/share/client/NewUserScreenController.java" />
+        <option value="$PROJECT_DIR$/src/share/models/Manager.java" />
+        <option value="$PROJECT_DIR$/src/share/client/ChatController.java" />
       </list>
     </option>
   </component>
@@ -958,7 +947,7 @@
       <workItem from="1515747381458" duration="9179000" />
       <workItem from="1515768948776" duration="18996000" />
       <workItem from="1515841717999" duration="31728000" />
-      <workItem from="1515936704565" duration="13232000" />
+      <workItem from="1515936704565" duration="29080000" />
     </task>
     <servers />
   </component>
@@ -995,7 +984,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139593000" />
+    <option name="totallyTimeSpent" value="155441000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1011,29 +1000,30 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917705" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1546724" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="SonarQube" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3890086" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917705" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1546724" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3890086" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1046,7 +1036,6 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33243823" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1103,54 +1092,54 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/share/models/Manager.java</url>
-          <line>219</line>
-          <properties />
-          <option name="timeStamp" value="120" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/share/models/Feed.java</url>
-          <line>88</line>
-          <properties />
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/share/models/Feed.java</url>
-          <line>95</line>
-          <properties />
-          <option name="timeStamp" value="124" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/share/models/User.java</url>
-          <line>88</line>
-          <properties />
-          <option name="timeStamp" value="134" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/share/models/Manager.java</url>
-          <line>164</line>
+          <line>162</line>
           <properties />
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/share/models/Manager.java</url>
-          <line>54</line>
+          <line>140</line>
           <properties />
-          <option name="timeStamp" value="147" />
+          <option name="timeStamp" value="153" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/share/models/Manager.java</url>
-          <line>178</line>
+          <line>235</line>
           <properties />
-          <option name="timeStamp" value="148" />
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/share/models/SessionManager.java</url>
+          <line>110</line>
+          <properties />
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/share/models/SessionManager.java</url>
+          <line>117</line>
+          <properties />
+          <option name="timeStamp" value="189" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/share/models/Manager.java</url>
-          <line>180</line>
+          <line>256</line>
           <properties />
-          <option name="timeStamp" value="150" />
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/share/database/Database.java</url>
+          <line>233</line>
+          <properties />
+          <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/share/client/ChatController.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="195" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="152" />
+      <option name="time" value="196" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1159,92 +1148,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/share/database/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="112" lean-forward="false" selection-start-line="4" selection-start-column="112" selection-end-line="4" selection-end-column="112" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1515946571173" expanded="true" signature="949:1025" ph="select * fro... chat" />
-            <marker date="1515946571173" expanded="true" signature="1823:2006" ph="select messa... " />
-            <marker date="1515946571173" expanded="true" signature="3685:3751" ph="INSERT INTO message... " />
-            <marker date="1515946571173" expanded="true" signature="4164:4187" ph="SELECT last_... " />
-            <marker date="1515946571173" expanded="true" signature="4950:4986" ph="INSERT INTO chat... " />
-            <marker date="1515946571173" expanded="true" signature="5214:5287" ph="insert into chat_participants... " />
-            <marker date="1515946571173" expanded="true" signature="6150:6269" ph="select * fro... user" />
-            <marker date="1515946571173" expanded="true" signature="7402:7468" ph="INSERT INTO user... " />
-            <marker date="1515946571173" expanded="true" signature="7896:7919" ph="SELECT last_... " />
-            <marker date="1515946571173" expanded="true" signature="8265:8302" ph="insert into feed... " />
-            <marker date="1515946571173" expanded="true" signature="8525:8548" ph="SELECT last_... " />
-            <marker date="1515946571173" expanded="true" signature="9550:9601" ph="SELECT * FRO... user" />
-            <marker date="1515946571173" expanded="true" signature="10597:10637" ph="update user " />
-            <marker date="1515946571173" expanded="true" signature="11267:11319" ph="INSERT INTO post... " />
-            <marker date="1515946571173" expanded="true" signature="11659:11682" ph="select last_... " />
-            <marker date="1515946571173" expanded="true" signature="12063:12116" ph="insert into feed_posts... " />
-            <marker date="1515946571173" expanded="true" signature="13067:13123" ph="update post " />
-            <marker date="1515946571173" expanded="true" signature="13819:13858" ph="delete from " />
-            <marker date="1515946571173" expanded="true" signature="13895:13928" ph="delete from " />
-            <marker date="1515946571173" expanded="true" signature="14801:14853" ph="INSERT INTO friends... " />
-            <marker date="1515946571173" expanded="true" signature="14885:14937" ph="INSERT INTO friends... " />
-            <marker date="1515946571173" expanded="true" signature="16227:16392" ph="SELECT f.fee... feed" />
-            <marker date="1515946571173" expanded="true" signature="17442:17845" ph="SELECT f.fee... feed" />
-            <marker date="1515946571173" expanded="true" signature="19221:19259" ph="select * fro... friends" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/server/LoginServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/client/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/interfaces/ISession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/tests/DatabaseTest.java" />
-    <entry file="jar://$PROJECT_DIR$/mysql-connector-java-5.1.44-bin.jar!/com/mysql/jdbc/PreparedStatement.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="355" column="0" lean-forward="false" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/DatabaseTest.java" />
-    <entry file="jar://$PROJECT_DIR$/mysql-connector-java-5.1.44-bin.jar!/com/mysql/jdbc/ResultSetImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="3128" column="0" lean-forward="false" selection-start-line="3128" selection-start-column="0" selection-end-line="3128" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/ChatListener.java" />
     <entry file="file://$PROJECT_DIR$/src/share/server/IRemotePropertyListener.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1259,22 +1162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IFeed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IChat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1324,14 +1211,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/Feed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="93" column="9" lean-forward="false" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/share/tests/DatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1371,14 +1250,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/client/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="27" column="43" lean-forward="false" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/share/client/LoginScreen.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1400,14 +1271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/SessionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1743">
-          <caret line="97" column="47" lean-forward="false" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/share/database/IDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
@@ -1416,14 +1279,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/Post.java">
+    <entry file="file://$PROJECT_DIR$/src/share/client/ChatScreen.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#865#866#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="189">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/server/IRemotePublisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="10" column="101" lean-forward="false" selection-start-line="10" selection-start-column="101" selection-end-line="10" selection-end-column="101" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1432,24 +1303,27 @@
         <state relative-caret-position="126">
           <caret line="12" column="281" lean-forward="false" selection-start-line="12" selection-start-column="281" selection-end-line="12" selection-end-column="281" />
           <folding>
-            <marker date="1515942818764" expanded="true" signature="1641:2612" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="1665:2593" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="1781:2568" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="1813:2536" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="1911:2064" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="1945:2031" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="2189:2342" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="2223:2309" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="2683:3105" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="2707:3086" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="3200:3628" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="3224:3609" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="3346:3584" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="3378:3571" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="3584:3609" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="4137:4219" ph="..." />
-            <marker date="1515942818764" expanded="true" signature="4153:4203" ph="..." />
+            <marker date="1515960324996" expanded="true" signature="4527:4552" ph="..." />
           </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/NewChatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/NewChatScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -1459,7 +1333,7 @@
     <entry file="file://$PROJECT_DIR$/src/share/client/UserScreen.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1467,31 +1341,53 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/client/UserScreenController.java">
+    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IChat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
-          <caret line="58" column="44" lean-forward="false" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/client/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/database/DatabaseRepo.java">
+    <entry file="file://$PROJECT_DIR$/src/share/tests/ManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="49" column="51" lean-forward="false" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+        <state relative-caret-position="251">
+          <caret line="156" column="29" lean-forward="false" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/UserScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="45" column="22" lean-forward="false" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/models/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1113">
+          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IFeed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1513,22 +1409,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/User.java">
+    <entry file="file://$PROJECT_DIR$/src/share/models/Post.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state relative-caret-position="348">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1052#1053#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/client/ChatScreen.fxml">
+    <entry file="file://$PROJECT_DIR$/src/share/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="169">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1051#1052#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/models/Feed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="70" column="5" lean-forward="false" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding>
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#827#828#0" expanded="true" />
+            <element signature="e#1743#1744#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/NewPost.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1536,121 +1462,194 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/database/Database.java">
+    <entry file="file://$PROJECT_DIR$/src/share/client/ChangePostScreen.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="10" column="89" lean-forward="false" selection-start-line="10" selection-start-column="89" selection-end-line="10" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/FeedController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/NewUserScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <marker date="1515965987125" expanded="true" signature="1150:1163" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/ChangePostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="25" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1515946571173" expanded="true" signature="949:1025" ph="select * fro... chat" />
-            <marker date="1515946571173" expanded="true" signature="1823:2006" ph="select messa... " />
-            <marker date="1515946571173" expanded="true" signature="3685:3751" ph="INSERT INTO message... " />
-            <marker date="1515946571173" expanded="true" signature="4164:4187" ph="SELECT last_... " />
-            <marker date="1515946571173" expanded="true" signature="4950:4986" ph="INSERT INTO chat... " />
-            <marker date="1515946571173" expanded="true" signature="5214:5287" ph="insert into chat_participants... " />
-            <marker date="1515946571173" expanded="true" signature="6150:6269" ph="select * fro... user" />
-            <marker date="1515946571173" expanded="true" signature="7402:7468" ph="INSERT INTO user... " />
-            <marker date="1515946571173" expanded="true" signature="7896:7919" ph="SELECT last_... " />
-            <marker date="1515946571173" expanded="true" signature="8265:8302" ph="insert into feed... " />
-            <marker date="1515946571173" expanded="true" signature="8525:8548" ph="SELECT last_... " />
-            <marker date="1515946571173" expanded="true" signature="9550:9601" ph="SELECT * FRO... user" />
-            <marker date="1515946571173" expanded="true" signature="10597:10637" ph="update user " />
-            <marker date="1515946571173" expanded="true" signature="11267:11319" ph="INSERT INTO post... " />
-            <marker date="1515946571173" expanded="true" signature="11659:11682" ph="select last_... " />
-            <marker date="1515946571173" expanded="true" signature="12063:12116" ph="insert into feed_posts... " />
-            <marker date="1515946571173" expanded="true" signature="13067:13123" ph="update post " />
-            <marker date="1515946571173" expanded="true" signature="13819:13858" ph="delete from " />
-            <marker date="1515946571173" expanded="true" signature="13895:13928" ph="delete from " />
-            <marker date="1515946571173" expanded="true" signature="14801:14853" ph="INSERT INTO friends... " />
-            <marker date="1515946571173" expanded="true" signature="14885:14937" ph="INSERT INTO friends... " />
-            <marker date="1515946571173" expanded="true" signature="16227:16392" ph="SELECT f.fee... feed" />
-            <marker date="1515946571173" expanded="true" signature="17442:17845" ph="SELECT f.fee... feed" />
-            <marker date="1515946571173" expanded="true" signature="19221:19259" ph="select * fro... friends" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/models/Chat.java">
+    <entry file="file://$PROJECT_DIR$/src/share/client/NewPostController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="499">
+          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="82" column="12" lean-forward="false" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="32" />
+          <folding>
+            <element signature="method#btnLogIn_Click#0;class#LoginController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/NewUserScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="39" column="122" lean-forward="false" selection-start-line="39" selection-start-column="122" selection-end-line="39" selection-end-column="122" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1636#1637#0" expanded="true" />
+            <element signature="e#1674#1675#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/database/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="233" column="0" lean-forward="false" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1515963578405" expanded="true" signature="949:1025" ph="select * fro... chat" />
+            <marker date="1515963578405" expanded="true" signature="1823:2006" ph="select messa... " />
+            <marker date="1515963578405" expanded="true" signature="3685:3751" ph="INSERT INTO message... " />
+            <marker date="1515963578405" expanded="true" signature="4164:4187" ph="SELECT last_... " />
+            <marker date="1515963578405" expanded="true" signature="4950:4979" ph="INSERT INTO chat... " />
+            <marker date="1515963578405" expanded="true" signature="5155:5178" ph="SELECT last_... " />
+            <marker date="1515963578405" expanded="true" signature="5557:5630" ph="insert into chat_participants... " />
+            <marker date="1515963578405" expanded="true" signature="6493:6612" ph="select * fro... user" />
+            <marker date="1515963578405" expanded="true" signature="7745:7811" ph="INSERT INTO user... " />
+            <marker date="1515963578405" expanded="true" signature="8239:8262" ph="SELECT last_... " />
+            <marker date="1515963578405" expanded="true" signature="8608:8645" ph="insert into feed... " />
+            <marker date="1515963578405" expanded="true" signature="8868:8891" ph="SELECT last_... " />
+            <marker date="1515963578405" expanded="true" signature="9893:9944" ph="SELECT * FRO... user" />
+            <marker date="1515963578405" expanded="true" signature="10940:10980" ph="update user " />
+            <marker date="1515963578405" expanded="true" signature="11610:11662" ph="INSERT INTO post... " />
+            <marker date="1515963578405" expanded="true" signature="12002:12025" ph="select last_... " />
+            <marker date="1515963578405" expanded="true" signature="12406:12459" ph="insert into feed_posts... " />
+            <marker date="1515963578405" expanded="true" signature="13410:13466" ph="update post " />
+            <marker date="1515963578405" expanded="true" signature="14162:14201" ph="delete from " />
+            <marker date="1515963578405" expanded="true" signature="14238:14271" ph="delete from " />
+            <marker date="1515963578405" expanded="true" signature="15144:15196" ph="INSERT INTO friends... " />
+            <marker date="1515963578405" expanded="true" signature="15228:15280" ph="INSERT INTO friends... " />
+            <marker date="1515963578405" expanded="true" signature="16570:16735" ph="SELECT f.fee... feed" />
+            <marker date="1515963578405" expanded="true" signature="17785:18208" ph="SELECT f.fee... feed" />
+            <marker date="1515963578405" expanded="true" signature="19584:19622" ph="select * fro... friends" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/database/DatabaseRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/models/SessionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/interfaces/IMain.java">
+    <entry file="file://$PROJECT_DIR$/src/share/client/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="94" column="58" lean-forward="false" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
-          <folding />
+        <state relative-caret-position="188">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/share/models/Manager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="55" column="57" lean-forward="false" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+        <state relative-caret-position="261">
+          <caret line="172" column="5" lean-forward="true" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/tests/ManagerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/share/server/Publisher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="193" column="64" lean-forward="false" selection-start-line="193" selection-start-column="64" selection-end-line="193" selection-end-column="64" />
+        <state relative-caret-position="264">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/share/client/MainScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="238" column="26" lean-forward="true" selection-start-line="238" selection-start-column="26" selection-end-line="238" selection-end-column="26" />
+        <state relative-caret-position="169">
+          <caret line="314" column="0" lean-forward="false" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#btnLogOut_Click#0;class#MainScreenController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/server/IRemotePublisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="10" column="101" lean-forward="false" selection-start-line="10" selection-start-column="101" selection-end-line="10" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/server/Publisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/share/client/ChatController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#btnChangeBio_Click#0;class#MainScreenController#0" expanded="false" />
+            <element signature="method#btnNewPost_Click#0;class#MainScreenController#0" expanded="false" />
+            <element signature="method#btnSearch_Click#0;class#MainScreenController#0" expanded="false" />
+            <element signature="method#listItem_Click#0;class#MainScreenController#0" expanded="false" />
+            <element signature="method#openFriendsTab#0;class#MainScreenController#0" expanded="false" />
+            <element signature="method#friendClicked#0;class#MainScreenController#0" expanded="false" />
+            <element signature="method#goToUserProfile#0;class#MainScreenController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/share/client/ChatScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="88" column="37" lean-forward="true" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+        <state relative-caret-position="188">
+          <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1830#2473#0" expanded="true" />
-            <element signature="e#2472#2473#0" expanded="true" />
-            <element signature="e#2711#2712#0" expanded="true" />
-            <element signature="e#2750#2751#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/share/client/ChatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="20" column="49" lean-forward="false" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
