@@ -80,7 +80,7 @@ public class ChatScreenController {
                     }
                 });
             }
-        }, 0, 100);
+        }, 0, 50);
 
     }
 

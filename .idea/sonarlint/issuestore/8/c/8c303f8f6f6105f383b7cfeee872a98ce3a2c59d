@@ -1,23 +1,0 @@
-
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(·þö°
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ƒæ†–ûÿÿÿÿ
-_squid:S2259"JA "NullPointerException" could be thrown; "mainRegistry" is nullable here.(Á¡¥®
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÏïÚýúÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-tsquid:S1450"_Remove the "publisherListner" field and declare it as a local variable in the relevant methods.(û„¯±
-psquid:S1450"[Remove the "mainRegistry" field and declare it as a local variable in the relevant methods.(ÓÏ¦Œ
-Bsquid:S1313".Make this IP "127.0.0.1" address configurable.(É„§>
-Ysquid:S2147"DCombine this catch with the one at line 70, which has the same body.(®ÞØÍ
-xsquid:S1450"^Remove the "sessionRegistry" field and declare it as a local variable in the relevant methods.(ð–Šúøÿÿÿÿ
-L
-squid:S106"9Replace this use of System.out or System.err by a logger.(ï³Áf
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÁþÐ˜
-Isquid:S1068"4Remove this unused "publisherListner" private field.(û„¯±
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÝÑ¦¯ûÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÊÔ¸‹
-?squid:S3457"%String contains no format specifiers.(ƒæ†–ûÿÿÿÿ

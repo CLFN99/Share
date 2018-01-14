@@ -1,28 +1,28 @@
 
-Ysquid:S1226"DIntroduce a new variable instead of reusing the parameter "session".(≤°ê¡
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ò•˘ö¯ˇˇˇˇ8ï€˚≥è,
+nsquid:S1488"ZImmediately return this expression instead of assigning it to the temporary variable "id".(Ÿº∂{
+]squid:UselessImportCheck"6Remove this unused import 'share.interfaces.ISession'.(˝¢ÈÈ˝ˇˇˇˇ
 R
 squid:S106"9Replace this use of System.out or System.err by a logger.(Û˙åΩ˚ˇˇˇˇ
-L
-squid:S106"9Replace this use of System.out or System.err by a logger.(óÅØ8
-Dsquid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ8ùÊ±µè,
-_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‚±”o
-Osquid:S1481".Remove this unused "prevValue" local variable.(˙ÛÈ‚˚ˇˇˇˇ8ÂÎó¥è,
-@squid:S1948"&Make "repo" transient or serializable.(≠À„°˚ˇˇˇˇ
-`squid:UnusedPrivateMethod"1Remove this unused private "createChatId" method.(À‘éë˛ˇˇˇˇ8¢ôÔØè,
 ?squid:S2160"+Override the "equals" method in this class.(¢Á£7
-tsquid:S1488"ZImmediately return this expression instead of assigning it to the temporary variable "id".(™œã¯ˇˇˇˇ
-^squid:S1854"=Remove this useless assignment to local variable "prevValue".(˙ÛÈ‚˚ˇˇˇˇ8ÂÎó¥è,
-bsquid:S1226"AIntroduce a new variable instead of reusing the parameter "post".(¶Ëúƒ˘ˇˇˇˇ8∑ß¯≥è,
-Ysquid:HiddenFieldCheck"9Rename "users" which hides the field declared at line 34.(≠«≥°
-@squid:S1168"+Return an empty collection instead of null.(•πÔç
+Wsquid:S1854"=Remove this useless assignment to local variable "prevValue".(˙ÛÈ‚˚ˇˇˇˇ
+=squid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ
 R
 squid:S106"9Replace this use of System.out or System.err by a logger.(’Í°Æ˚ˇˇˇˇ
+=squid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ
+@squid:S1948"&Make "repo" transient or serializable.(≠À„°˚ˇˇˇˇ
+Ysquid:HiddenFieldCheck"9Rename "users" which hides the field declared at line 34.(≠«≥°
+=squid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ
+=squid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ
+[squid:S1226"AIntroduce a new variable instead of reusing the parameter "post".(¶Ëúƒ˘ˇˇˇˇ
+Ysquid:UnusedPrivateMethod"1Remove this unused private "createChatId" method.(À‘éë˛ˇˇˇˇ
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‚±”o
 esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Èÿª⁄˚ˇˇˇˇ
+=squid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ
+@squid:S1168"+Return an empty collection instead of null.(•πÔç
+Ysquid:S1226"DIntroduce a new variable instead of reusing the parameter "session".(≤°ê¡
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ò•˘ö¯ˇˇˇˇ
 rsquid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "users".(≠«≥°
-nsquid:S1488"ZImmediately return this expression instead of assigning it to the temporary variable "id".(Ÿº∂{
-=squid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ
-=squid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ
-]squid:UselessImportCheck"6Remove this unused import 'share.interfaces.ISession'.(˝¢ÈÈ˝ˇˇˇˇ
-=squid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ
-=squid:S1148"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇ
+tsquid:S1488"ZImmediately return this expression instead of assigning it to the temporary variable "id".(™œã¯ˇˇˇˇ
+Hsquid:S1481".Remove this unused "prevValue" local variable.(˙ÛÈ‚˚ˇˇˇˇ
+L
+squid:S106"9Replace this use of System.out or System.err by a logger.(óÅØ8

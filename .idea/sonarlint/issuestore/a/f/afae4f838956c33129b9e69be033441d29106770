@@ -1,6 +1,0 @@
-
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-osquid:UselessImportCheck"ARemove this unused import 'share.server.IRemotePropertyListener'.(Àâ·°øÿÿÿÿ8»™´,
-dsquid:UselessImportCheck";Remove this unused import 'java.beans.PropertyChangeEvent'.(’¢œ§8Ëü™´,
-hsquid:S00116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬µä›şÿÿÿÿ
-Gsquid:S1068"-Remove this unused "publisher" private field.(âëéˆûÿÿÿÿ

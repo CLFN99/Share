@@ -214,7 +214,7 @@ public class MainScreenController implements Initializable {
         try {
             results = manager.searchUser(tbSearch.getText());
             tabSearchResults.setDisable(false);
-            selectionModel.select(4);
+            selectionModel.select(5);
             if(results.isEmpty()){
                 Label label = new Label();
                 resultUsers.add(label);

@@ -1,5 +1,0 @@
-
-Ksquid:S1068"/Remove this unused "currentUser" private field.(ûË¥ó8ä©Ë´,
-Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ùªÉ´,
-ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Şµ«è8ùªÉ´,
-vsquid:S1450"ZRemove the "currentUser" field and declare it as a local variable in the relevant methods.(ûË¥ó8ä©Ë´,
