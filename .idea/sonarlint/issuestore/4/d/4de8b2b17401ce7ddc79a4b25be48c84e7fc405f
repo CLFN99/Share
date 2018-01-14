@@ -1,0 +1,11 @@
+
+@squid:S2160"+Override the "equals" method in this class.(ş¨Èï
+Hsquid:S1905"'Remove this unnecessary cast to "List".(±çÈ›şÿÿÿÿ8´ş˜­,
+asquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(‰µø”ÿÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(¢â¼
+;squid:S1948"&Make "pool" transient or serializable.(Îë‹™
+Msquid:S1948"3Make "propertyListeners" transient or serializable.(Òô ûÿÿÿÿ
+Csquid:S1905"'Remove this unnecessary cast to "List".(…àÈğ8ÆÏ’­,
+Hsquid:S1905"'Remove this unnecessary cast to "List".(ÒÚÃ”øÿÿÿÿ8ÆÏ’­,
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥’ğ·üÿÿÿÿ

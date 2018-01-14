@@ -1,0 +1,6 @@
+
+csquid:UselessImportCheck":Remove this unused import 'share.server.IRemotePublisher'.(şÓÄ»8¥Œ”¬,
+osquid:UselessImportCheck"ARemove this unused import 'share.server.IRemotePropertyListener'.(Àâ·°øÿÿÿÿ8ÕÒ÷«,
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+dsquid:UselessImportCheck";Remove this unused import 'java.beans.PropertyChangeEvent'.(’¢œ§8ó¬÷«,
+Osquid:S1068".Remove this unused "controller" private field.(ˆá¹Œüÿÿÿÿ8ó¬÷«,

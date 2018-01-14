@@ -15,6 +15,19 @@
    <children>
       <TabPane fx:id="tabPane" layoutY="91.0" prefHeight="437.0" prefWidth="600.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
+            <Tab text="Home">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="214.0" layoutY="167.0" text="Welkom!">
+                           <font>
+                              <Font size="44.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
             <Tab onSelectionChanged="#openProfileTab" text="Profiel">
               <content>
                 <AnchorPane fx:id="tabProfiel" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">

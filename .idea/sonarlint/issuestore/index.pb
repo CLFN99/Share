@@ -1,0 +1,63 @@
+
+R
+"src\share\interfaces\ISession.java,4\1\418e6a8c1a3365d34639302e4644502157ec63c1
+P
+ src\share\client\ChatScreen.fxml,4\c\4c2cfe00bd650cb6a6e1645f3be6649a5999c453
+V
+&src\share\server\IRemotePublisher.java,4\8\48c8c78a884f672e556b67703921703386454eb0
+P
+ src\share\client\MainScreen.fxml,5\3\5317f9b24c2d370ece8547c0041c92d9dffe9d5d
+P
+ src\share\client\UserScreen.fxml,1\8\1836cbb1d3720fda5c427d38cc1b3a595e79d496
+O
+src\share\interfaces\IChat.java,f\9\f90ee2c23460a41b35bc43a89b066b4620e154c4
+P
+ src\share\tests\ManagerTest.java,e\8\e8985ec7f9964e75c4607456216126834eba293f
+Z
+*src\share\client\UserScreenController.java,f\4\f46f4aa9e3dc8bdebb867d3bfc7b19715c6c9923
+O
+src\share\interfaces\IMain.java,d\8\d8c54c27de60440096872d6ae67e6604b4274b0d
+J
+src\share\models\Chat.java,b\d\bdc2665be12e4be36b92ba103ef34dceec7e2ca9
+O
+src\share\interfaces\IFeed.java,4\9\49e2bf5a44dae8118a74a3b9046a6efc237dec2a
+J
+src\share\models\Post.java,5\0\50efb2451e50a412b7c719d500198d3b3c993c88
+M
+src\share\client\NewPost.fxml,1\1\11cc0314d81d19a4c2b6d61f3372c8e2b69c169e
+V
+&src\share\client\ChangePostScreen.fxml,f\e\fe3df155470193235d84debf3388a59972da54d4
+J
+src\share\models\Feed.java,a\f\afae4f838956c33129b9e69be033441d29106770
+J
+src\share\models\User.java,4\b\4b2f6ac6cd4dcec78399932b7c9757100f426125
+Z
+*src\share\client\ChangePostController.java,7\d\7ddd8423ec5cb1715a0ab7ca7619b75261ff4a93
+J
+src\share\client\Main.java,8\c\8c303f8f6f6105f383b7cfeee872a98ce3a2c59d
+S
+#src\share\client\NewUserScreen.fxml,d\2\d2114170c015f7e87fc987f5b8d357222f4d12c1
+U
+%src\share\client\LoginController.java,2\7\27839af8b03e21cbae33bd7ab3f9178b6d8db838
+W
+'src\share\client\NewPostController.java,4\9\49f30269449783a550a204c1bd0220e68ef2aa6a
+]
+-src\share\client\NewUserScreenController.java,5\5\556a35a3cafc11559b6a8095682a3a6917ab4152
+T
+$src\share\database\DatabaseRepo.java,5\1\513a79f03ca1cc4b57d87109c8808a09050818ef
+P
+ src\share\database\Database.java,4\0\406ad1a545b6b33827f91559f372fd5ed3309d64
+Z
+*src\share\client\MainScreenController.java,9\5\958d789572507d11995d1880f5a24c03c6c0e569
+T
+$src\share\models\SessionManager.java,5\0\503e28279c0e9fc7625f554f50c5b43bd4952e0a
+Z
+*src\share\client\ChatScreenController.java,d\c\dc324eb60717327cd9c53f0e0f3e9c31afc9dc4b
+M
+src\share\models\Manager.java,f\4\f47ccc91b778912c62ce5f91a0806402ba4ebc90
+T
+$src\share\client\UserController.java,a\2\a292ccc979ed4a80ade390dd35a94857971ad2a4
+O
+src\share\server\Publisher.java,4\d\4de8b2b17401ce7ddc79a4b25be48c84e7fc405f
+T
+$src\share\client\ChatController.java,8\b\8b664120e1da417e1740c2a64a56b90774849da2
