@@ -4,6 +4,7 @@ import share.models.Post;
 import share.models.Session;
 import share.models.User;
 import share.models.*;
+import share.server.IRemotePublisher;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -88,4 +89,8 @@ public interface IMain extends Remote {
      * @param u new user
      */
     void newUser(User u) throws RemoteException;
+
+    List<Chat> getChats(int id) throws RemoteException;
+
+    IRemotePublisher getPublisher() throws RemoteException;
 }

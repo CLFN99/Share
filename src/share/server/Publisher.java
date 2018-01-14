@@ -29,6 +29,25 @@ public class Publisher extends UnicastRemoteObject implements IRemotePublisher {
         (this.propertyListeners.get(property)).add(listener);
     }
 
+    @Override
+    public void unsubscribeRemoteListener(IRemotePropertyListener listener, String property) throws RemoteException {
+            if (property != null) {
+                List<IRemotePropertyListener> listeners = (List)this.propertyListeners.get(property);
+                if (listeners != null) {
+                    listeners.remove(listener);
+                    ((List)this.propertyListeners.get((Object)null)).remove(listener);
+                }
+            } else {
+                List<String> keyset = new ArrayList(this.propertyListeners.keySet());
+                Iterator var4 = keyset.iterator();
+
+                while(var4.hasNext()) {
+                    String key = (String)var4.next();
+                    ((List)this.propertyListeners.get(key)).remove(listener);
+                }
+            }
+    }
+
     public void inform(String property, Object oldValue, Object newValue)  throws RemoteException{
         ArrayList listenersToBeInformed = new ArrayList();
         if (property != null) {

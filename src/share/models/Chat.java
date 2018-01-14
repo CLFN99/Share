@@ -1,22 +1,24 @@
 package share.models;
 
+import share.client.ChatScreenController;
 import share.interfaces.IChat;
 import share.interfaces.IMain;
 import share.server.IRemotePropertyListener;
 import share.server.IRemotePublisher;
 
 import java.beans.PropertyChangeEvent;
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Chat implements IChat, IRemotePropertyListener {
+public class Chat implements IChat, Serializable {
     private int id;
     private List<Message> messages;
     private List<User> users;
-    private IMain manager;
-    private IRemotePublisher publisher;
-
+    private transient IMain manager;
+    private transient ChatScreenController controller;
+    static final long serialVersionUID = 1945888197085269794L;
     /**
      * instantiates a new Chat
      * @param userA the first user participating in the chat
@@ -27,16 +29,8 @@ public class Chat implements IChat, IRemotePropertyListener {
         users = new ArrayList<>();
         users.add(userA);
         users.add(userB);
-        register();
-        if(publisher != null){
-            try {
-                publisher.subscribePropertyListener(this, "chat");
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
         id = -1;
-
+        register();
     }
 
     /**
@@ -83,17 +77,8 @@ public class Chat implements IChat, IRemotePropertyListener {
     public void initManager(IMain manager){
         this.manager = manager;
     }
-    public void initPublisher(IRemotePublisher publisher){
-        this.publisher = publisher;
-        try {
-            publisher.subscribePropertyListener(this, "chat" + this.getId());
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
 
-    @Override
-    public void propertyChange(PropertyChangeEvent var1) throws RemoteException {
-        this.messages.add((Message) var1.getNewValue());
-    }
+
+
+
 }

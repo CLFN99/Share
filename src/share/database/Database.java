@@ -57,7 +57,8 @@ public class Database implements IDatabase {
                 List<Message> messages = new ArrayList<>();
                 getMessages.setInt(1, c.getId());
                 ResultSet msgResult = getMessages.executeQuery();
-
+                uA = c.getUsers().get(0);
+                uB = c.getUsers().get(1);
                 while(msgResult.next()){
                     if(uA.getId() == msgResult.getInt("messageWriter") && uA != null){
                         Message msg = new Message(uA, msgResult.getString("text"),c.getId());
@@ -97,6 +98,17 @@ public class Database implements IDatabase {
             insertMessage.setInt(4, msg.getUser().getId());
             insertMessage.execute();
             insertMessage.close();
+            String getIdQuery = "SELECT last_insert_id();";
+            PreparedStatement getId = conn.prepareStatement(getIdQuery);
+            ResultSet result = getId.executeQuery();
+            int id = 0;
+            while(result.next()){
+                id = result.getInt("last_insert_id()");
+            }
+            getId.close();
+            result.close();
+            msg.setId(id);
+
             conn.close();
             return true;
         } catch (SQLException e) {
@@ -457,6 +469,7 @@ public class Database implements IDatabase {
                         if(writer.getId() == result.getInt("userId")){
                             Post p = new Post(result.getString("text"), writer);
                             p.setId(result.getInt("postId"));
+                            p.setTimeStamp(result.getString("time"));
                             posts.add(p);
                         }
                     }

@@ -5,12 +5,13 @@ import share.interfaces.IUser;
 import share.server.IRemotePropertyListener;
 import share.server.IRemotePublisher;
 
+import java.beans.PropertyChangeEvent;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User implements Serializable, IUser {
+public class User implements Serializable, IUser, IRemotePropertyListener {
     private String username;
     private String password;
     private List<User> friends;
@@ -75,12 +76,18 @@ public class User implements Serializable, IUser {
             for(User u : friends){
                 //subscribe user's feed to friends feed
                 publisher.subscribePropertyListener(this.getFeed(), ("feed"+u.getFeed().getId()));
-
             }
-            //subscribe user to his own feed
-           // publisher.subscribePropertyListener(feed, ("feed"+feed.getId()));
+            //subscribing to changes to itself
+            publisher.subscribePropertyListener(this, "user"+id);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent var1) throws RemoteException {
+        User u = (User) var1.getNewValue();
+        this.bio = u.getBio();
+        this.friends = u.getFriends();
     }
 }

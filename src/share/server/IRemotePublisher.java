@@ -8,6 +8,8 @@ public interface IRemotePublisher extends Remote{
 
     void subscribePropertyListener(IRemotePropertyListener listener, String property) throws RemoteException;
 
+    void unsubscribeRemoteListener(IRemotePropertyListener var1, String var2) throws RemoteException;
+
     void inform(String property, Object oldValue, Object newValue) throws RemoteException;
 
 }

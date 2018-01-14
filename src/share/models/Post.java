@@ -15,9 +15,7 @@ public class Post implements Serializable {
     public Post(String text, User writer){
         this.text = text;
         this.writer = writer;
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date time = new Date();
-        timeStamp = dateFormat.format(time);
+
     }
 
     public void setId(int id) {

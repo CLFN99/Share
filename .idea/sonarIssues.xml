@@ -128,6 +128,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/share/client/ChatController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/client/ChatScreen.fxml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/client/ChatScreenController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/share/client/LoginController.java">
           <value>
             <set />
@@ -149,6 +164,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/share/client/MainScreenController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/client/UserScreen.fxml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/client/UserScreenController.java">
           <value>
             <set />
           </value>
@@ -214,6 +239,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/share/models/Message.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/share/models/Post.java">
           <value>
             <set />
           </value>
@@ -304,6 +334,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../Week 4/GSO/AEXBanner/src/aex/Tasks/GenerateStocks.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../Week 4/GSO/AEXBanner/src/aex/client/AEXBanner.java">
           <value>
             <set />
           </value>

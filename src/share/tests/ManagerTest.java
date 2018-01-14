@@ -157,8 +157,6 @@ class ManagerTest {
         Chat c = new Chat(u1, u2);
         c.initManager(manager);
         if(c.register()){
-
-            c.initPublisher(manager.getPublisher());
             String text = "hey! how are you?";
             boolean success = manager.sendMessage(u2, text, c.getId());
             assertEquals(true, success);
@@ -177,7 +175,6 @@ class ManagerTest {
     void newPost() {
         initManager();
         User u1 = manager.testLogin("lienke@email.com", "1234");
-        u1.initPublisher(manager.getPublisher());
         try {
             Post success = manager.newPost("neon too", u1);
             assertNotNull(success);
@@ -195,7 +192,6 @@ class ManagerTest {
     void updatePost() {
         initManager();
         User u1 = manager.testLogin("lienke@email.com", "1234");
-        u1.initPublisher(manager.getPublisher());
         try {
             Post p = manager.newPost("neon too", u1);
             manager.updatePost(p, "pink flamingos");

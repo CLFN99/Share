@@ -13,7 +13,10 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,6 +52,9 @@ public class Manager extends UnicastRemoteObject implements IMain {
         //}
         getData();
         activeChats = repo.getChats(users);
+        for(Chat c : activeChats){
+            publisher.registerProperty("chat"+c.getId());
+        }
         //efe
     }
 
@@ -62,6 +68,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
         for(User u : users){
             try {
                 publisher.registerProperty("feed"+u.getFeed().getId());
+                publisher.registerProperty("user"+u.getId());
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -145,6 +152,7 @@ public class Manager extends UnicastRemoteObject implements IMain {
     @Override
     public boolean updateUser(User user) throws RemoteException{
         if(repo.updateUser(user)){
+            publisher.inform(("user"+user.getId()), null, user);
             return true;
         }
         return false;
@@ -156,6 +164,8 @@ public class Manager extends UnicastRemoteObject implements IMain {
             if(repo.addFriend(u, friend)){
                 u.addFriend(friend);
                 friend.addFriend(u);
+                publisher.inform(("user"+u.getId()), null, u);
+                publisher.inform(("user"+friend.getId()), null, friend);
                 return true;
             }
         } catch (MySQLIntegrityConstraintViolationException e) {
@@ -170,8 +180,8 @@ public class Manager extends UnicastRemoteObject implements IMain {
         for(Chat c : activeChats){
             if(c.getId() == chatId){
                 try {
-                    publisher.inform("chat" + c.getId(), null, msg);
                     repo.saveMessage(msg);
+                    publisher.inform("chat" + c.getId(), null, msg);
                     return true;
                 } catch (RemoteException e) {
                     e.printStackTrace();
@@ -184,9 +194,11 @@ public class Manager extends UnicastRemoteObject implements IMain {
     @Override
     public Post newPost(String txt, User writer) throws RemoteException{
         Post p = new Post(txt, writer);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date time = new Date();
+        p.setTimeStamp(dateFormat.format(time));
         if(repo.savePost(p) != -1){
             writer.getFeed().getPosts().add(p);
-            //repo.savePost(p);
             try {
                 publisher.inform("feed" + writer.getFeed().getId(), null, p);
             } catch (RemoteException e) {
@@ -214,8 +226,13 @@ public class Manager extends UnicastRemoteObject implements IMain {
 
     @Override
     public void deletePost(Post post) throws RemoteException{
-
         if(repo.deletePost(post)){
+            for(Post p : post.getWriter().getFeed().getPosts()){
+                if(p.getId() == post.getId()){
+                    post = p;
+                    break;
+                }
+            }
             post.getWriter().getFeed().getPosts().remove(post);
             try {
                 publisher.inform("feed" + post.getWriter().getFeed().getId(), -1, post);
@@ -228,6 +245,17 @@ public class Manager extends UnicastRemoteObject implements IMain {
     @Override
     public void newUser(User u) {
         this.users.add(u);
+    }
+
+    @Override
+    public List<Chat> getChats(int id) throws RemoteException {
+        List<Chat> userChats = new ArrayList<>();
+        for(Chat c : activeChats){
+            if(c.getUsers().get(0).getId() == id || c.getUsers().get(1).getId() == id){
+                userChats.add(c);
+            }
+        }
+        return userChats;
     }
 
     private void changeSessionId(int id){
@@ -248,7 +276,8 @@ public class Manager extends UnicastRemoteObject implements IMain {
         return id;
     }
 
-    public IRemotePublisher getPublisher(){return publisher;}
+    @Override
+    public IRemotePublisher getPublisher() throws RemoteException{return publisher;}
 
     public User testLogin(String email, String password){
         User user = repo.logIn(email, password);

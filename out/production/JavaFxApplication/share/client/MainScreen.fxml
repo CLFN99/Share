@@ -21,7 +21,10 @@
           </Tab>
           <Tab onSelectionChanged="#openChatTab" text="Chat">
             <content>
-              <AnchorPane fx:id="tabChat" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane fx:id="tabChat" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="chatsListView" layoutX="16.0" layoutY="14.0" onMouseClicked="#goToChat_Click" prefHeight="368.0" prefWidth="568.0" />
+                     </children></AnchorPane>
             </content>
           </Tab>
             <Tab onSelectionChanged="#openProfileTab" text="Profiel">
@@ -45,14 +48,17 @@
             </Tab>
             <Tab onSelectionChanged="#openFriendsTab" text="Vrienden">
               <content>
-                <AnchorPane fx:id="tabFriends" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane fx:id="tabFriends" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="listViewFriends" layoutX="39.0" layoutY="20.0" onMouseClicked="#friendClicked" prefHeight="348.0" prefWidth="522.0" />
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab disable="true" onSelectionChanged="#openSearchResults" text="Search Results">
               <content>
                 <AnchorPane fx:id="tabSearchResults" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="541.0">
                      <children>
-                        <ListView fx:id="resultListView" layoutX="46.0" layoutY="26.0" prefHeight="346.0" prefWidth="508.0" />
+                        <ListView fx:id="resultListView" layoutX="46.0" layoutY="26.0" onMouseClicked="#listItem_Click" prefHeight="346.0" prefWidth="508.0" />
                      </children></AnchorPane>
               </content>
             </Tab>

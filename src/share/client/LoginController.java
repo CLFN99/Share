@@ -50,6 +50,7 @@ public class LoginController implements Initializable {
                     MainScreenController controller = fxmlLoader.getController();
                     controller.setManagers(this.manager, this.sessionManager, this.u);
                     Stage stage = new Stage();
+                    stage.setTitle("Share");
                     stage.setScene(new Scene(root1));
                     stage.show();
                     Stage stage1 = (Stage) btnLogIn.getScene().getWindow();
