@@ -1,11 +1,0 @@
-
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(¢â¼
-Asquid:S1905"'Remove this unnecessary cast to "List".(±çÈ›şÿÿÿÿ
-Asquid:S1905"'Remove this unnecessary cast to "List".(ÒÚÃ”øÿÿÿÿ
-<squid:S1905"'Remove this unnecessary cast to "List".(…àÈğ
-Msquid:S1948"3Make "propertyListeners" transient or serializable.(Òô ûÿÿÿÿ
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥’ğ·üÿÿÿÿ
-@squid:S2160"+Override the "equals" method in this class.(ş¨Èï
-;squid:S1948"&Make "pool" transient or serializable.(Îë‹™
-asquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(‰µø”ÿÿÿÿÿ

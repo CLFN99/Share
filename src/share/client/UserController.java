@@ -32,7 +32,8 @@ public class UserController extends UnicastRemoteObject implements IRemoteProper
         if(var1.getNewValue().getClass() == User.class){
             User u = (User) var1.getNewValue();
             currentUser.changeBio(u.getBio());
-            currentUser.setFriends(u.getFriends());
+            currentUser.addFriend(u.getFriends().get((u.getFriends().size() - 1)));
+            //currentUser.setFriends(u.getFriends());
             controller.setUser(currentUser);
         }
     }

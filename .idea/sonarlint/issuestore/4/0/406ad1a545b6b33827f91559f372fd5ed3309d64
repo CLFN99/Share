@@ -1,70 +1,0 @@
-
-_squid:S1192"JDefine a constant instead of duplicating this literal "proftaak" 15 times.(ûŞşİ
-bsquid:S1192"MDefine a constant instead of duplicating this literal "Proftaak34C" 15 times.(ûŞşİ
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(“Øùúÿÿÿÿ
-gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ï‹±„
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(õÇ©
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(Å‹¸¢
-@squid:S1168"+Return an empty collection instead of null.(¥¹ï
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(À„Öí
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(¼…µ¢øÿÿÿÿ
-@squid:S1168"+Return an empty collection instead of null.(¥¹ï
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Isquid:EmptyStatementUsageCheck"Remove this empty statement.(Åñ­õşÿÿÿÿ
-Usquid:S1193"@Replace the usage of the "instanceof" operator by a catch block.(§“‘
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(‰ë´
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(ñõŞıÿÿÿÿ
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(ôşˆ‡
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(îö“±
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Isquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(¤Ë’X
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(²—×ùúÿÿÿÿ
-ksquid:S1192"QDefine a constant instead of duplicating this literal "last_insert_id()" 5 times.(ŸÍÎúÿÿÿÿ
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(ñõŞıÿÿÿÿ
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(á„¸áşÿÿÿÿ
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(”«×
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Isquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(œúé+
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(‰¤üñşÿÿÿÿ
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(õÇ©
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-nsquid:S1192"YDefine a constant instead of duplicating this literal "SELECT last_insert_id();" 4 times.(ÇÆó¢
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(óÅ’
-Gsquid:S1135"2Complete the task associated to this TODO comment.(–Îğœ
-xsquid:S1192"cDefine a constant instead of duplicating this literal "jdbc:mysql://127.0.0.1:3306/share" 15 times.(ûŞşİ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Usquid:S1193"@Replace the usage of the "instanceof" operator by a catch block.(§“‘
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(Ù°Ö¾úÿÿÿÿ
-\squid:S1192"GDefine a constant instead of duplicating this literal "userId" 3 times.(óó°
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(Î¯‹Úûÿÿÿÿ
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(ûŞşİ
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(²—×ùúÿÿÿÿ
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-Jsquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(»—ßª
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(ûöèûüÿÿÿÿ
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(ñõŞıÿÿÿÿ
-csquid:S1192"IDefine a constant instead of duplicating this literal "username" 3 times.(İ²Şãûÿÿÿÿ
-Csquid:S1313".Make this IP "127.0.0.1" address configurable.(™÷‚É
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Osquid:S2095"5Close this "PreparedStatement" in a "finally" clause.(”šŞûúÿÿÿÿ

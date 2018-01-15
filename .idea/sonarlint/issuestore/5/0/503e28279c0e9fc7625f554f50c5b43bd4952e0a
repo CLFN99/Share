@@ -1,22 +1,0 @@
-
->squid:S1948")Make "manager" transient or serializable.(İé¡
-msquid:S1450"XRemove the "publisher" field and declare it as a local variable in the relevant methods.(¢Êıç
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(’ş‘ûÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(²ô‹¢ùÿÿÿÿ
-@squid:S1948"&Make "repo" transient or serializable.(Òßîóûÿÿÿÿ
-xsquid:S1450"^Remove the "managerRegistry" field and declare it as a local variable in the relevant methods.(šÙˆøÿÿÿÿ
-@squid:S1948"+Make "publisher" transient or serializable.(¢Êıç
-L
-squid:S106"9Replace this use of System.out or System.err by a logger.( ñİ7
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Bsquid:S1068"-Remove this unused "publisher" private field.(¢Êıç
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(Õê¡®ûÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Ksquid:S1948"1Make "managerRegistry" transient or serializable.(šÙˆøÿÿÿÿ
-@squid:S2160"+Override the "equals" method in this class.(¸Ê¢±
